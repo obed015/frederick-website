@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Strategic Prayer Ministries</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+
+<!-- ===== Nav ===== -->
+<header class="nav" id="navbar" role="banner">
+  <div class="nav__inner container">
+    <a class="brand" href="#home">
+      <img src="assets/spm-logo.png" alt="Strategic Prayer Ministries Logo" class="brand__logo" />
+      <span class="brand__name">Strategic Prayer Ministries</span>
+    </a>
+
+    <button
+      class="nav__toggle"
+      id="navToggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="navLinks"
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav__links" id="navLinks" role="navigation" aria-label="Primary">
+      <div class="nav__dropdown" id="homeDropdown">
+        <button
+          class="nav__dropdown-toggle"
+          id="homeDropdownButton"
+          aria-haspopup="menu"
+          aria-expanded="false"
+          aria-controls="homeDropdownMenu"
+        >
+          Home
+        </button>
+        <div
+          class="nav__dropdown-menu"
+          id="homeDropdownMenu"
+          role="menu"
+          aria-labelledby="homeDropdownButton"
+        >
+          <a role="menuitem" href="#links">Links</a>
+          <a role="menuitem" href="#media">Gallery &amp; Videos</a>
+        </div>
+      </div>
+      <a href="#who">Who We Are</a>
+      <a href="giving.html" target="_self">Giving</a>
+      <a href="contact.html" target="_self">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Hero (fixed structure + parallax hook) ===== -->
+<section class="hero hero--bg-pan hero--scrolling" id="home">
+  <div class="hero__bg"></div>
+  <div class="hero__content container">
+    <h1 class="title">Strategic Prayer Ministries</h1>
+    <p class="subtitle">
+      A revival hub—raising a people of prayer and setting hearts on fire for Jesus.
+    </p>
+    <div class="hero__cta">
+      <a href="#links" class="btn btn--gold">Explore</a>
+      <a href="contact.html" class="btn btn--ghost">Get in touch</a>
+    </div>
+  </div>
+  <div class="hero__wave" aria-hidden="true"></div>
+</section>
+
+<!-- ===== Who We Are ===== -->
+<section class="section container" id="who">
+  <div class="grid grid--2">
+    <div>
+      <h2 class="section__title">Who We Are</h2>
+      <p class="lead">
+        Strategic Prayer Ministries is a <strong>daily apostolic and prophetic platform</strong>
+        where people come to experience the <strong>Word, Prayer, and Healing</strong>.
+        The Spirit of intercession upon the ministry enables believers to build their prayer lives
+        and brings them into true intimacy with the Holy Spirit.
+      </p>
+    </div>
+    <div class="card card--glow">
+      <div class="card__body">
+        <ul class="list list--checked">
+          <li>Daily prayer &amp; the Word</li>
+          <li>Healing, miracles, and prophetic ministry</li>
+          <li>Intimacy with the Holy Spirit</li>
+        </ul>
+        <a href="about.html" class="learn-more-btn" target="_self">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- ===== Links (Carousel) ===== -->
+    <section class="links-rail" id="links" aria-labelledby="links-title">
+        <div class="links-rail__bg" aria-hidden="true"></div>
+
+        <div class="container">
+            <h2 class="section__title" id="links-title">Explore SPM</h2>
+
+            <div class="rail-wrap">
+                <button class="rail-nav rail-nav--prev" aria-label="Scroll left">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+
+                <div class="rail" role="list" tabindex="0" aria-label="Quick links">
+                    <!-- Card 1: External Ministrations -->
+                    <a class="rail-card rail-card--external" role="listitem"
+                       href="external-ministrations.html"
+                       aria-label="External Ministrations — events and outreaches">
+                    <div class="rail-card__body">
+                        <div class="rail-card__title">External Ministrations</div>
+                        <div class="rail-card__tag">EVENTS</div>
+                    </div>
+                </a>
+
+                    <!-- Card 2: Gallery -->
+                    <a class="rail-card rail-card--gallery" role="listitem"
+                       href="gallery.html"
+                       aria-label="Gallery — photos and highlights">
+                    <div class="rail-card__body">
+                        <div class="rail-card__title">Gallery</div>
+                        <div class="rail-card__tag">PHOTOS</div>
+                    </div>
+                </a>
+
+                    <!-- Card 3: Seed, Tithes & Offering -->
+                    <a class="rail-card rail-card--giving" role="listitem"
+                       href="giving.html"
+                       aria-label="Seed, Tithes and Offering — give online">
+                    <div class="rail-card__body">
+                        <div class="rail-card__title">Seed, Tithes &amp; Offering</div>
+                        <div class="rail-card__tag">GIVE</div>
+                    </div>
+                </a>
+
+                    <!-- Card 4: About SPM -->
+                    <a class="rail-card rail-card--testimonies" role="listitem"
+                       href="about.html"
+                       aria-label="About SPM — who we are">
+                       <div class="rail-card__body">
+                        <div class="rail-card__title">About SPM</div>
+                        <div class="rail-card__tag">INFO</div>
+                       </div>
+                    </a>
+
+                <button class="rail-nav rail-nav--next" aria-label="Scroll right">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Carousel navigation functionality
+        const rail = document.querySelector('.rail');
+        const prevBtn = document.querySelector('.rail-nav--prev');
+        const nextBtn = document.querySelector('.rail-nav--next');
+
+        prevBtn.addEventListener('click', () => {
+            rail.scrollBy({
+                left: -330, // Card width + gap
+                behavior: 'smooth'
+            });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            rail.scrollBy({
+                left: 330, // Card width + gap
+                behavior: 'smooth'
+            });
+        });
+
+        // Keyboard navigation
+        rail.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                rail.scrollBy({
+                    left: -330,
+                    behavior: 'smooth'
+                });
+            } else if (e.key === 'ArrowRight') {
+                rail.scrollBy({
+                    left: 330,
+                    behavior: 'smooth'
+                });
+            }
+        });
+
+        // Touch/swipe support for mobile
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        rail.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - rail.offsetLeft;
+            scrollLeft = rail.scrollLeft;
+        });
+
+        rail.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        rail.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        rail.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - rail.offsetLeft;
+            const walk = (x - startX) * 2;
+            rail.scrollLeft = scrollLeft - walk;
+        });
+
+        // Optional: Auto-hide navigation buttons when not needed
+        function updateNavButtons() {
+            const maxScroll = rail.scrollWidth - rail.clientWidth;
+            
+            if (rail.scrollLeft <= 0) {
+                prevBtn.style.opacity = '0.5';
+                prevBtn.style.pointerEvents = 'none';
+            } else {
+                prevBtn.style.opacity = '1';
+                prevBtn.style.pointerEvents = 'auto';
+            }
+
+            if (rail.scrollLeft >= maxScroll) {
+                nextBtn.style.opacity = '0.5';
+                nextBtn.style.pointerEvents = 'none';
+            } else {
+                nextBtn.style.opacity = '1';
+                nextBtn.style.pointerEvents = 'auto';
+            }
+        }
+
+        rail.addEventListener('scroll', updateNavButtons);
+        window.addEventListener('resize', updateNavButtons);
+        updateNavButtons(); // Initial check
+    </script>
+</body>
+</html>
+
+<!-- ===== Gallery & Videos ===== -->
+<section class="section section--alt" id="media">
+  <div class="container">
+    <h2 class="section__title">Gallery &amp; Videos</h2>
+
+    <div class="masonry">
+      <img src="assets/ministry1.jpg" alt="Ministry Photo 1" />
+      <img src="assets/ministry2.jpg" alt="Ministry Photo 2" />
+      <img src="assets/ministry3.jpg" alt="Ministry Photo 3" />
+      <img src="assets/ministry4.jpg" alt="Ministry Photo 4" />
+      <img src="assets/ministry5.jpg" alt="Ministry Photo 5" />
+      <img src="assets/ministry6.jpg" alt="Ministry Photo 6" />
+    </div>
+  </div> <!-- /container -->
+</section> <!-- /#media -->
+
+<section class="videos-section">
+  <div class="video-grid">
+    <!-- Video 1 -->
+    <div class="video">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/FjtkxXDOWco"
+        title="Testimony Day 2"
+        loading="lazy"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- Video 2 -->
+    <div class="video">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/Bdzx6xk91EU"
+        title="This Same Jesus Crusade Testimony"
+        loading="lazy"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer (same as contact.html) ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo-wrapper">
+      <a href="index.html">
+        <img src="assets/spm-logo.png" alt="Strategic Prayer Ministries Logo" class="footer-logo" />
+      </a>
+    </div>
+    <div class="footer-container">
+      <div>
+        <h4>MINISTRY</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="giving.html">Giving</a></li>
+          <li><a href="prayer-request.html">Prayer-Request</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>RESOURCES</h4>
+        <ul>
+          <li><a href="index.html#media">Gallery</a></li>
+          <li><a href="index.html#media">Videos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>CONNECT WITH US</h4>
+        <div class="social-badges">
+          <a href="mailto:info@strategicprayer.org" class="badge badge--email" aria-label="Email us">
+            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><rect x="18" y="24" width="28" height="18" rx="3" fill="none" stroke="#fff" stroke-width="4"/><path d="M18 26 l14 12 L46 26" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Email</span>
+          </a>
+          <a href="https://zoom.us/j/yourMeetingId" class="badge badge--zoom" target="_blank" rel="noopener" aria-label="Join us on Zoom">
+            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><rect x="18" y="24" width="22" height="16" rx="4" fill="#fff"/><polygon points="40,27 48,23 48,41 40,37" fill="#fff"/></svg>
+            <span>Zoom</span>
+          </a>
+          <a href="https://www.youtube.com/@yourChannel" class="badge badge--youtube" target="_blank" rel="noopener" aria-label="Watch on YouTube">
+            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><polygon points="27,24 45,32 27,40" fill="#fff"/></svg>
+            <span>YouTube</span>
+          </a>
+        </div>
+        <div class="newsletter">
+          <h4 style="margin-top:1rem;">Subscribe</h4>
+          <form>
+            <input type="email" placeholder="Your Email" required />
+            <button type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="scripture" id="scripture"></div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-row">
+        <p>© <span id="year"></span> Strategic Prayer Ministries. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <span>•</span>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== JS: navbar + dropdown + parallax + footer verse ===== -->
+<script>
+  (function () {
+    const navbar = document.getElementById('navbar');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    const homeDropdown = document.getElementById('homeDropdown');
+    const dropdownButton = document.getElementById('homeDropdownButton');
+    const dropdownMenu = document.getElementById('homeDropdownMenu');
+
+    function onNavScroll() {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    }
+    onNavScroll();
+    window.addEventListener('scroll', onNavScroll, { passive: true });
+
+    navToggle.addEventListener('click', () => {
+      const open = !navLinks.classList.contains('active');
+      navLinks.classList.toggle('active', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      if (!open) {
+        homeDropdown.classList.remove('active');
+        dropdownButton && dropdownButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    if (dropdownButton) {
+      dropdownButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        const open = !homeDropdown.classList.contains('active');
+        homeDropdown.classList.toggle('active', open);
+        dropdownButton.setAttribute('aria-expanded', String(open));
+      });
+    }
+
+    document.addEventListener('click', (e) => {
+      if (!navbar.contains(e.target)) {
+        navLinks.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        homeDropdown.classList.remove('active');
+        dropdownButton && dropdownButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        navLinks.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        homeDropdown.classList.remove('active');
+        dropdownButton && dropdownButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.querySelectorAll('.nav__links a, .nav__dropdown-menu a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        homeDropdown.classList.remove('active');
+        dropdownButton && dropdownButton.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const hero = document.querySelector('.hero.hero--scrolling');
+    const bg = hero && hero.querySelector('.hero__bg');
+    if (hero && bg) {
+      const onParallax = () => {
+        const offset = window.scrollY * 0.35;
+        hero.style.setProperty('--scroll-offset', offset + 'px');
+      };
+      onParallax();
+      window.addEventListener('scroll', onParallax, { passive: true });
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const verses = [
+      "“Is not my word like as a fire? saith the Lord; and like a hammer that breaketh the rock in pieces?”  Jeremiah 23:29",
+      "“But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.” Isaiah 40:31",
+      "“Then saith he unto his disciples, The harvest truly is plenteous, but the labourers are few; Pray ye therefore the Lord of the harvest, that he will send forth labourers into his harvest.”  Matthew 9:37–38"
+    ];
+    let index = 0;
+    function showVerse() {
+      const el = document.getElementById("scripture");
+      if (!el) return;
+      el.textContent = verses[index];
+      index = (index + 1) % verses.length;
+    }
+    showVerse();
+    setInterval(showVerse, 8000);
+  })();
+</script>
+</body>
+</html>
+
+
+<!-- ===== JS: navbar + dropdown + parallax + footer verse ===== -->
+<script>
+  (function () {
+    const navbar = document.getElementById('navbar');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    const homeDropdown = document.getElementById('homeDropdown');
+    const dropdownButton = document.getElementById('homeDropdownButton');
+    const dropdownMenu = document.getElementById('homeDropdownMenu');
+
+    // Nav shadow on scroll
+    function onNavScroll() {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    }
+    onNavScroll();
+    window.addEventListener('scroll', onNavScroll, { passive: true });
+
+    // Mobile menu toggle
+    navToggle.addEventListener('click', () => {
+      const open = !navLinks.classList.contains('active');
+      navLinks.classList.toggle('active', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      if (!open) {
+        homeDropdown.classList.remove('active');
+        dropdownButton && dropdownButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Dropdown toggle
+    if (dropdownButton) {
+      dropdownButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        const open = !homeDropdown.classList.contains('active');
+        homeDropdown.classList.toggle('active', open);
+        dropdownButton.setAttribute('aria-expanded', String(open));
+      });
+    }
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!navbar.contains(e.target)) {
+        navLinks.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        homeDropdown.classList.remove('active');
+        dropdownButton && dropdownButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        navLinks.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        homeDropdown.classList.remove('active');
+        dropdownButton && dropdownButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Collapse after clicking any link
+    document.querySelectorAll('.nav__links a, .nav__dropdown-menu a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        homeDropdown.classList.remove('active');
+        dropdownButton && dropdownButton.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ===== Hero parallax =====
+    const hero = document.querySelector('.hero.hero--scrolling');
+    const bg = hero && hero.querySelector('.hero__bg');
+    if (hero && bg) {
+      const onParallax = () => {
+        const offset = window.scrollY * 0.35; // tweak strength here (0.25–0.45)
+        hero.style.setProperty('--scroll-offset', offset + 'px');
+      };
+      onParallax();
+      window.addEventListener('scroll', onParallax, { passive: true });
+    }
+
+    // ===== Footer verses =====
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const verses = [
+      "“Is not my word like as a fire? saith the Lord; and like a hammer that breaketh the rock in pieces?”  Jeremiah 23:29",
+      "“But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.” Isaiah 40:31",
+      "“Then saith he unto his disciples, The harvest truly is plenteous, but the labourers are few; Pray ye therefore the Lord of the harvest, that he will send forth labourers into his harvest.”  Matthew 9:37–38"
+    ];
+    let index = 0;
+    function showVerse() {
+      const el = document.getElementById("scripture");
+      if (!el) return;
+      el.textContent = verses[index];
+      index = (index + 1) % verses.length;
+    }
+    showVerse();
+    setInterval(showVerse, 8000);
+  })();
+</script>
+</body>
+</html>

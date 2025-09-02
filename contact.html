@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Strategic Prayer Ministries</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared stylesheet -->
+  <link rel="stylesheet" href="./css/styles.css" />
+
+  <!-- Page-specific styles -->
+  <style>
+    /* ===== Contact Hero — FULL-BLEED like homepage ===== */
+    .contact-hero{
+      position: relative;
+      background-image: url("assets/contact-background.png"); /* change to .jpg if needed */
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;        /* fill the area (may crop edges) */
+      background-color: #0b0d13;
+      width: 100%;
+      min-height: clamp(520px, 72vh, 880px); /* tall, responsive height */
+      display: flex;
+      align-items: flex-end;
+    }
+    /* Soft overlay for readability */
+    .contact-hero::after{
+      content:""; position:absolute; inset:0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.55));
+    }
+    .contact-hero .container{
+      position:relative; z-index:1; width:100%;
+      padding: clamp(1.25rem, 6vh, 4rem) 1rem 2rem; /* top | sides | bottom */
+    }
+
+    /* ===== Section intro above the form ===== */
+    .section-intro{
+      max-width: 900px;
+      margin: 1.25rem auto 1rem;
+      padding: 0 1rem;
+    }
+    .section-intro p{
+      font-weight: 700;
+      color: #f59e0b;          /* brand gold */
+      font-size: clamp(1.45rem, 2.4vw, 1.95rem);
+      margin: 0;
+    }
+
+    /* ===== Form styling ===== */
+    .form-wrapper{ max-width: 720px; margin: 0 auto; }
+    .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    @media (max-width:640px){ .form-grid{ grid-template-columns:1fr; } }
+
+    .form-group{ display:flex; flex-direction:column; gap:.5rem; margin-bottom:1rem; }
+    .form-group label{ font-weight:600; color:rgba(255,255,255,.9); }
+    .input, .textarea{
+      width:100%; background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      color:#fff; padding:.85rem 1rem; border-radius:12px; outline:none;
+      transition: box-shadow .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .textarea{ min-height:160px; resize:vertical; }
+    .input::placeholder, .textarea::placeholder{ color:rgba(255,255,255,.5); }
+    .input:focus, .textarea:focus{
+      border-color:#f59e0b; box-shadow:0 0 0 3px rgba(245,158,11,.15);
+      background:rgba(255,255,255,.07);
+    }
+    .btn-row{ display:flex; align-items:center; gap:.75rem; flex-wrap:wrap; }
+    .btn[disabled]{ opacity:.7; cursor:not-allowed; }
+    .help{ font-size:.9rem; color:rgba(255,255,255,.65); }
+    .card__body--pad-lg{ padding:1.5rem 1.5rem 1.25rem; }
+
+    /* Toasts */
+    .toast{
+      position: fixed; right: 1rem; bottom: 1rem; z-index: 9999;
+      background: #0f1218; color:#fff; border:1px solid rgba(255,255,255,.12);
+      border-left: 6px solid #22c55e;
+      padding: .85rem 1rem; border-radius:12px; box-shadow:0 18px 40px rgba(0,0,0,.35);
+      display:none; max-width: 360px;
+    }
+    .toast.error{ border-left-color:#ef4444; }
+    .toast .title{ font-weight:700; margin-bottom:.25rem; }
+    .toast .msg{ opacity:.9; }
+  </style>
+</head>
+<body>
+
+<!-- ===== Nav ===== -->
+<header class="nav" id="navbar">
+  <div class="nav__inner container">
+    <a class="brand" href="index.html#home">
+      <img src="assets/spm-logo.png" alt="Strategic Prayer Ministries Logo" class="brand__logo" />
+      <span class="brand__name">Strategic Prayer Ministries</span>
+    </a>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" id="navToggle">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__links" id="navLinks">
+      <div class="nav__dropdown" id="homeDropdown">
+        <button class="nav__dropdown-toggle" aria-expanded="false" aria-controls="homeDropdownMenu">Home</button>
+        <div class="nav__dropdown-menu" id="homeDropdownMenu">
+          <a href="index.html#links">Links</a>
+          <a href="index.html#media">Gallery & Videos</a>
+        </div>
+      </div>
+      <a href="index.html#who">Who We Are</a>
+      <a href="giving.html" target="_self">Giving</a>
+      <a href="contact.html" target="_self">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Contact Page Content ===== -->
+<main class="main">
+  <!-- Hero with full image visible (full-bleed) -->
+  <section class="page-hero contact-hero">
+    <div class="container">
+      <!-- (intentionally empty; no "Contact Us" heading) -->
+    </div>
+  </section>
+
+  <!-- Lead line ABOVE the form card -->
+  <div class="section-intro">
+    <p>Have a question? We’re here to help.</p>
+  </div>
+
+  <!-- Form -->
+  <section class="section container form-wrapper">
+    <div class="card">
+      <div class="card__body card__body--pad-lg">
+        <h3>Send us a message</h3>
+        <p class="help">“*” indicates required fields</p>
+
+        <form id="contactForm" novalidate>
+          <input type="hidden" name="_subject" value="New message from Strategic Prayer Ministries website" />
+          <input type="hidden" name="_gotcha">
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input id="firstName" name="firstName" class="input" type="text" placeholder="First name" required />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input id="lastName" name="lastName" class="input" type="text" placeholder="Last name" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input id="email" name="email" class="input" type="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" class="textarea" placeholder="Type your message..." required></textarea>
+          </div>
+
+          <div class="btn-row">
+            <button id="submitBtn" type="submit" class="btn btn--gold">Send Message</button>
+            <span id="formHint" class="help" role="status" aria-live="polite"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== Footer (same as giving.html) ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo-wrapper">
+      <a href="index.html">
+        <img src="assets/spm-logo.png" alt="Strategic Prayer Ministries Logo" class="footer-logo" />
+      </a>
+    </div>
+    <div class="footer-container">
+      <div>
+        <h4>MINISTRY</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="giving.html">Giving</a></li>
+          <li><a href="prayer-request.html">Prayer-Request</a></li>
+          
+        </ul>
+      </div>
+      <div>
+        <h4>RESOURCES</h4>
+        <ul>
+          <li><a href="index.html#media">Gallery</a></li>
+          <li><a href="index.html#media">Videos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>CONNECT WITH US</h4>
+        <div class="social-badges">
+          <a href="mailto:info@strategicprayer.org" class="badge badge--email" aria-label="Email us">
+            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><rect x="18" y="24" width="28" height="18" rx="3" fill="none" stroke="#fff" stroke-width="4"/><path d="M18 26 l14 12 L46 26" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Email</span>
+          </a>
+          <a href="https://zoom.us/j/yourMeetingId" class="badge badge--zoom" target="_blank" rel="noopener" aria-label="Join us on Zoom">
+            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><rect x="18" y="24" width="22" height="16" rx="4" fill="#fff"/><polygon points="40,27 48,23 48,41 40,37" fill="#fff"/></svg>
+            <span>Zoom</span>
+          </a>
+          <a href="https://www.youtube.com/@yourChannel" class="badge badge--youtube" target="_blank" rel="noopener" aria-label="Watch on YouTube">
+            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><polygon points="27,24 45,32 27,40" fill="#fff"/></svg>
+            <span>YouTube</span>
+          </a>
+        </div>
+        <div class="newsletter">
+          <h4 style="margin-top:1rem;">Subscribe</h4>
+          <form>
+            <input type="email" placeholder="Your Email" required />
+            <button type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="scripture" id="scripture"></div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-row">
+        <p>© <span id="year"></span> Strategic Prayer Ministries. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <span>•</span>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="title" id="toastTitle">Message sent</div>
+  <div class="msg" id="toastMsg">Thanks! We’ll get back to you shortly.</div>
+</div>
+
+<!-- ===== JS ===== -->
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Mobile toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  // Dropdown
+  const homeDropdown = document.getElementById('homeDropdown');
+  const dropdownToggle = homeDropdown.querySelector('.nav__dropdown-toggle');
+  dropdownToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    homeDropdown.classList.toggle('active');
+    const isExpanded = homeDropdown.classList.contains('active');
+    dropdownToggle.setAttribute('aria-expanded', isExpanded);
+  });
+
+  // Close on outside
+  document.addEventListener('click', (e) => {
+    if (!homeDropdown.contains(e.target) && !e.target.closest('#homeDropdown')) {
+      homeDropdown.classList.remove('active');
+      dropdownToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Footer year + scripture rotation
+  document.getElementById("year").textContent = new Date().getFullYear();
+  const verses = [
+    "“Is not my word like as a fire? saith the Lord; and like a hammer that breaketh the rock in pieces?”  Jeremiah 23:29",
+    "“But they that wait upon the Lord shall renew their strength...” Isaiah 40:31",
+    "“The harvest truly is plenteous, but the labourers are few...” Matthew 9:37–38"
+  ];
+  let i = 0;
+  function showVerse(){ document.getElementById("scripture").textContent = verses[i]; i = (i+1)%verses.length; }
+  showVerse(); setInterval(showVerse, 8000);
+
+  /* ===== Contact form (Formspree) =====
+     Replace with your real endpoint.
+  */
+  const FORMSPREE_URL = "https://formspree.io/f/YOUR_FORM_ID";
+  const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const formHint = document.getElementById('formHint');
+
+  function showToast(title, msg, isError=false){
+    const toast = document.getElementById('toast');
+    document.getElementById('toastTitle').textContent = title;
+    document.getElementById('toastMsg').textContent = msg;
+    toast.classList.toggle('error', !!isError);
+    toast.style.display = 'block';
+    setTimeout(()=> toast.style.display = 'none', 5500);
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending…";
+    formHint.textContent = "Please wait…";
+
+    try {
+      const data = new FormData(form);
+      data.append('name', `${form.firstName.value} ${form.lastName.value}`.trim());
+
+      const res = await fetch(FORMSPREE_URL, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: data
+      });
+
+      if (res.ok) {
+        showToast("Message sent","Thanks! We’ll get back to you shortly.");
+        form.reset();
+        formHint.textContent = "Sent.";
+      } else {
+        showToast("Send failed","Something went wrong. Try again.", true);
+        formHint.textContent = "Error.";
+      }
+    } catch (err) {
+      showToast("Network error","Please check your connection and try again.", true);
+      formHint.textContent = "Network error.";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send Message";
+    }
+  });
+</script>
+</body>
+</html>

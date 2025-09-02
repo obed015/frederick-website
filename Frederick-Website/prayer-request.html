@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prayer Request — Strategic Prayer Ministries</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Your shared stylesheet -->
+  <link rel="stylesheet" href="./css/styles.css" />
+
+  <style>
+    :root{
+      --bg:#0f1218; --panel:#1a1f29; --gold:#f59e0b; --text:#ffffff; --muted:rgba(255,255,255,.75);
+    }
+    body.main{ background: var(--bg); color: var(--text); }
+    .container{ max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+
+    /* Header band */
+    .prayer-hero{ background:#0b0d13; border-bottom:3px solid var(--gold); padding:3.5rem 0 2.25rem; text-align:center; }
+    .prayer-hero h1{ font-family:'Playfair Display',serif; color:#fff; font-size:clamp(2rem,5vw,3rem); margin:0; }
+
+    /* Scripture block */
+    .scripture-block{ margin:3rem auto 1.25rem; text-align:center; }
+    .gold-divider{ height:2px; background:linear-gradient(90deg,transparent,rgba(245,158,11,.85),transparent); margin:0 auto 1.5rem; width:min(92%,980px); }
+    .scripture-text{ font-family:'Playfair Display',serif; font-size:clamp(1.2rem,2.6vw,1.8rem); line-height:1.6; color:#eaeaea; margin:0 0 .75rem; }
+    .scripture-ref{ letter-spacing:.35em; color:rgba(255,255,255,.8); font-weight:700; font-size:.95rem; margin-bottom:1.25rem; }
+
+    /* CTA */
+    .need-wrap{ width:min(980px,92%); margin:1.75rem auto 2.25rem; text-align:center; }
+    .need-title{ font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4.2vw,2.6rem); color:#fff; margin:1.25rem 0 .5rem; text-shadow:0 2px 0 rgba(0,0,0,.35); }
+    .need-title .accent{ color:var(--gold); }
+    .need-desc{ color:var(--muted); font-size:clamp(1rem,2.2vw,1.15rem); margin:0 0 1.25rem; max-width:52ch; display:inline-block; }
+    .cta{ display:inline-flex; align-items:center; justify-content:center; padding:1rem 1.5rem; min-width:280px; border-radius:999px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; border:2px solid var(--gold); background:#1b1f2a; color:#e7f0ff; text-decoration:none; transition:transform .15s, box-shadow .25s, background .25s; cursor:pointer; }
+    .cta:hover{ transform:translateY(-2px); background:#243043; box-shadow:0 0 0 3px rgba(245,158,11,.18), 0 10px 28px rgba(245,158,11,.25); }
+
+    /* ========== CONFLICT-PROOF MODAL STYLES (prefixed spm-) ========== */
+    .spm-overlay{
+      position:fixed; inset:0; background:rgba(0,0,0,.72);
+      display:none !important;   /* hidden by default */
+      align-items:center; justify-content:center;
+      z-index: 999999 !important;  /* above everything */
+      padding:1rem;
+    }
+    .spm-overlay.spm-open{ display:flex !important; }
+
+    .spm-modal{
+      width:min(1000px,100%); max-height:92vh;
+      background:var(--panel); border:1px solid rgba(255,255,255,.12);
+      border-radius:16px; box-shadow:0 25px 80px rgba(0,0,0,.6);
+      overflow:hidden; display:grid; grid-template-rows:auto 1fr;
+      transform:translateY(8px); opacity:0;
+      transition:transform .2s ease, opacity .2s ease;
+      position:relative; z-index:1000000; /* higher than overlay just in case */
+    }
+    .spm-overlay.spm-open .spm-modal{ transform:translateY(0); opacity:1; }
+
+    .spm-modal-header{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:.9rem 1.1rem; border-bottom:1px solid rgba(255,255,255,.08); background:#121722;
+    }
+    .spm-modal-title{ font-family:'Playfair Display',serif; font-size:1.25rem; color:#fff; margin:0; }
+    .spm-modal-close{ appearance:none; border:0; background:transparent; color:#fff; font-weight:800; letter-spacing:.08em; cursor:pointer; border:2px solid var(--gold); border-radius:9999px; padding:.55rem .9rem; }
+
+    .spm-modal-body{ background:#fff; height:100%; }
+    .spm-iframe{ width:100%; height:100%; min-height:75vh; border:0; display:block; }
+
+    @media (max-width:640px){
+      .spm-modal{ max-height:95vh; border-radius:12px; }
+      .spm-iframe{ min-height:78vh; }
+    }
+
+    .disclaimer{ color:rgba(255,255,255,.7); font-style:italic; font-size:.95rem; margin:2rem auto 3rem; max-width:75ch; text-align:center; }
+  </style>
+</head>
+<body class="main">
+
+  <!-- ===== Header / Nav (your existing nav remains) ===== -->
+  <header class="nav" id="navbar">
+    <div class="nav__inner container">
+      <a class="brand" href="index.html#home">
+        <img src="assets/spm-logo.png" alt="Strategic Prayer Ministries Logo" class="brand__logo" />
+        <span class="brand__name">Strategic Prayer Ministries</span>
+      </a>
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav__links" id="navLinks">
+        <div class="nav__dropdown" id="homeDropdown">
+          <button class="nav__dropdown-toggle" aria-expanded="false" aria-controls="homeDropdownMenu">Home</button>
+          <div class="nav__dropdown-menu" id="homeDropdownMenu">
+            <a href="index.html#links">Links</a>
+            <a href="index.html#media">Gallery & Videos</a>
+          </div>
+        </div>
+        <a href="index.html#who">Who We Are</a>
+        <a href="giving.html" target="_self">Giving</a>
+        <a href="contact.html" target="_self">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Page Title ===== -->
+  <section class="prayer-hero">
+    <div class="container"><h1>Prayer Request</h1></div>
+  </section>
+
+  <!-- ===== Scripture ===== -->
+  <section class="container scripture-block">
+    <div class="gold-divider"></div>
+    <p class="scripture-text">“Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, 
+        which transcends all understanding, will guard your hearts and your minds in Christ Jesus.</p>
+    <div class="scripture-ref">Philippians 4:6–7</div>
+    <div class="gold-divider" style="margin-top:1.5rem;"></div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="need-wrap">
+    <h2 class="need-title"><span class="accent">Need Prayer?</span></h2>
+    <p class="need-desc">Let us pray for you. Click below to open the request form.</p>
+    <button id="spmOpenBtn" class="cta" aria-haspopup="dialog" aria-controls="spmModalOverlay">New Prayer Request</button>
+  </section>
+
+  <!-- ============ MODAL ============ -->
+  <div id="spmModalOverlay" class="spm-overlay" role="dialog" aria-modal="true" aria-labelledby="spmModalTitle">
+    <div class="spm-modal">
+      <div class="spm-modal-header">
+        <h3 id="spmModalTitle" class="spm-modal-title">Prayer Request Form</h3>
+        <button class="spm-modal-close" id="spmCloseBtn" aria-label="Close form">Close</button>
+      </div>
+      <div class="spm-modal-body">
+        <!-- Load the Google Form immediately to avoid any lazy-load issues -->
+        <iframe
+          id="spmIframe"
+          class="spm-iframe"
+          title="Prayer Request Form"
+          src="https://docs.google.com/forms/d/e/1FAIpQLScCxcwJSMOjbYqUt9y64QCy0TznElxD5UCRWj9N3a7bKRkH4A/viewform?embedded=true"
+          loading="eager"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="scripture" id="scripture"></div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-row">
+          <p>© <span id="year"></span> Strategic Prayer Ministries. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a><span>•</span><a href="#">Terms &amp; Conditions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle (unchanged)
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!isExpanded));
+        navLinks.classList.toggle('active');
+      });
+    }
+
+    // Footer year + scripture rotation
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const verses = [
+      "“Is not my word like as a fire? saith the Lord; and like a hammer that breaketh the rock in pieces?”  Jeremiah 23:29",
+      "“But they that wait upon the Lord shall renew their strength...” Isaiah 40:31",
+      "“The harvest truly is plenteous, but the labourers are few...” Matthew 9:37–38"
+    ];
+    let i = 0;
+    function showVerse(){ const el = document.getElementById("scripture"); if (el) { el.textContent = verses[i]; i = (i+1)%verses.length; } }
+    showVerse(); setInterval(showVerse, 8000);
+
+    // ===== Modal logic (prefixed) =====
+    const spmOpenBtn = document.getElementById('spmOpenBtn');
+    const spmCloseBtn = document.getElementById('spmCloseBtn');
+    const spmOverlay = document.getElementById('spmModalOverlay');
+    const spmIframe  = document.getElementById('spmIframe');
+    const formURL = spmIframe ? spmIframe.src : "https://docs.google.com/forms/d/e/1FAIpQLScCxcwJSMOjbYqUt9y64QCy0TznElxD5UCRWj9N3a7bKRkH4A/viewform?embedded=true";
+
+    function spmOpen(){
+      spmOverlay.classList.add('spm-open');
+      document.body.style.overflow = 'hidden';
+      spmOpenBtn.setAttribute('aria-expanded', 'true');
+
+      // Fallback: if iframe didn't finish loading in 2s, open in new tab
+      let loaded = false;
+      const onLoad = () => { loaded = true; spmIframe.removeEventListener('load', onLoad); };
+      spmIframe.addEventListener('load', onLoad);
+      setTimeout(() => {
+        if (!loaded) window.open(formURL.replace('?embedded=true',''), '_blank');
+      }, 2000);
+    }
+
+    function spmClose(){
+      spmOverlay.classList.remove('spm-open');
+      document.body.style.overflow = '';
+      spmOpenBtn.setAttribute('aria-expanded', 'false');
+      spmOpenBtn.focus();
+    }
+
+    spmOpenBtn.addEventListener('click', spmOpen);
+    spmCloseBtn.addEventListener('click', spmClose);
+    spmOverlay.addEventListener('click', (e) => { if (e.target === spmOverlay) spmClose(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && spmOverlay.classList.contains('spm-open')) spmClose(); });
+  </script>
+</body>
+</html>
