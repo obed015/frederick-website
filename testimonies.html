@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Testimonies — Strategic Prayer Ministries</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared stylesheet -->
+  <link rel="stylesheet" href="./css/styles.css" />
+
+  <!-- Favicons -->
+   <link rel="icon" href="favicon.ico" sizes="any"><!-- Default .ico -->
+   <link rel="icon" type="image/svg+xml" href="favicon.svg"><!-- Modern browsers -->
+   <link rel="apple-touch-icon" href="apple-touch-icon.png"><!-- iOS -->
+   <link rel="manifest" href="site.webmanifest"><!-- Android/Chrome -->
+   <meta name="theme-color" content="#0b0d13"><!-- Browser theme color -->
+
+  <!-- Page-specific styles -->
+  <style>
+    /* ===== Hero ===== */
+    .testimony-hero {
+      background:
+        linear-gradient(rgba(11,13,19,0.85), rgba(11,13,19,0.9)),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f59e0b' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+        #0b0d13;
+      padding: 6rem 0 4rem;
+      text-align: center;
+      position: relative;
+      border-bottom: 3px solid #f59e0b;
+    }
+    .hero-content { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+    .hero-verse { font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.2rem); color: #f59e0b; font-style: italic; margin-bottom: 1rem; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 700; color: #fff; margin-bottom: 1rem; line-height: 1.1; }
+
+    /* ===== Main ===== */
+    .main-content { background: #0f1218; padding: 5rem 0; }
+    .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ===== Video Grid ===== */
+    .videos-header { text-align: center; margin-bottom: 2rem; }
+    .videos-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: #fff; }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    @media (max-width: 768px) {
+      .video-grid { grid-template-columns: 1fr; }
+    }
+
+    .video-card {
+      background: #1a1f29;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .video-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 38px rgba(0,0,0,0.35);
+      border-color: rgba(245,158,11,0.35);
+    }
+
+    /* 16:9 responsive wrapper */
+    .video-frame {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #0b0d13;
+    }
+    .video-frame iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+
+    .section-divider { height:1px; background:linear-gradient(90deg,transparent,rgba(245,158,11,0.3),transparent); margin:2rem 0; position:relative; }
+    .section-divider::before { content:'✦'; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); background:#0f1218; color:#f59e0b; padding:0 .75rem; font-size:1rem; }
+
+    /* ===== Share Testimony CTA ===== */
+    .share-cta {
+      margin-top: 2.5rem;
+      background: #1a1f29;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    .share-cta h3 {
+      margin: 0 0 .75rem;
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    .share-cta a {
+      display: inline-block;
+      margin-top: .5rem;
+      padding: .9rem 1.5rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: .5px;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #0b0d13;
+      border: 2px solid #f59e0b;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .share-cta a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(245,158,11,0.3);
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== Navigation ===== -->
+<header class="nav" id="navbar">
+  <div class="nav__inner container">
+    <a class="brand" href="index.html#home">
+      <img src="assets/spm-logo.png" alt="Strategic Prayer Ministries Logo" class="brand__logo" />
+      <span class="brand__name">Strategic Prayer Ministries</span>
+    </a>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" id="navToggle">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__links" id="navLinks">
+      <div class="nav__dropdown" id="homeDropdown">
+        <button class="nav__dropdown-toggle" aria-expanded="false" aria-controls="homeDropdownMenu">Home</button>
+        <div class="nav__dropdown-menu" id="homeDropdownMenu">
+          <a href="index.html#links">Links</a>
+          <a href="index.html#media">Gallery & Videos</a>
+        </div>
+      </div>
+      <a href="index.html#who">Who We Are</a>
+      <a href="giving.html" target="_self">Giving</a>
+      <a href="contact.html" target="_self">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="testimony-hero">
+  <div class="hero-content">
+    <p class="hero-verse">“They overcame him by the blood of the Lamb, and by the word of their testimony.” — Revelation 12:11</p>
+    <h1 class="hero-title">Testimonies</h1>
+  </div>
+</section>
+
+<!-- ===== Main Content ===== -->
+<section class="main-content">
+  <div class="content-wrapper">
+    <div class="videos-header">
+      <h2 class="videos-title">This same Jesus Crusade Testimonies</h2>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- ===== 4-Video Grid ===== -->
+    <div class="video-grid">
+      <!-- Video 1 -->
+      <article class="video-card">
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/FjtkxXDOWco"
+            title="Testimony 1"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </article>
+
+      <!-- Video 2 -->
+      <article class="video-card">
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/n2oRZ44eUl0"
+            title="Testimony 2"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </article>
+
+      <!-- Video 3 -->
+      <article class="video-card">
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/Z6ALv5KSpK0"
+            title="Testimony 3"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </article>
+
+      <!-- Video 4 -->
+      <article class="video-card">
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/L_5PlUOWlOE"
+            title="Testimony 4"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </article>
+    </div> <!-- /video-grid -->
+
+    <!-- ===== Share Testimony CTA ===== -->
+    <div class="share-cta">
+      <h3>Do you have a testimony to share?</h3>
+      <a href="contact.html">Share it with us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo-wrapper">
+      <a href="index.html">
+        <img src="assets/spm-logo.png" alt="Strategic Prayer Ministries Logo" class="footer-logo" />
+      </a>
+    </div>
+    <div class="footer-container">
+      <div>
+        <h4>MINISTRY</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="giving.html">Giving</a></li>
+          <li><a href="prayer-request.html">Prayer-Request</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>RESOURCES</h4>
+        <ul>
+          <li><a href="index.html#media">Gallery</a></li>
+          <li><a href="index.html#media">Videos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>CONNECT WITH US</h4>
+        <div class="social-badges">
+          <a href="mailto:info@strategicprayer.org" class="badge badge--email" aria-label="Email us">
+            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><rect x="18" y="24" width="28" height="18" rx="3" fill="none" stroke="#fff" stroke-width="4"/><path d="M18 26 l14 12 L46 26" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Email</span>
+          </a>
+          <a href="https://zoom.us/j/yourMeetingId" class="badge badge--zoom" target="_blank" rel="noopener" aria-label="Join us on Zoom">
+            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><rect x="18" y="24" width="22" height="16" rx="4" fill="#fff"/><polygon points="40,27 48,23 48,41 40,37" fill="#fff"/></svg>
+            <span>Zoom</span>
+          </a>
+          <a href="https://www.youtube.com/@yourChannel" class="badge badge--youtube" target="_blank" rel="noopener" aria-label="Watch on YouTube">
+            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><polygon points="27,24 45,32 27,40" fill="#fff"/></svg>
+            <span>YouTube</span>
+          </a>
+        </div>
+        <div class="newsletter">
+          <h4 style="margin-top:1rem;">Subscribe</h4>
+          <form>
+            <input type="email" placeholder="Your Email" required />
+            <button type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="scripture" id="scripture"></div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-row">
+        <p>© <span id="year"></span> Strategic Prayer Ministries. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <span>•</span>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== Scripts ===== -->
+<script>
+  // Footer year + scripture rotation
+  document.getElementById("year").textContent = new Date().getFullYear();
+  const verses = [
+    "“Is not my word like as a fire? saith the Lord; and like a hammer that breaketh the rock in pieces?”  Jeremiah 23:29",
+    "“But they that wait upon the Lord shall renew their strength...” Isaiah 40:31",
+    "“The harvest truly is plenteous, but the labourers are few...” Matthew 9:37–38"
+  ];
+  let i = 0;
+  function showVerse(){ 
+    const el = document.getElementById("scripture"); 
+    if (el) { el.textContent = verses[i]; i = (i+1)%verses.length; }
+  }
+  showVerse(); setInterval(showVerse, 8000);
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', !isExpanded);
+      navLinks.classList.toggle('active');
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -893,17 +893,17 @@ body{
     linear-gradient(135deg, #0e1118 0%, #0b0d13 100%),
     url('../assets/event-image.jpg');
 }
-.rail-card--gallery{
+.rail-card--testimonies{
   background-image:
     radial-gradient(60% 45% at 20% 8%, color-mix(in srgb, var(--brand) 22%, transparent) 0 45%, transparent 70%),
     linear-gradient(135deg, #0e1118 0%, #0b0d13 100%),
-    url('../assets/gallery.jpg');
+    url('../assets/hover-miracles.jpg');
 }
 .rail-card--giving{
   background-image:
     radial-gradient(70% 50% at 82% 12%, color-mix(in srgb, var(--brand) 32%, transparent) 0 50%, transparent 78%),
     linear-gradient(135deg, #0f1218 0%, #0b0d13 100%),
-    url('../assets/hover-miracles.jpg');
+    url('../assets/Offering.jpg');
 }
 .rail-card--testimonies{
   background-image:
@@ -960,10 +960,10 @@ body{
   background: url('../assets/event-image.jpg') center/cover no-repeat !important;
 }
 .rail-card--gallery{
-  background: url('../assets/gallery.jpg') center/cover no-repeat !important;
+  background: url('../assets/hover-miracles.jpg') center/cover no-repeat !important;
 }
 .rail-card--giving{
-  background: url('../assets/hover-miracles.jpg') center/cover no-repeat !important;
+  background: url('../assets/Offering.jpg') center/cover no-repeat !important;
 }
 .rail-card--testimonies{
   background: url('../assets/Info-background.jpg') center/cover no-repeat !important;
