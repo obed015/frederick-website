@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Give — Strategic Prayer Ministries</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared stylesheet -->
+  <link rel="stylesheet" href="./css/styles.css" />
+
+  <!-- Page-specific styles -->
+  <style>
+    /* ===== Hero ===== */
+    .giving-hero {
+      background:
+        linear-gradient(rgba(11,13,19,0.85), rgba(11,13,19,0.9)),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f59e0b' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+        #0b0d13;
+      padding: 6rem 0 4rem;
+      text-align: center;
+      position: relative;
+      border-bottom: 3px solid #f59e0b;
+    }
+    .hero-content { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+    .hero-verse { font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.2rem); color: #f59e0b; font-style: italic; margin-bottom: 1rem; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 700; color: #fff; margin-bottom: 1rem; line-height: 1.1; }
+    .hero-subtitle { font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: 2rem; }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #0b0d13; padding: 1rem 2rem; border-radius: 8px;
+      text-decoration: none; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; transition: all 0.3s ease; border: 2px solid transparent;
+    }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(245,158,11,0.3); background: linear-gradient(135deg, #fbbf24, #f59e0b); }
+
+    /* ===== Main ===== */
+    .main-content { background: #0f1218; padding: 5rem 0; }
+    .content-wrapper { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ===== Donation Form ===== */
+    .donation-form {
+      background: #1a1f29; border-radius: 16px; padding: 3rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .form-header { text-align: center; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 2px solid rgba(245,158,11,0.2); }
+    .form-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .form-subtitle { color: rgba(255,255,255,0.7); font-size: 1.1rem; }
+
+    .section-label { font-weight: 700; color: #f59e0b; margin: 1.5rem 0 1rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
+    .section-divider { height:1px; background:linear-gradient(90deg,transparent,rgba(245,158,11,0.3),transparent); margin:2rem 0; position:relative; }
+    .section-divider::before { content:'✦'; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); background:#1a1f29; color:#f59e0b; padding:0 1rem; font-size:1rem; }
+
+    /* Grid & Inputs */
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .form-group { display: flex; flex-direction: column; }
+    .form-group.full-width { grid-column: 1 / -1; }
+    .form-label { font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 0.75rem; font-size: 0.95rem; }
+    .form-input, .form-select {
+      background: rgba(255,255,255,0.04);
+      border: 2px solid rgba(255,255,255,0.1);
+      color: #fff; padding: 1rem 1.25rem;
+      border-radius: 12px; outline: none;
+      transition: all 0.3s ease; font-size: 1rem;
+    }
+    .form-input::placeholder { color: rgba(255,255,255,0.4); }
+    .form-input:focus, .form-select:focus { border-color: #f59e0b; background: rgba(255,255,255,0.08); box-shadow: 0 0 0 3px rgba(245,158,11,0.12); }
+
+    /* Custom select dropdown styling */
+    .form-select {
+      appearance: none; -webkit-appearance: none; -moz-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill='%23f59e0b' d='M5 7l5 6 5-6z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.2em; cursor: pointer;
+    }
+    .form-select option { background: #0f1218; color: #fff; padding: 0.5rem; }
+
+    /* Currency */
+    .currency-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .currency-option {
+      background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.1);
+      border-radius: 12px; padding: 1.25rem; text-align: center;
+      cursor: pointer; transition: all 0.3s ease; position: relative;
+    }
+    .currency-option:hover { border-color: rgba(245,158,11,0.5); background: rgba(245,158,11,0.08); transform: translateY(-2px); }
+    .currency-option.selected { border-color: #f59e0b; background: rgba(245,158,11,0.15); }
+    .currency-option.selected::after {
+      content: '✓'; position: absolute; top: 0.5rem; right: 0.5rem;
+      background: #f59e0b; color: #0b0d13; width: 20px; height: 20px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700;
+    }
+    .currency-symbol { font-size: 1.8rem; color: #f59e0b; margin-bottom: 0.5rem; display: block; }
+    .currency-name { color: #fff; font-weight: 600; font-size: 1rem; }
+
+    /* Amounts */
+    .amount-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+    .amount-btn {
+      background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.12); color: #fff;
+      padding: 1.5rem 1rem; border-radius: 12px; font-weight: 700; font-size: 1.2rem;
+      cursor: pointer; transition: all 0.3s ease; text-align: center;
+    }
+    .amount-btn:hover { border-color: rgba(245,158,11,0.6); background: rgba(245,158,11,0.1); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(245,158,11,0.2); }
+    .amount-btn.selected { background: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(245,158,11,0.1)); border-color: #f59e0b; color: #f59e0b; transform: scale(1.05); }
+    .custom-amount { background: rgba(255,255,255,0.03); border: 2px solid rgba(245,158,11,0.3); border-radius: 12px; padding: 1rem; display: none; }
+    .custom-input { width: 100%; background: transparent; border: none; color: #fff; font-size: 1.5rem; font-weight: 700; text-align: center; outline: none; }
+    .custom-input::placeholder { color: rgba(255,255,255,0.4); }
+
+    /* Submit */
+    .submit-section { text-align: center; margin-top: 2rem; }
+    .submit-btn {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      border: 3px solid #f59e0b; color: #0b0d13;
+      padding: 1.25rem 3rem; border-radius: 8px; font-size: 1.1rem;
+      font-weight: 700; cursor: pointer; transition: all 0.3s ease;
+      text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 4px 15px rgba(245,158,11,0.3); min-width: 280px;
+    }
+    .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(245,158,11,0.4); background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    /* Toast */
+    .toast {
+      position: fixed; top: 2rem; right: 2rem; z-index: 9999;
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); color: #fff;
+      padding: 1rem 1.5rem; border-radius: 12px; box-shadow: 0 15px 35px rgba(34,197,94,0.3);
+      display: none; font-weight: 600; border-left: 4px solid #fff;
+    }
+    .toast.error { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); box-shadow: 0 15px 35px rgba(239,68,68,0.3); }
+
+    /* Responsive */
+    @media (max-width: 640px){
+      .form-grid { grid-template-columns: 1fr; }
+      .currency-grid { grid-template-columns: 1fr; }
+      .amount-grid { grid-template-columns: repeat(2, 1fr); }
+      .donation-form { padding: 2rem 1.5rem; margin: 0 1rem; }
+    }
+    @media (max-width: 480px){
+      .amount-grid { grid-template-columns: 1fr; }
+      .submit-btn { width: 100%; padding: 1rem 2rem; }
+    }
+
+    /* Loading spinner */
+    .loading-spinner {
+      display: inline-block; width: 16px; height: 16px;
+      border: 2px solid rgba(11,13,19,0.3); border-radius: 50%;
+      border-top-color: #0b0d13; animation: spin 1s ease-in-out infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+<!-- ===== Navigation ===== -->
+<header class="nav" id="navbar">
+  <div class="nav__inner container">
+    <a class="brand" href="index.html#home">
+      <img src="assets/spm-logo.png" alt="Strategic Prayer Ministries Logo" class="brand__logo" />
+      <span class="brand__name">Strategic Prayer Ministries</span>
+    </a>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" id="navToggle">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__links" id="navLinks">
+      <div class="nav__dropdown" id="homeDropdown">
+        <button class="nav__dropdown-toggle" aria-expanded="false" aria-controls="homeDropdownMenu">Home</button>
+        <div class="nav__dropdown-menu" id="homeDropdownMenu">
+          <a href="index.html#links">Links</a>
+          <a href="index.html#media">Gallery & Videos</a>
+        </div>
+      </div>
+      <a href="index.html#who">Who We Are</a>
+      <a href="giving.html" target="_self">Giving</a>
+      <a href="contact.html" target="_self">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Hero Section ===== -->
+<section class="giving-hero">
+  <div class="hero-content">
+    <p class="hero-verse">"Give, and it will be given to you..." - Luke 6:38</p>
+    <h1 class="hero-title">Partnership in Ministry</h1>
+    <p class="hero-subtitle">
+      Join us in advancing God's kingdom through strategic prayer and faithful stewardship.
+      Your generous heart helps us reach communities worldwide with the Gospel.
+    </p>
+    <a href="#giving-form" class="hero-cta">
+      <span>💝</span> Give Now
+    </a>
+  </div>
+</section>
+
+<!-- ===== Main Content ===== -->
+<section class="main-content">
+  <div class="content-wrapper">
+    <main class="donation-form" id="giving-form">
+      <div class="form-header">
+        <h2 class="form-title">Make Your Donation</h2>
+        <p class="form-subtitle">Secure online giving platform</p>
+      </div>
+
+      <form id="donationForm">
+        <!-- Currency Selection -->
+        <div class="section-label">Choose Currency</div>
+        <div class="currency-grid">
+          <div class="currency-option" onclick="selectCurrency('USD', '$', this)" data-currency="USD">
+            <span class="currency-symbol">$</span><div class="currency-name">Dollar</div>
+          </div>
+          <div class="currency-option" onclick="selectCurrency('GBP', '£', this)" data-currency="GBP">
+            <span class="currency-symbol">£</span><div class="currency-name">Pound</div>
+          </div>
+          <div class="currency-option" onclick="selectCurrency('EUR', '€', this)" data-currency="EUR">
+            <span class="currency-symbol">€</span><div class="currency-name">Euro</div>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Amount Selection -->
+        <div class="section-label">Select Amount</div>
+        <div class="amount-grid" id="amountGrid">
+          <button type="button" class="amount-btn" onclick="selectAmount(25, this)" id="amount-25">$25</button>
+          <button type="button" class="amount-btn" onclick="selectAmount(50, this)" id="amount-50">$50</button>
+          <button type="button" class="amount-btn" onclick="selectAmount(100, this)" id="amount-100">$100</button>
+          <button type="button" class="amount-btn" onclick="selectAmount(250, this)" id="amount-250">$250</button>
+          <button type="button" class="amount-btn" onclick="selectAmount(500, this)" id="amount-500">$500</button>
+          <button type="button" class="amount-btn" onclick="selectAmount('custom', this)">Custom</button>
+        </div>
+
+        <div class="custom-amount" id="customAmountDiv">
+          <input type="number" class="custom-input" id="customAmount" placeholder="Enter custom amount" min="1">
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Your Information -->
+        <div class="section-label">Your Information</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="firstName">First Name <span class="required">*</span></label>
+            <input type="text" class="form-input" id="firstName" name="firstName" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="lastName">Last Name <span class="required">*</span></label>
+            <input type="text" class="form-input" id="lastName" name="lastName" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address <span class="required">*</span></label>
+            <input type="email" class="form-input" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone Number</label>
+            <input type="tel" class="form-input" id="phone" name="phone">
+          </div>
+          <div class="form-group full-width">
+            <label class="form-label" for="category">Ministry Focus</label>
+            <select class="form-select" id="category" name="category" required>
+              <option value="">Select a Giving Category</option>
+              <option value="offering">Offering</option>
+              <option value="tithe">Tithe</option>
+              <option value="seed">Seed</option>
+              <option value="missions">Missions</option>
+              <option value="thanksgiving">Thanksgiving</option>
+              <option value="partnership">Partnership</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Submit -->
+        <div class="submit-section">
+          <button type="submit" class="submit-btn">Make Giving</button>
+        </div>
+
+        <!-- Privacy (kept) -->
+        <div class="section-divider"></div>
+        <div class="privacy-section">
+          <h4 class="privacy-title" style="color:#f59e0b; margin-bottom:1rem;">Privacy Policy</h4>
+          <p class="privacy-text" style="color:rgba(255,255,255,0.8); line-height:1.6;">
+            We keep your personal information private and secure. When you make a payment through our site, you 
+            provide your name, contact information, payment information, and additional information related to your 
+            transaction. We use this information to process your payment and to ensure your payment is correctly 
+            credited to your account.
+          </p>
+        </div>
+      </form>
+    </main>
+  </div>
+</section>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- ===== Footer (original) ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo-wrapper">
+      <a href="index.html">
+        <img src="assets/spm-logo.png" alt="Strategic Prayer Ministries Logo" class="footer-logo" />
+      </a>
+    </div>
+    <div class="footer-container">
+      <div>
+        <h4>MINISTRY</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="giving.html">Giving</a></li>
+          <li><a href="prayer-request.html">Prayer-Request</a></li>
+          
+        </ul>
+      </div>
+      <div>
+        <h4>RESOURCES</h4>
+        <ul>
+          <li><a href="index.html#media">Gallery</a></li>
+          <li><a href="index.html#media">Videos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>CONNECT WITH US</h4>
+        <div class="social-badges">
+          <a href="mailto:info@strategicprayer.org" class="badge badge--email" aria-label="Email us">
+            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><rect x="18" y="24" width="28" height="18" rx="3" fill="none" stroke="#fff" stroke-width="4"/><path d="M18 26 l14 12 L46 26" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Email</span>
+          </a>
+          <a href="https://zoom.us/j/yourMeetingId" class="badge badge--zoom" target="_blank" rel="noopener" aria-label="Join us on Zoom">
+            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><rect x="18" y="24" width="22" height="16" rx="4" fill="#fff"/><polygon points="40,27 48,23 48,41 40,37" fill="#fff"/></svg>
+            <span>Zoom</span>
+          </a>
+          <a href="https://www.youtube.com/@yourChannel" class="badge badge--youtube" target="_blank" rel="noopener" aria-label="Watch on YouTube">
+            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><polygon points="27,24 45,32 27,40" fill="#fff"/></svg>
+            <span>YouTube</span>
+          </a>
+        </div>
+        <div class="newsletter">
+          <h4 style="margin-top:1rem;">Subscribe</h4>
+          <form>
+            <input type="email" placeholder="Your Email" required />
+            <button type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="scripture" id="scripture"></div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-row">
+        <p>© <span id="year"></span> Strategic Prayer Ministries. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <span>•</span>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Footer year + scripture rotation (original)
+  document.getElementById("year").textContent = new Date().getFullYear();
+  const verses = [
+    "“Is not my word like as a fire? saith the Lord; and like a hammer that breaketh the rock in pieces?”  Jeremiah 23:29",
+    "“But they that wait upon the Lord shall renew their strength...” Isaiah 40:31",
+    "“The harvest truly is plenteous, but the labourers are few...” Matthew 9:37–38"
+  ];
+  let i = 0;
+  function showVerse(){ 
+    const el = document.getElementById("scripture"); 
+    if (el) { el.textContent = verses[i]; i = (i+1)%verses.length; }
+  }
+  showVerse(); setInterval(showVerse, 8000);
+
+  // --- Donation Form JS ---
+  let selectedAmount = null;
+  let selectedCurrency = 'USD';
+  let currencySymbol = '$';
+
+  const currencyRates = {
+    USD: { 25: 25, 50: 50, 100: 100, 250: 250, 500: 500 },
+    GBP: { 25: 20, 50: 40, 100: 80, 250: 200, 500: 400 },
+    EUR: { 25: 23, 50: 45, 100: 90, 250: 225, 500: 450 }
+  };
+
+  function selectCurrency(currency, symbol, el) {
+    selectedCurrency = currency;
+    currencySymbol = symbol;
+    document.querySelectorAll('.currency-option').forEach(o => o.classList.remove('selected'));
+    if (el) el.classList.add('selected');
+    updateAmountDisplays();
+    // clear amount selection when switching currency
+    selectedAmount = null;
+    document.querySelectorAll('.amount-btn').forEach(btn => btn.classList.remove('selected'));
+    document.getElementById('customAmountDiv').style.display = 'none';
+  }
+
+  function updateAmountDisplays() {
+    [25, 50, 100, 250, 500].forEach(amount => {
+      const btn = document.getElementById(`amount-${amount}`);
+      if (btn) btn.textContent = `${currencySymbol}${currencyRates[selectedCurrency][amount]}`;
+    });
+  }
+
+  function selectAmount(amount, el) {
+    selectedAmount = amount;
+    document.querySelectorAll('.amount-btn').forEach(btn => btn.classList.remove('selected'));
+    if (el) el.classList.add('selected');
+
+    const customDiv = document.getElementById('customAmountDiv');
+    customDiv.style.display = amount === 'custom' ? 'block' : 'none';
+    if (amount === 'custom') document.getElementById('customAmount').focus();
+  }
+
+  // Submit handler
+  document.getElementById('donationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+
+    const amount = selectedAmount === 'custom'
+      ? Number(document.getElementById('customAmount').value)
+      : (selectedAmount ? currencyRates[selectedCurrency][selectedAmount] : null);
+
+    if (!selectedCurrency) return showToast('Please choose a currency.', true);
+    if (!amount || amount <= 0) return showToast('Please select or enter a valid amount.', true);
+    if (!formData.get('firstName') || !formData.get('lastName') || !formData.get('email'))
+      return showToast('Please fill in all required fields.', true);
+
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.get('email'));
+    if (!emailOk) return showToast('Please enter a valid email address.', true);
+
+    const btn = document.querySelector('.submit-btn');
+    const original = btn.innerHTML;
+    btn.innerHTML = '<span class="loading-spinner"></span> Processing Donation...';
+    btn.disabled = true;
+    document.querySelector('.donation-form').style.opacity = '0.85';
+
+    setTimeout(() => {
+      showToast(`🙏 Blessings! Your ${currencySymbol}${amount} donation has been received. You'll get a receipt via email.`);
+      this.reset();
+      selectedAmount = null;
+      document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('selected'));
+      document.getElementById('customAmountDiv').style.display = 'none';
+      btn.innerHTML = original;
+      btn.disabled = false;
+      document.querySelector('.donation-form').style.opacity = '1';
+    }, 1500);
+  });
+
+  function showToast(message, isError=false){
+    const t = document.getElementById('toast');
+    t.textContent = message;
+    t.className = isError ? 'toast error' : 'toast';
+    t.style.display = 'block';
+    setTimeout(()=> t.style.display='none', 5000);
+  }
+
+  // Init
+  document.addEventListener('DOMContentLoaded', () => {
+    const usd = document.querySelector('[data-currency="USD"]');
+    if (usd) usd.classList.add('selected');
+    updateAmountDisplays();
+  });
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', !isExpanded);
+      navLinks.classList.toggle('active');
+    });
+  }
+</script>
+
+</body>
+</html>

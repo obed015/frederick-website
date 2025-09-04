@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>External Ministrations — Strategic Prayer Ministries</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared stylesheet (matches Contact page navbar styles) -->
+  <link rel="stylesheet" href="./css/styles.css" />
+
+  <!-- FULL STYLES (CSS) -->
+  <style>
+    :root{
+      --bg:#0b0b0d; --bg-2:#121216; --text:#f7f7f8; --muted:rgba(255,255,255,.75);
+      --line:rgba(255,255,255,.15); --line-strong:rgba(255,255,255,.22);
+      --gold-1:#d4af37; --gold-2:#f5d76e; --radius:14px; --shadow-1:0 10px 28px rgba(0,0,0,.25);
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg)}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;color:inherit}
+    .container{width:min(1200px,92%);margin-inline:auto}
+    .main{padding-top:84px}
+    .section{padding:2.25rem 0}
+
+    /* NAV styles removed to match shared navbar in ./css/styles.css */
+
+    /* HERO */
+    .events-hero{padding:4rem 0 1rem;text-align:center}
+    .events-title{font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:.06em;text-transform:uppercase;font-weight:800}
+    .events-subtitle{margin-top:.25rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.9}
+
+    /* FLYER */
+    .flyer{margin:1rem auto 0;max-width:720px;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-1)}
+
+    /* EVENTS LIST */
+    .events-list{margin-top:2rem;border-top:1px solid var(--line)}
+    .event-row{display:grid;grid-template-columns:110px 1.2fr 1.3fr auto;gap:1.25rem;align-items:center;padding:1.25rem 0;border-bottom:1px solid var(--line)}
+    .event-date{display:grid;place-items:center;text-align:center}
+    .event-date .day{font-size:2rem;font-weight:800}
+    .event-date .mon{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;opacity:.85}
+    .event-title{font-weight:700}
+    .event-loc{opacity:.95}
+    .addcal-wrap{position:relative}
+
+    /* BUTTONS */
+    .btn{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--line);background:transparent;color:var(--text);padding:.75rem 1rem;border-radius:10px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.06em}
+    .btn--addcal{background:linear-gradient(135deg,var(--gold-1),var(--gold-2));color:#121212;border:0;padding:.9rem 1.15rem;border-radius:10px;font-weight:800;letter-spacing:.06em;box-shadow:0 6px 18px rgba(212,175,55,.35);transition:transform .15s,box-shadow .15s,filter .15s}
+    .btn--addcal:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(212,175,55,.45);filter:saturate(1.08)}
+
+    /* ADD-CAL DROPDOWN */
+    .addcal-menu{position:absolute;right:0;top:calc(100% + .6rem);background:#fff;color:#111;border:1px solid rgba(0,0,0,.12);border-radius:12px;min-width:230px;padding:.4rem;display:none;z-index:40;box-shadow:0 14px 30px rgba(0,0,0,.18)}
+    .addcal-menu a,.addcal-menu button{display:block;width:100%;text-align:left;padding:.75rem .95rem;border-radius:10px;font-weight:600}
+    .addcal-menu a:hover,.addcal-menu button:hover{background:rgba(0,0,0,.06)}
+    .addcal-menu button{background:none;border:0;cursor:pointer}
+
+    @media (max-width:800px){
+      .event-row{grid-template-columns:80px 1fr}
+      .addcal-wrap{grid-column:1/-1;justify-self:start;margin-top:.5rem}
+    }
+
+    /* FOOTER (unchanged structure) */
+    .footer{background:var(--bg-2);border-top:1px solid var(--line);margin-top:2.5rem}
+    .footer .container{padding:2rem 0}
+    .footer-logo{width:64px}
+    .footer-container{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;margin-top:1rem}
+    .footer-container ul{list-style:none;padding:0;margin:0}
+    .footer-container li{margin:.35rem 0}
+    .social-badges{display:flex;gap:.6rem;flex-wrap:wrap}
+    .badge{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem .8rem;border-radius:999px;border:1px solid var(--line);font-weight:600}
+    .newsletter{margin-top:1rem}
+    .newsletter form{display:flex;gap:.5rem}
+    .newsletter input{flex:1;padding:.65rem .8rem;border-radius:10px;border:1px solid var(--line);background:#0f0f12;color:var(--text)}
+    .newsletter button{padding:.65rem .9rem;border-radius:10px;border:1px solid var(--line);background:linear-gradient(135deg,var(--gold-1),var(--gold-2));color:#121212;font-weight:800}
+    .scripture{margin-top:1rem;font-style:italic;color:var(--muted)}
+    .footer-bottom{border-top:1px solid var(--line);margin-top:1.25rem;padding-top:1rem}
+    .footer-bottom-row{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;justify-content:space-between}
+  </style>
+</head>
+<body>
+
+<!-- ===== Nav (structure matches Contact page) ===== -->
+<header class="nav" id="navbar">
+  <div class="nav__inner container">
+    <a class="brand" href="index.html#home">
+      <img src="assets/spm-logo.png" alt="Strategic Prayer Ministries Logo" class="brand__logo" />
+      <span class="brand__name">Strategic Prayer Ministries</span>
+    </a>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" id="navToggle">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__links" id="navLinks">
+      <div class="nav__dropdown" id="homeDropdown">
+        <button class="nav__dropdown-toggle" aria-expanded="false" aria-controls="homeDropdownMenu">Home</button>
+        <div class="nav__dropdown-menu" id="homeDropdownMenu">
+          <a href="index.html#links">Links</a>
+          <a href="index.html#media">Gallery & Videos</a>
+        </div>
+      </div>
+      <a href="index.html#who">Who We Are</a>
+      <a href="giving.html" target="_self">Giving</a>
+      <a href="contact.html" target="_self">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Page Content ===== -->
+<main class="main">
+  <section class="events-hero container">
+    <h1 class="events-title">Events</h1>
+    <div class="events-subtitle">Our Upcoming Events</div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="events-list">
+
+      <!-- FRIDAY SESSION -->
+      <div class="event-row"
+           data-title="Harvest Of Miracles (Friday Night) with Evangelist Frederick"
+           data-description="Harvest Of Miracles — Night 1. Worship, intercession, and the Word. Theme: Perfected by His Sacrifice (Hebrews 10:14)."
+           data-location="ST Marks Church, ST Marks RD, Leeds. LS2 9AF"
+           data-start="2025-10-24T18:00:00+01:00"
+           data-end="2025-10-24T23:00:00+01:00"
+           data-timezone="Europe/London">
+        <div class="event-date">
+          <div class="day">24</div><div class="mon">OCT</div>
+        </div>
+        <div class="event-title">Harvest Of Miracles — Friday Night Service (6:00 PM – 11:00 PM)</div>
+        <div class="event-loc">ST Marks Church, ST Marks RD, Leeds. LS2 9AF</div>
+        <div class="addcal-wrap">
+          <button class="btn--addcal" aria-haspopup="true" aria-expanded="false">Add to Calendar</button>
+          <div class="addcal-menu" role="menu" aria-label="Add to calendar options">
+            <a href="#" data-add="google" role="menuitem">Google Calendar</a>
+            <button data-add="ics" role="menuitem">Apple / Outlook (.ics)</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SATURDAY SESSION -->
+      <div class="event-row"
+           data-title="Harvest Of Miracles (Saturday) with Evangelist Frederick"
+           data-description="Harvest Of Miracles — Day 2. Worship, intercession, and the Word. Theme: Perfected by His Sacrifice (Hebrews 10:14)."
+           data-location="ST Marks Church, ST Marks RD, Leeds. LS2 9AF"
+           data-start="2025-10-25T10:00:00+01:00"
+           data-end="2025-10-25T17:00:00+01:00"
+           data-timezone="Europe/London">
+        <div class="event-date">
+          <div class="day">25</div><div class="mon">OCT</div>
+        </div>
+        <div class="event-title">Harvest Of Miracles — Saturday Service (10:00 AM – 5:00 PM)</div>
+        <div class="event-loc">ST Marks Church, ST Marks RD, Leeds. LS2 9AF</div>
+        <div class="addcal-wrap">
+          <button class="btn--addcal" aria-haspopup="true" aria-expanded="false">Add to Calendar</button>
+          <div class="addcal-menu" role="menu" aria-label="Add to calendar options">
+            <a href="#" data-add="google" role="menuitem">Google Calendar</a>
+            <button data-add="ics" role="menuitem">Apple / Outlook (.ics)</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- ===== Footer (unchanged) ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo-wrapper">
+      <a href="index.html">
+        <img src="assets/spm-logo.png" alt="SPM Logo" class="footer-logo" />
+      </a>
+    </div>
+
+    <div class="footer-container">
+      <div>
+        <h4>MINISTRY</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="giving.html">Giving</a></li>
+          <li><a href="prayer-request.html">Prayer-Request</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>RESOURCES</h4>
+        <ul>
+          <li><a href="index.html#media">Gallery</a></li>
+          <li><a href="index.html#media">Videos</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>CONNECT WITH US</h4>
+        <div class="social-badges">
+          <!-- Email -->
+          <a href="mailto:info@strategicprayer.org" class="badge badge--email" aria-label="Email us">
+            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+              <circle cx="32" cy="32" r="32" fill="currentColor"/>
+              <rect x="18" y="24" width="28" height="18" rx="3" fill="none" stroke="#fff" stroke-width="4"/>
+              <path d="M18 26 l14 12 L46 26" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Email</span>
+          </a>
+          <!-- Zoom -->
+          <a href="https://zoom.us/j/yourMeetingId" class="badge badge--zoom" target="_blank" rel="noopener" aria-label="Join us on Zoom">
+            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+              <circle cx="32" cy="32" r="32" fill="currentColor"/>
+              <rect x="18" y="24" width="22" height="16" rx="4" fill="#fff"/>
+              <polygon points="40,27 48,23 48,41 40,37" fill="#fff"/>
+            </svg>
+            <span>Zoom</span>
+          </a>
+          <!-- YouTube -->
+          <a href="https://www.youtube.com/@yourChannel" class="badge badge--youtube" target="_blank" rel="noopener" aria-label="Watch on YouTube">
+            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+              <circle cx="32" cy="32" r="32" fill="currentColor"/>
+              <polygon points="27,24 45,32 27,40" fill="#fff"/>
+            </svg>
+            <span>YouTube</span>
+          </a>
+        </div>
+
+        <div class="newsletter">
+          <h4 style="margin-top:1rem;">Subscribe</h4>
+          <form>
+            <input type="email" placeholder="Your Email" required />
+            <button type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="scripture" id="scripture"></div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-row">
+        <p>© <span id="year"></span> Strategic Prayer Ministries. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <span>•</span>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== JS ===== -->
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Mobile toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  // Dropdown
+  const homeDropdown = document.getElementById('homeDropdown');
+  const dropdownToggle = homeDropdown.querySelector('.nav__dropdown-toggle');
+  dropdownToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    homeDropdown.classList.toggle('active');
+    const isExpanded = homeDropdown.classList.contains('active');
+    dropdownToggle.setAttribute('aria-expanded', isExpanded);
+  });
+
+  // Close on outside for Home dropdown
+  document.addEventListener('click', (e) => {
+    if (!homeDropdown.contains(e.target) && !e.target.closest('#homeDropdown')) {
+      homeDropdown.classList.remove('active');
+      dropdownToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Footer year + scripture rotation
+  document.getElementById("year").textContent = new Date().getFullYear();
+  const verses = [
+    "“Is not my word like as a fire? saith the Lord; and like a hammer that breaketh the rock in pieces?”  Jeremiah 23:29",
+    "“But they that wait upon the Lord shall renew their strength...” Isaiah 40:31",
+    "“The harvest truly is plenteous, but the labourers are few...” Matthew 9:37–38"
+  ];
+  let i = 0;
+  function showVerse() {
+    document.getElementById("scripture").textContent = verses[i];
+    i = (i+1) % verses.length;
+  }
+  showVerse();
+  setInterval(showVerse, 8000);
+
+  /* ===== Add-to-Calendar Logic ===== */
+  function formatICSDate(d){
+    const dt = new Date(d);
+    return dt.toISOString().replace(/[-:]/g,"").replace(/\.\d{3}Z$/,"Z");
+  }
+  function buildGoogleUrl({title,description,location,start,end}) {
+    const base="https://calendar.google.com/calendar/render?action=TEMPLATE";
+    const dates=`${formatICSDate(start)}/${formatICSDate(end)}`;
+    const params=new URLSearchParams({text:title,details:description,location:location,dates:dates});
+    return `${base}&${params.toString()}`;
+  }
+  function downloadICS({title,description,location,start,end,timezone}) {
+    const uid=`${Date.now()}@strategicprayer.org`;
+    const ics =
+`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Strategic Prayer Ministries//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:${uid}
+SUMMARY:${title}
+DESCRIPTION:${(description||"").replace(/\n/g,"\\n")}
+DTSTART:${formatICSDate(start)}
+DTEND:${formatICSDate(end)}
+DTSTAMP:${formatICSDate(new Date().toISOString())}
+LOCATION:${location||""}
+TZID:${timezone||"Europe/London"}
+END:VEVENT
+END:VCALENDAR`;
+    const blob=new Blob([ics],{type:"text/calendar;charset=utf-8"});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement("a");a.href=url;a.download=`${title.toLowerCase().replace(/[^a-z0-9]+/g,"-")}.ics`;
+    document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
+  }
+
+  // Wire up menus and actions for each event row
+  document.querySelectorAll(".addcal-wrap").forEach((wrap)=>{
+    const btn=wrap.querySelector(".btn--addcal");
+    const menu=wrap.querySelector(".addcal-menu");
+    const row=wrap.closest(".event-row");
+    const payload={
+      title:row.dataset.title || "External Ministration",
+      description:row.dataset.description || "",
+      location:row.dataset.location || "",
+      start:row.dataset.start,
+      end:row.dataset.end,
+      timezone:row.dataset.timezone || "Europe/London"
+    };
+    btn.addEventListener("click",()=>{
+      const open=menu.style.display==="block";
+      document.querySelectorAll(".addcal-menu").forEach(m=>m.style.display="none");
+      menu.style.display=open?"none":"block";
+      btn.setAttribute("aria-expanded",(!open).toString());
+    });
+    menu.querySelector('[data-add="google"]').addEventListener("click",(e)=>{
+      e.preventDefault(); window.open(buildGoogleUrl(payload),"_blank","noopener"); menu.style.display="none";
+    });
+    menu.querySelector('[data-add="ics"]').addEventListener("click",()=>{
+      downloadICS(payload); menu.style.display="none";
+    });
+  });
+
+  // Close any open add-cal menus when clicking elsewhere
+  document.addEventListener("click",(e)=>{
+    if(!e.target.closest(".addcal-wrap")){
+      document.querySelectorAll(".addcal-menu").forEach(m=>m.style.display="none");
+      document.querySelectorAll(".btn--addcal").forEach(b=>b.setAttribute("aria-expanded","false"));
+    }
+  });
+</script>
+</body>
+</html>
