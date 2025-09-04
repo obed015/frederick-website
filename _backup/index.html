@@ -15,6 +15,14 @@
 </head>
 <body>
 
+ <!-- Favicons -->
+   <link rel="icon" href="favicon.ico" sizes="any"><!-- Default .ico -->
+   <link rel="icon" type="image/svg+xml" href="favicon.svg"><!-- Modern browsers -->
+   <link rel="apple-touch-icon" href="apple-touch-icon.png"><!-- iOS -->
+   <link rel="manifest" href="site.webmanifest"><!-- Android/Chrome -->
+   <meta name="theme-color" content="#0b0d13"><!-- Browser theme color -->
+
+
 <!-- ===== Nav ===== -->
 <header class="nav" id="navbar" role="banner">
   <div class="nav__inner container">
@@ -127,12 +135,12 @@
                     </div>
                 </a>
 
-                    <!-- Card 2: Gallery -->
+                    <!-- Card 2: Testimonies -->
                     <a class="rail-card rail-card--gallery" role="listitem"
-                       href="gallery.html"
-                       aria-label="Gallery — photos and highlights">
+                       href="testimonies.html"
+                       aria-label="Testimonies — stories and experiences">
                     <div class="rail-card__body">
-                        <div class="rail-card__title">Gallery</div>
+                        <div class="rail-card__title">Testimonies</div>
                         <div class="rail-card__tag">PHOTOS</div>
                     </div>
                 </a>
@@ -269,44 +277,18 @@
       <img src="assets/ministry5.jpg" alt="Ministry Photo 5" />
       <img src="assets/ministry6.jpg" alt="Ministry Photo 6" />
     </div>
+  </div> <!-- /container -->
+</section> <!-- /#media -->
 
-<section class="videos-section">
-  <div class="video-grid">
-    <!-- Video 1 -->
-    <div class="video">
-      <iframe
-        src="https://www.youtube-nocookie.com/embed/FjtkxXDOWco"
-        title="Testimony Day 2"
-        loading="lazy"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
 
-    <!-- Video 2 -->
-    <div class="video">
-      <iframe
-        src="https://www.youtube-nocookie.com/embed/Bdzx6xk91EU"
-        title="This Same Jesus Crusade Testimony"
-        loading="lazy"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Footer ===== -->
+<!-- ===== Footer (same as contact.html) ===== -->
 <footer class="footer">
   <div class="container">
     <div class="footer-logo-wrapper">
       <a href="index.html">
-        <img src="assets/spm-logo.png" alt="SPM Logo" class="footer-logo" />
+        <img src="assets/spm-logo.png" alt="Strategic Prayer Ministries Logo" class="footer-logo" />
       </a>
     </div>
-
     <div class="footer-container">
       <div>
         <h4>MINISTRY</h4>
@@ -314,10 +296,8 @@
           <li><a href="about.html">About Us</a></li>
           <li><a href="giving.html">Giving</a></li>
           <li><a href="prayer-request.html">Prayer-Request</a></li>
-          
         </ul>
       </div>
-
       <div>
         <h4>RESOURCES</h4>
         <ul>
@@ -325,41 +305,22 @@
           <li><a href="index.html#media">Videos</a></li>
         </ul>
       </div>
-
       <div>
         <h4>CONNECT WITH US</h4>
-
         <div class="social-badges">
-          <!-- Email -->
-          <a href="mailto:S.prayerministries@yahoo.com" class="badge badge--email" aria-label="Email us">
-            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
-              <circle cx="32" cy="32" r="32" fill="currentColor"/>
-              <rect x="18" y="24" width="28" height="18" rx="3" fill="none" stroke="#fff" stroke-width="4"/>
-              <path d="M18 26 l14 12 L46 26" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+          <a href="mailto:info@strategicprayer.org" class="badge badge--email" aria-label="Email us">
+            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><rect x="18" y="24" width="28" height="18" rx="3" fill="none" stroke="#fff" stroke-width="4"/><path d="M18 26 l14 12 L46 26" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span>Email</span>
           </a>
-
-          <!-- Zoom -->
-          <a href="https://us02web.zoom.us/j/4880417404?pwd=a2g2MWIyblpGTkdyQUtybEx2YkpjZz09" class="badge badge--zoom" target="_blank" rel="noopener" aria-label="Join us on Zoom">
-            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
-              <circle cx="32" cy="32" r="32" fill="currentColor"/>
-              <rect x="18" y="24" width="22" height="16" rx="4" fill="#fff"/>
-              <polygon points="40,27 48,23 48,41 40,37" fill="#fff"/>
-            </svg>
+          <a href="https://zoom.us/j/yourMeetingId" class="badge badge--zoom" target="_blank" rel="noopener" aria-label="Join us on Zoom">
+            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><rect x="18" y="24" width="22" height="16" rx="4" fill="#fff"/><polygon points="40,27 48,23 48,41 40,37" fill="#fff"/></svg>
             <span>Zoom</span>
           </a>
-
-          <!-- YouTube -->
-          <a href="https://www.youtube.com/@strategic-prayer-ministry" class="badge badge--youtube" target="_blank" rel="noopener" aria-label="Watch on YouTube">
-            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
-              <circle cx="32" cy="32" r="32" fill="currentColor"/>
-              <polygon points="27,24 45,32 27,40" fill="#fff"/>
-            </svg>
+          <a href="https://www.youtube.com/@yourChannel" class="badge badge--youtube" target="_blank" rel="noopener" aria-label="Watch on YouTube">
+            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><polygon points="27,24 45,32 27,40" fill="#fff"/></svg>
             <span>YouTube</span>
           </a>
         </div>
-
         <div class="newsletter">
           <h4 style="margin-top:1rem;">Subscribe</h4>
           <form>
@@ -369,9 +330,7 @@
         </div>
       </div>
     </div>
-
     <div class="scripture" id="scripture"></div>
-
     <div class="footer-bottom">
       <div class="footer-bottom-row">
         <p>© <span id="year"></span> Strategic Prayer Ministries. All rights reserved.</p>
@@ -384,6 +343,100 @@
     </div>
   </div>
 </footer>
+
+<!-- ===== JS: navbar + dropdown + parallax + footer verse ===== -->
+<script>
+  (function () {
+    const navbar = document.getElementById('navbar');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    const homeDropdown = document.getElementById('homeDropdown');
+    const dropdownButton = document.getElementById('homeDropdownButton');
+    const dropdownMenu = document.getElementById('homeDropdownMenu');
+
+    function onNavScroll() {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    }
+    onNavScroll();
+    window.addEventListener('scroll', onNavScroll, { passive: true });
+
+    navToggle.addEventListener('click', () => {
+      const open = !navLinks.classList.contains('active');
+      navLinks.classList.toggle('active', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      if (!open) {
+        homeDropdown.classList.remove('active');
+        dropdownButton && dropdownButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    if (dropdownButton) {
+      dropdownButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        const open = !homeDropdown.classList.contains('active');
+        homeDropdown.classList.toggle('active', open);
+        dropdownButton.setAttribute('aria-expanded', String(open));
+      });
+    }
+
+    document.addEventListener('click', (e) => {
+      if (!navbar.contains(e.target)) {
+        navLinks.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        homeDropdown.classList.remove('active');
+        dropdownButton && dropdownButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        navLinks.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        homeDropdown.classList.remove('active');
+        dropdownButton && dropdownButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.querySelectorAll('.nav__links a, .nav__dropdown-menu a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        homeDropdown.classList.remove('active');
+        dropdownButton && dropdownButton.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const hero = document.querySelector('.hero.hero--scrolling');
+    const bg = hero && hero.querySelector('.hero__bg');
+    if (hero && bg) {
+      const onParallax = () => {
+        const offset = window.scrollY * 0.35;
+        hero.style.setProperty('--scroll-offset', offset + 'px');
+      };
+      onParallax();
+      window.addEventListener('scroll', onParallax, { passive: true });
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const verses = [
+      "“Is not my word like as a fire? saith the Lord; and like a hammer that breaketh the rock in pieces?”  Jeremiah 23:29",
+      "“But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.” Isaiah 40:31",
+      "“Then saith he unto his disciples, The harvest truly is plenteous, but the labourers are few; Pray ye therefore the Lord of the harvest, that he will send forth labourers into his harvest.”  Matthew 9:37–38"
+    ];
+    let index = 0;
+    function showVerse() {
+      const el = document.getElementById("scripture");
+      if (!el) return;
+      el.textContent = verses[index];
+      index = (index + 1) % verses.length;
+    }
+    showVerse();
+    setInterval(showVerse, 8000);
+  })();
+</script>
+</body>
+</html>
+
 
 <!-- ===== JS: navbar + dropdown + parallax + footer verse ===== -->
 <script>

@@ -12,6 +12,13 @@
 
   <!-- Your shared stylesheet -->
   <link rel="stylesheet" href="./css/styles.css" />
+  
+  <!-- Favicons -->
+   <link rel="icon" href="favicon.ico" sizes="any"><!-- Default .ico -->
+   <link rel="icon" type="image/svg+xml" href="favicon.svg"><!-- Modern browsers -->
+   <link rel="apple-touch-icon" href="apple-touch-icon.png"><!-- iOS -->
+   <link rel="manifest" href="site.webmanifest"><!-- Android/Chrome -->
+   <meta name="theme-color" content="#0b0d13"><!-- Browser theme color -->
 
   <style>
     :root{
@@ -75,11 +82,24 @@
     }
 
     .disclaimer{ color:rgba(255,255,255,.7); font-style:italic; font-size:.95rem; margin:2rem auto 3rem; max-width:75ch; text-align:center; }
+
+    /* ===== Toast (same look as contact.html) ===== */
+    .toast{
+      position: fixed; right: 1rem; bottom: 1rem; z-index: 1000001;
+      background: #0f1218; color:#fff; border:1px solid rgba(255,255,255,.12);
+      border-left: 6px solid #22c55e;
+      padding: .85rem 1rem; border-radius:12px; box-shadow:0 18px 40px rgba(0,0,0,.35);
+      display:none; max-width: 360px;
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    .toast.error{ border-left-color:#ef4444; }
+    .toast .title{ font-weight:700; margin-bottom:.25rem; }
+    .toast .msg{ opacity:.9; }
   </style>
 </head>
 <body class="main">
 
-  <!-- ===== Header / Nav (your existing nav remains) ===== -->
+  <!-- ===== Header / Nav ===== -->
   <header class="nav" id="navbar">
     <div class="nav__inner container">
       <a class="brand" href="index.html#home">
@@ -112,9 +132,9 @@
   <!-- ===== Scripture ===== -->
   <section class="container scripture-block">
     <div class="gold-divider"></div>
-    <p class="scripture-text">“Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, 
-        which transcends all understanding, will guard your hearts and your minds in Christ Jesus.</p>
-    <div class="scripture-ref">Philippians 4:6–7</div>
+    <p class="scripture-text">“Who, in the days of His flesh, when he offered up prayers and supplications, with vehement 
+        cries and tears to Him who was able to save him from death, and who was heard because of his goldy fear.</p>
+    <div class="scripture-ref">Hebrews 5:7</div>
     <div class="gold-divider" style="margin-top:1.5rem;"></div>
   </section>
 
@@ -133,7 +153,7 @@
         <button class="spm-modal-close" id="spmCloseBtn" aria-label="Close form">Close</button>
       </div>
       <div class="spm-modal-body">
-        <!-- Load the Google Form immediately to avoid any lazy-load issues -->
+        <!-- Google Form -->
         <iframe
           id="spmIframe"
           class="spm-iframe"
@@ -146,15 +166,75 @@
     </div>
   </div>
 
-  <!-- ===== Footer ===== -->
+  <!-- ===== Toast (success on submit) ===== -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+    <div class="title" id="toastTitle">Request submitted</div>
+    <div class="msg" id="toastMsg">Thank you! Your prayer request has been received.</div>
+  </div>
+
+  <!-- ===== Footer (same as contact.html) ===== -->
   <footer class="footer">
     <div class="container">
+      <div class="footer-logo-wrapper">
+        <a href="index.html">
+          <img src="assets/spm-logo.png" alt="Strategic Prayer Ministries Logo" class="footer-logo" />
+        </a>
+      </div>
+      <div class="footer-container">
+        <div>
+          <h4>MINISTRY</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="giving.html">Giving</a></li>
+            <li><a href="prayer-request.html">Prayer-Request</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>RESOURCES</h4>
+          <ul>
+            <li><a href="index.html#media">Gallery</a></li>
+            <li><a href="index.html#media">Videos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>CONNECT WITH US</h4>
+          <div class="social-badges">
+            <a href="mailto:info@strategicprayer.org" class="badge badge--email" aria-label="Email us">
+              <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><rect x="18" y="24" width="28" height="18" rx="3" fill="none" stroke="#fff" stroke-width="4"/><path d="M18 26 l14 12 L46 26" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Email</span>
+            </a>
+            <a href="https://zoom.us/j/yourMeetingId" class="badge badge--zoom" target="_blank" rel="noopener" aria-label="Join us on Zoom">
+              <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><rect x="18" y="24" width="22" height="16" rx="4" fill="#fff"/><polygon points="40,27 48,23 48,41 40,37" fill="#fff"/></svg>
+              <span>Zoom</span>
+            </a>
+            <a href="https://www.youtube.com/@yourChannel" class="badge badge--youtube" target="_blank" rel="noopener" aria-label="Watch on YouTube">
+              <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+                <circle cx="32" cy="32" r="32" fill="currentColor"/>
+                <!-- centered play button -->
+                 <polygon points="26,22 44,32 26,42" fill="#fff"/>
+                </svg>
+                <span>YouTube</span>
+              </a>
+            
+            </a>
+          </div>
+          <div class="newsletter">
+            <h4 style="margin-top:1rem;">Subscribe</h4>
+            <form>
+              <input type="email" placeholder="Your Email" required />
+              <button type="submit">Join</button>
+            </form>
+          </div>
+        </div>
+      </div>
       <div class="scripture" id="scripture"></div>
       <div class="footer-bottom">
         <div class="footer-bottom-row">
           <p>© <span id="year"></span> Strategic Prayer Ministries. All rights reserved.</p>
           <div class="footer-links">
-            <a href="#">Privacy Policy</a><span>•</span><a href="#">Terms &amp; Conditions</a>
+            <a href="#">Privacy Policy</a>
+            <span>•</span>
+            <a href="#">Terms &amp; Conditions</a>
           </div>
         </div>
       </div>
@@ -162,7 +242,7 @@
   </footer>
 
   <script>
-    // Mobile nav toggle (unchanged)
+    // Mobile nav toggle
     const navToggle = document.getElementById('navToggle');
     const navLinks  = document.getElementById('navLinks');
     if (navToggle && navLinks) {
@@ -184,24 +264,73 @@
     function showVerse(){ const el = document.getElementById("scripture"); if (el) { el.textContent = verses[i]; i = (i+1)%verses.length; } }
     showVerse(); setInterval(showVerse, 8000);
 
-    // ===== Modal logic (prefixed) =====
+    // ===== Toast helper =====
+    function showToast(title, msg, isError=false){
+      const toast = document.getElementById('toast');
+      const toastTitle = document.getElementById('toastTitle');
+      const toastMsg = document.getElementById('toastMsg');
+      toastTitle.textContent = title;
+      toastMsg.textContent = msg;
+      if (isError) { toast.classList.add('error'); } else { toast.classList.remove('error'); }
+      toast.style.display = 'block';
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(()=> { toast.style.display = 'none'; }, 5500);
+    }
+
+    // ===== Modal logic with auto-close after Google Form submit =====
     const spmOpenBtn = document.getElementById('spmOpenBtn');
     const spmCloseBtn = document.getElementById('spmCloseBtn');
     const spmOverlay = document.getElementById('spmModalOverlay');
     const spmIframe  = document.getElementById('spmIframe');
-    const formURL = spmIframe ? spmIframe.src : "https://docs.google.com/forms/d/e/1FAIpQLScCxcwJSMOjbYqUt9y64QCy0TznElxD5UCRWj9N3a7bKRkH4A/viewform?embedded=true";
+
+    const FORM_EMBED_URL = "https://docs.google.com/forms/d/e/1FAIpQLScCxcwJSMOjbYqUt9y64QCy0TznElxD5UCRWj9N3a7bKRkH4A/viewform?embedded=true";
+
+    let spmLoadCount = 0;
+    let spmLoadListenerAttached = false;
+
+    function attachIframeLoadListener(){
+      if (spmLoadListenerAttached) return;
+      spmIframe.addEventListener('load', onIframeLoad);
+      spmLoadListenerAttached = true;
+    }
+
+    function detachIframeLoadListener(){
+      if (!spmLoadListenerAttached) return;
+      spmIframe.removeEventListener('load', onIframeLoad);
+      spmLoadListenerAttached = false;
+    }
+
+    function onIframeLoad(){
+      spmLoadCount += 1;
+
+      // After submission, Google Forms shows a confirmation page (second load)
+      if (spmLoadCount >= 2) {
+        // Show success toast before closing
+        showToast("Request submitted", "Thank you! Your prayer request has been received.");
+        // Close shortly after so the toast remains visible on the page
+        setTimeout(() => { spmClose(); }, 900);
+      }
+    }
 
     function spmOpen(){
+      spmLoadCount = 0;
+
+      // Always reload a fresh form when opening
+      if (spmIframe) spmIframe.src = FORM_EMBED_URL;
+
+      // Show modal
       spmOverlay.classList.add('spm-open');
       document.body.style.overflow = 'hidden';
       spmOpenBtn.setAttribute('aria-expanded', 'true');
 
-      // Fallback: if iframe didn't finish loading in 2s, open in new tab
+      attachIframeLoadListener();
+
+      // Optional fallback if iframe doesn't load
       let loaded = false;
-      const onLoad = () => { loaded = true; spmIframe.removeEventListener('load', onLoad); };
-      spmIframe.addEventListener('load', onLoad);
+      const tempLoad = () => { loaded = true; spmIframe.removeEventListener('load', tempLoad); };
+      spmIframe.addEventListener('load', tempLoad);
       setTimeout(() => {
-        if (!loaded) window.open(formURL.replace('?embedded=true',''), '_blank');
+        if (!loaded) window.open(FORM_EMBED_URL.replace('?embedded=true',''), '_blank');
       }, 2000);
     }
 
@@ -210,6 +339,7 @@
       document.body.style.overflow = '';
       spmOpenBtn.setAttribute('aria-expanded', 'false');
       spmOpenBtn.focus();
+      detachIframeLoadListener();
     }
 
     spmOpenBtn.addEventListener('click', spmOpen);
