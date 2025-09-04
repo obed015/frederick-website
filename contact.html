@@ -13,32 +13,39 @@
   <!-- Shared stylesheet -->
   <link rel="stylesheet" href="./css/styles.css" />
 
+  <!-- Favicons -->
+   <link rel="icon" href="favicon.ico" sizes="any"><!-- Default .ico -->
+   <link rel="icon" type="image/svg+xml" href="favicon.svg"><!-- Modern browsers -->
+   <link rel="apple-touch-icon" href="apple-touch-icon.png"><!-- iOS -->
+   <link rel="manifest" href="site.webmanifest"><!-- Android/Chrome -->
+   <meta name="theme-color" content="#0b0d13"><!-- Browser theme color -->
+
+
   <!-- Page-specific styles -->
   <style>
     /* ===== Contact Hero — FULL-BLEED like homepage ===== */
     .contact-hero{
       position: relative;
-      background-image: url("assets/contact-background.png"); /* change to .jpg if needed */
+      background-image: url("assets/contact-background.png");
       background-repeat: no-repeat;
       background-position: center;
-      background-size: cover;        /* fill the area (may crop edges) */
+      background-size: cover;
       background-color: #0b0d13;
       width: 100%;
-      min-height: clamp(520px, 72vh, 880px); /* tall, responsive height */
+      min-height: clamp(520px, 72vh, 880px);
       display: flex;
       align-items: flex-end;
     }
-    /* Soft overlay for readability */
     .contact-hero::after{
       content:""; position:absolute; inset:0;
       background: linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.55));
     }
     .contact-hero .container{
       position:relative; z-index:1; width:100%;
-      padding: clamp(1.25rem, 6vh, 4rem) 1rem 2rem; /* top | sides | bottom */
+      padding: clamp(1.25rem, 6vh, 4rem) 1rem 2rem;
     }
 
-    /* ===== Section intro above the form ===== */
+    /* ===== Section intro ===== */
     .section-intro{
       max-width: 900px;
       margin: 1.25rem auto 1rem;
@@ -46,46 +53,140 @@
     }
     .section-intro p{
       font-weight: 700;
-      color: #f59e0b;          /* brand gold */
+      color: #f59e0b;
       font-size: clamp(1.45rem, 2.4vw, 1.95rem);
       margin: 0;
     }
 
-    /* ===== Form styling ===== */
-    .form-wrapper{ max-width: 720px; margin: 0 auto; }
+    /* ===== Techy / Pro form ===== */
+    :root{
+      --line-600:rgba(255,255,255,.12);
+      --ring:#22d3ee;
+      --accent:#f59e0b;
+    }
+    .form-wrapper{ max-width: 760px; margin: 0 auto; }
+    .card{
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+      border-radius: 16px;
+      border: 1px solid var(--line-600);
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      overflow: hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute; inset:-1px;
+      border-radius: 18px;
+      padding:1px;
+      background: linear-gradient(135deg, rgba(34,211,238,.45), rgba(245,158,11,.35) 40%, rgba(34,211,238,.25) 100%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events:none;
+    }
+    .card::after{
+      content:"";
+      position:absolute; inset:0;
+      background-image:
+        radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.18));
+      background-size: 18px 18px, 100% 100%;
+      background-position: -2px -2px, 0 0;
+      pointer-events:none;
+    }
     .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
     @media (max-width:640px){ .form-grid{ grid-template-columns:1fr; } }
-
-    .form-group{ display:flex; flex-direction:column; gap:.5rem; margin-bottom:1rem; }
-    .form-group label{ font-weight:600; color:rgba(255,255,255,.9); }
-    .input, .textarea{
-      width:100%; background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.12);
-      color:#fff; padding:.85rem 1rem; border-radius:12px; outline:none;
-      transition: box-shadow .2s ease, border-color .2s ease, background .2s ease;
+    .form-group{ margin-bottom: 1.15rem; }
+    .field{ position: relative; }
+    .field .input, .field .textarea{
+      width:100%;
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border: 1px solid var(--line-600);
+      border-radius: 12px;
+      padding: 1.05rem 2.75rem 1.05rem 1rem;
+      color:#fff;
+      transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
     }
-    .textarea{ min-height:160px; resize:vertical; }
-    .input::placeholder, .textarea::placeholder{ color:rgba(255,255,255,.5); }
-    .input:focus, .textarea:focus{
-      border-color:#f59e0b; box-shadow:0 0 0 3px rgba(245,158,11,.15);
-      background:rgba(255,255,255,.07);
+    .field .textarea{ min-height:170px; padding-right:1rem; resize:vertical; }
+    .field label{
+      position: absolute;
+      left: 12px; top: 12px;
+      padding: 0 .35rem;
+      font-size: .95rem;
+      color: rgba(255,255,255,.78);
+      background: #0b0d13;
+      transition: transform .18s ease, color .18s ease, font-size .18s ease, top .18s ease;
+      pointer-events: none;
+      border-radius: 6px;
     }
-    .btn-row{ display:flex; align-items:center; gap:.75rem; flex-wrap:wrap; }
-    .btn[disabled]{ opacity:.7; cursor:not-allowed; }
+    .field .input:focus + label,
+    .field .textarea:focus + label,
+    .field .input:not(:placeholder-shown) + label,
+    .field .textarea:not(:placeholder-shown) + label{
+      top: -10px;
+      font-size: .78rem;
+      color: var(--accent);
+    }
+    .field .input:focus, .field .textarea:focus{
+      border-color: var(--ring);
+      box-shadow:
+        0 0 0 3px rgba(34,211,238,.12),
+        0 0 0 1px rgba(34,211,238,.35) inset;
+      background: linear-gradient(180deg, rgba(34,211,238,.08), rgba(255,255,255,.03));
+    }
+    .field__icon{
+      position: absolute;
+      right: 12px; top: 50%;
+      transform: translateY(-50%);
+      width: 28px; height: 28px;
+      color: rgba(255,255,255,.6);
+      pointer-events: none;
+    }
+    .field .input:focus ~ .field__icon,
+    .field .textarea:focus ~ .field__icon{ color: var(--ring); }
+    .input::placeholder, .textarea::placeholder{ color: transparent; }
     .help{ font-size:.9rem; color:rgba(255,255,255,.65); }
-    .card__body--pad-lg{ padding:1.5rem 1.5rem 1.25rem; }
-
-    /* Toasts */
-    .toast{
-      position: fixed; right: 1rem; bottom: 1rem; z-index: 9999;
-      background: #0f1218; color:#fff; border:1px solid rgba(255,255,255,.12);
-      border-left: 6px solid #22c55e;
-      padding: .85rem 1rem; border-radius:12px; box-shadow:0 18px 40px rgba(0,0,0,.35);
-      display:none; max-width: 360px;
+    .btn-row .btn{
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(245,158,11,.18);
+      transition: transform .08s ease, box-shadow .2s ease;
     }
-    .toast.error{ border-left-color:#ef4444; }
-    .toast .title{ font-weight:700; margin-bottom:.25rem; }
-    .toast .msg{ opacity:.9; }
+    .btn-row .btn:hover{ transform: translateY(-1px); box-shadow: 0 16px 36px rgba(245,158,11,.22); }
+
+    /* ===== Success Overlay ===== */
+    .success-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+    }
+    .success-card {
+      background: #0f1218;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      animation: fadeInScale .35s ease;
+    }
+    .success-card h3 { color: #22c55e; font-size: 1.45rem; margin-bottom: .5rem; }
+    .success-card p { color: rgba(255,255,255,.85); font-size: 1rem; margin-bottom: 1.25rem; }
+    .success-card button {
+      background: #f59e0b; color: #0b0d13;
+      border: none; border-radius: 10px;
+      padding: .65rem 1.25rem; font-weight: 600; cursor: pointer;
+      transition: background .2s ease, transform .1s ease;
+    }
+    .success-card button:hover { background:#ffb627; transform:translateY(-2px); }
+    @keyframes fadeInScale {
+      from { opacity:0; transform:scale(.9); }
+      to { opacity:1; transform:scale(1); }
+    }
   </style>
 </head>
 <body>
@@ -117,14 +218,8 @@
 
 <!-- ===== Contact Page Content ===== -->
 <main class="main">
-  <!-- Hero with full image visible (full-bleed) -->
-  <section class="page-hero contact-hero">
-    <div class="container">
-      <!-- (intentionally empty; no "Contact Us" heading) -->
-    </div>
-  </section>
+  <section class="page-hero contact-hero"><div class="container"></div></section>
 
-  <!-- Lead line ABOVE the form card -->
   <div class="section-intro">
     <p>Have a question? We’re here to help.</p>
   </div>
@@ -138,27 +233,39 @@
 
         <form id="contactForm" novalidate>
           <input type="hidden" name="_subject" value="New message from Strategic Prayer Ministries website" />
-          <input type="hidden" name="_gotcha">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
           <div class="form-grid">
-            <div class="form-group">
+            <div class="form-group field">
+              <input id="firstName" name="firstName" class="input" type="text" placeholder=" " required />
               <label for="firstName">First Name *</label>
-              <input id="firstName" name="firstName" class="input" type="text" placeholder="First name" required />
+              <span class="field__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.76 0 5-2.69 5-6s-2.24-6-5-6-5 2.69-5 6 2.24 6 5 6Zm0 2c-4.42 0-8 2.69-8 6v2h16v-2c0-3.31-3.58-6-8-6Z"/></svg>
+              </span>
             </div>
-            <div class="form-group">
+            <div class="form-group field">
+              <input id="lastName" name="lastName" class="input" type="text" placeholder=" " required />
               <label for="lastName">Last Name *</label>
-              <input id="lastName" name="lastName" class="input" type="text" placeholder="Last name" required />
+              <span class="field__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.76 0 5-2.69 5-6s-2.24-6-5-6-5 2.69-5 6 2.24 6 5 6Zm0 2c-4.42 0-8 2.69-8 6v2h16v-2c0-3.31-3.58-6-8-6Z"/></svg>
+              </span>
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="form-group field">
+            <input id="email" name="email" class="input" type="email" placeholder=" " required />
             <label for="email">Email *</label>
-            <input id="email" name="email" class="input" type="email" placeholder="you@example.com" required />
+            <span class="field__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/></svg>
+            </span>
           </div>
 
-          <div class="form-group">
+          <div class="form-group field">
+            <textarea id="message" name="message" class="textarea" placeholder=" " required></textarea>
             <label for="message">Message *</label>
-            <textarea id="message" name="message" class="textarea" placeholder="Type your message..." required></textarea>
+            <span class="field__icon" style="top:14px; transform:none;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Z"/></svg>
+            </span>
           </div>
 
           <div class="btn-row">
@@ -171,7 +278,7 @@
   </section>
 </main>
 
-<!-- ===== Footer (same as giving.html) ===== -->
+<!-- ===== Footer (unchanged) ===== -->
 <footer class="footer">
   <div class="container">
     <div class="footer-logo-wrapper">
@@ -186,7 +293,6 @@
           <li><a href="about.html">About Us</a></li>
           <li><a href="giving.html">Giving</a></li>
           <li><a href="prayer-request.html">Prayer-Request</a></li>
-          
         </ul>
       </div>
       <div>
@@ -235,10 +341,13 @@
   </div>
 </footer>
 
-<!-- Toast -->
-<div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-  <div class="title" id="toastTitle">Message sent</div>
-  <div class="msg" id="toastMsg">Thanks! We’ll get back to you shortly.</div>
+<!-- Success Overlay -->
+<div id="successOverlay" class="success-overlay">
+  <div class="success-card">
+    <h3>✅ Message Received</h3>
+    <p>Thank you! Your message has been received. We’ll get back to you shortly.</p>
+    <button onclick="closeSuccess()">Close</button>
+  </div>
 </div>
 
 <!-- ===== JS ===== -->
@@ -285,21 +394,14 @@
   function showVerse(){ document.getElementById("scripture").textContent = verses[i]; i = (i+1)%verses.length; }
   showVerse(); setInterval(showVerse, 8000);
 
-  /* ===== Contact form (Formspree) =====
-     Replace with your real endpoint.
-  */
-  const FORMSPREE_URL = "https://formspree.io/f/YOUR_FORM_ID";
+  /* ===== Contact form (Formspree) ===== */
+  const FORMSPREE_URL = "https://formspree.io/f/mandlnyw";
   const form = document.getElementById('contactForm');
   const submitBtn = document.getElementById('submitBtn');
   const formHint = document.getElementById('formHint');
 
-  function showToast(title, msg, isError=false){
-    const toast = document.getElementById('toast');
-    document.getElementById('toastTitle').textContent = title;
-    document.getElementById('toastMsg').textContent = msg;
-    toast.classList.toggle('error', !!isError);
-    toast.style.display = 'block';
-    setTimeout(()=> toast.style.display = 'none', 5500);
+  function closeSuccess(){
+    document.getElementById("successOverlay").style.display = "none";
   }
 
   form.addEventListener('submit', async (e) => {
@@ -321,16 +423,14 @@
       });
 
       if (res.ok) {
-        showToast("Message sent","Thanks! We’ll get back to you shortly.");
         form.reset();
         formHint.textContent = "Sent.";
+        document.getElementById("successOverlay").style.display = "flex"; // show success card
       } else {
-        showToast("Send failed","Something went wrong. Try again.", true);
-        formHint.textContent = "Error.";
+        formHint.textContent = "Error. Please try again.";
       }
     } catch (err) {
-      showToast("Network error","Please check your connection and try again.", true);
-      formHint.textContent = "Network error.";
+      formHint.textContent = "Network error. Please try again.";
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = "Send Message";
