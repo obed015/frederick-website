@@ -8,97 +8,254 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Shared stylesheet (matches Contact page navbar styles) -->
-  <link rel="stylesheet" href="./css/styles.css" />
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
 
   <!-- Favicons -->
-   <link rel="icon" href="favicon.ico" sizes="any"><!-- Default .ico -->
-   <link rel="icon" type="image/svg+xml" href="favicon.svg"><!-- Modern browsers -->
-   <link rel="apple-touch-icon" href="apple-touch-icon.png"><!-- iOS -->
-   <link rel="manifest" href="site.webmanifest"><!-- Android/Chrome -->
-   <meta name="theme-color" content="#0b0d13"><!-- Browser theme color -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0b0d13">
 
+  <!-- SEO -->
+  <meta name="description" content="Join Strategic Prayer Ministries at our upcoming external ministration events. Experience the power of God through our crusades and outreach programs.">
 
-  <!-- FULL STYLES (CSS) -->
+  <!-- Page-specific styles -->
   <style>
-    :root{
-      --bg:#0b0b0d; --bg-2:#121216; --text:#f7f7f8; --muted:rgba(255,255,255,.75);
-      --line:rgba(255,255,255,.15); --line-strong:rgba(255,255,255,.22);
-      --gold-1:#d4af37; --gold-2:#f5d76e; --radius:14px; --shadow-1:0 10px 28px rgba(0,0,0,.25);
-    }
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg)}
-    img{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}
-    button{font:inherit;color:inherit}
-    .container{width:min(1200px,92%);margin-inline:auto}
-    .main{padding-top:84px}
-    .section{padding:2.25rem 0}
-
-    /* NAV styles removed to match shared navbar in ./css/styles.css */
-
-    /* HERO */
-    .events-hero{padding:4rem 0 1rem;text-align:center}
-    .events-title{font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:.06em;text-transform:uppercase;font-weight:800}
-    .events-subtitle{margin-top:.25rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.9}
-
-    /* FLYER */
-    .flyer{margin:1rem auto 0;max-width:720px;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-1)}
-
-    /* EVENTS LIST */
-    .events-list{margin-top:2rem;border-top:1px solid var(--line)}
-    .event-row{display:grid;grid-template-columns:110px 1.2fr 1.3fr auto;gap:1.25rem;align-items:center;padding:1.25rem 0;border-bottom:1px solid var(--line)}
-    .event-date{display:grid;place-items:center;text-align:center}
-    .event-date .day{font-size:2rem;font-weight:800}
-    .event-date .mon{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;opacity:.85}
-    .event-title{font-weight:700}
-    .event-loc{opacity:.95}
-    .addcal-wrap{position:relative}
-
-    /* BUTTONS */
-    .btn{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--line);background:transparent;color:var(--text);padding:.75rem 1rem;border-radius:10px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.06em}
-    .btn--addcal{background:linear-gradient(135deg,var(--gold-1),var(--gold-2));color:#121212;border:0;padding:.9rem 1.15rem;border-radius:10px;font-weight:800;letter-spacing:.06em;box-shadow:0 6px 18px rgba(212,175,55,.35);transition:transform .15s,box-shadow .15s,filter .15s}
-    .btn--addcal:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(212,175,55,.45);filter:saturate(1.08)}
-
-    /* ADD-CAL DROPDOWN */
-    .addcal-menu{position:absolute;right:0;top:calc(100% + .6rem);background:#fff;color:#111;border:1px solid rgba(0,0,0,.12);border-radius:12px;min-width:230px;padding:.4rem;display:none;z-index:40;box-shadow:0 14px 30px rgba(0,0,0,.18)}
-    .addcal-menu a,.addcal-menu button{display:block;width:100%;text-align:left;padding:.75rem .95rem;border-radius:10px;font-weight:600}
-    .addcal-menu a:hover,.addcal-menu button:hover{background:rgba(0,0,0,.06)}
-    .addcal-menu button{background:none;border:0;cursor:pointer}
-
-    @media (max-width:800px){
-      .event-row{grid-template-columns:80px 1fr}
-      .addcal-wrap{grid-column:1/-1;justify-self:start;margin-top:.5rem}
+    .events-list {
+      margin-top: 2rem;
     }
 
-    /* FOOTER (unchanged structure) */
-    .footer{background:var(--bg-2);border-top:1px solid var(--line);margin-top:2.5rem}
-    .footer .container{padding:2rem 0}
-    .footer-logo{width:64px}
-    .footer-container{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;margin-top:1rem}
-    .footer-container ul{list-style:none;padding:0;margin:0}
-    .footer-container li{margin:.35rem 0}
-    .social-badges{display:flex;gap:.6rem;flex-wrap:wrap}
-    .badge{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem .8rem;border-radius:999px;border:1px solid var(--line);font-weight:600}
-    .newsletter{margin-top:1rem}
-    .newsletter form{display:flex;gap:.5rem}
-    .newsletter input{flex:1;padding:.65rem .8rem;border-radius:10px;border:1px solid var(--line);background:#0f0f12;color:var(--text)}
-    .newsletter button{padding:.65rem .9rem;border-radius:10px;border:1px solid var(--line);background:linear-gradient(135deg,var(--gold-1),var(--gold-2));color:#121212;font-weight:800}
-    .scripture{margin-top:1rem;font-style:italic;color:var(--muted)}
-    .footer-bottom{border-top:1px solid var(--line);margin-top:1.25rem;padding-top:1rem}
-    .footer-bottom-row{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;justify-content:space-between}
+    .event-row {
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      padding: 2rem;
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      margin-bottom: 2rem;
+      transition: all var(--transition-normal);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .event-row::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent-gold);
+      transform: scaleY(0);
+      transition: transform var(--transition-normal);
+    }
+
+    .event-row:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    .event-row:hover::before {
+      transform: scaleY(1);
+    }
+
+    .event-date {
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background: var(--accent-gold);
+      color: var(--primary-bg);
+      border-radius: 12px;
+      padding: 1rem;
+      min-height: 100px;
+    }
+
+    .event-date .day {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .event-date .month {
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .event-details h3 {
+      color: var(--text-primary);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .event-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    .event-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+    }
+
+    .event-location {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .event-description {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-top: 0.75rem;
+    }
+
+    .add-calendar-btn {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+    }
+
+    .add-calendar-btn:hover {
+      background: var(--accent-gold);
+      color: var(--primary-bg);
+      border-color: var(--accent-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(245, 158, 11, 0.3);
+    }
+
+    .calendar-dropdown {
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      right: 0;
+      background: var(--panel-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      min-width: 200px;
+      padding: 0.5rem;
+      display: none;
+      z-index: 100;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .calendar-dropdown a,
+    .calendar-dropdown button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.75rem;
+      border-radius: 8px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .calendar-dropdown a:hover,
+    .calendar-dropdown button:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-primary);
+    }
+
+    .no-events {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+    }
+
+    .no-events svg {
+      margin-bottom: 1rem;
+      opacity: 0.5;
+    }
+
+    .event-highlight {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(34, 211, 238, 0.05));
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .event-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .event-date {
+        width: 100px;
+        height: 80px;
+        margin: 0 auto;
+      }
+
+      .event-date .day {
+        font-size: 1.8rem;
+      }
+
+      .event-meta {
+        justify-content: center;
+      }
+
+      .add-calendar-btn {
+        margin: 1rem auto 0;
+        width: fit-content;
+      }
+
+      .calendar-dropdown {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
   </style>
 </head>
 <body>
 
-<!-- ===== Nav (structure matches Contact page) ===== -->
+<!-- Scroll Progress Indicator -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Interactive Cursor -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ===== Navigation ===== -->
 <header class="nav" id="navbar">
   <div class="nav__inner container">
-    <a class="brand" href="index.html#home">
-      <img src="assets/spm-logo.png" alt="Strategic Prayer Ministries Logo" class="brand__logo" />
+    <a class="brand" href="index.html">
+      <img src="assets/spm-logo.webp" alt="Strategic Prayer Ministries Logo" class="brand__logo" />
       <span class="brand__name">Strategic Prayer Ministries</span>
     </a>
     <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" id="navToggle">
@@ -112,132 +269,222 @@
           <a href="index.html#media">Gallery & Videos</a>
         </div>
       </div>
-      <a href="index.html#who">Who We Are</a>
-      <a href="giving.html" target="_self">Giving</a>
-      <a href="contact.html" target="_self">Contact</a>
+      <a href="about.html">Who We Are</a>
+      <a href="giving.html">Giving</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
-<!-- ===== Page Content ===== -->
-<main class="main">
-  <section class="events-hero container">
-    <h1 class="events-title">Events</h1>
-    <div class="events-subtitle">Our Upcoming Events</div>
+<!-- ===== Hero Section ===== -->
+<section class="hero" style="min-height: 70vh; background: var(--gradient-hero);">
+  <div class="hero__overlay"></div>
+  <div class="hero__content container">
+    <h1 class="title">External Ministrations</h1>
+    <p class="subtitle">
+      Join us at our upcoming crusades and outreach events. Experience the power of God through healing, deliverance, and salvation.
+    </p>
+  </div>
+</section>
+
+<!-- ===== Events Section ===== -->
+<section class="section">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 3rem;">
+      <h2 class="section__title">Upcoming Events</h2>
+      <p style="color: var(--text-muted); font-size: 1.1rem;">Don't miss these powerful gatherings where heaven meets earth</p>
     </div>
-  </section>
 
-  <section class="section container">
     <div class="events-list">
-
-      <!-- FRIDAY SESSION -->
-      <div class="event-row"
+      <!-- Event 1: Harvest Of Miracles - Friday Night -->
+      <div class="event-row event-highlight"
            data-title="Harvest Of Miracles (Friday Night) with Evangelist Frederick"
            data-description="Harvest Of Miracles — Night 1. Worship, intercession, and the Word. Theme: Perfected by His Sacrifice (Hebrews 10:14)."
            data-location="ST Marks Church, ST Marks RD, Leeds. LS2 9AF"
            data-start="2025-10-24T18:00:00+01:00"
            data-end="2025-10-24T23:00:00+01:00"
            data-timezone="Europe/London">
+        
         <div class="event-date">
-          <div class="day">24</div><div class="mon">OCT</div>
+          <div class="day">24</div>
+          <div class="month">OCT</div>
         </div>
-        <div class="event-title">Harvest Of Miracles — Friday Night Service (6:00 PM – 11:00 PM)</div>
-        <div class="event-loc">ST Marks Church, ST Marks RD, Leeds. LS2 9AF</div>
-        <div class="addcal-wrap">
-          <button class="btn--addcal" aria-haspopup="true" aria-expanded="false">Add to Calendar</button>
-          <div class="addcal-menu" role="menu" aria-label="Add to calendar options">
-            <a href="#" data-add="google" role="menuitem">Google Calendar</a>
-            <button data-add="ics" role="menuitem">Apple / Outlook (.ics)</button>
+
+        <div class="event-details">
+          <h3>Harvest Of Miracles — Friday Night Service</h3>
+          <div class="event-meta">
+            <span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+              </svg>
+              6:00 PM - 11:00 PM
+            </span>
+            <span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              Leeds, UK
+            </span>
+          </div>
+          <div class="event-location">ST Marks Church, ST Marks RD, Leeds. LS2 9AF</div>
+          <div class="event-description">
+            Join us for a powerful night of worship, intercession, and the Word. Theme: "Perfected by His Sacrifice" (Hebrews 10:14). Expect healing, deliverance, and breakthrough as we gather in His presence.
+          </div>
+        </div>
+
+        <div class="add-calendar-wrap" style="position: relative;">
+          <button class="add-calendar-btn" aria-haspopup="true" aria-expanded="false">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+            </svg>
+            Add to Calendar
+          </button>
+          <div class="calendar-dropdown">
+            <a href="#" data-add="google">Google Calendar</a>
+            <button data-add="ics">Apple / Outlook (.ics)</button>
           </div>
         </div>
       </div>
 
-      <!-- SATURDAY SESSION -->
-      <div class="event-row"
+      <!-- Event 2: Harvest Of Miracles - Saturday -->
+      <div class="event-row event-highlight"
            data-title="Harvest Of Miracles (Saturday) with Evangelist Frederick"
            data-description="Harvest Of Miracles — Day 2. Worship, intercession, and the Word. Theme: Perfected by His Sacrifice (Hebrews 10:14)."
            data-location="ST Marks Church, ST Marks RD, Leeds. LS2 9AF"
            data-start="2025-10-25T10:00:00+01:00"
            data-end="2025-10-25T17:00:00+01:00"
            data-timezone="Europe/London">
+        
         <div class="event-date">
-          <div class="day">25</div><div class="mon">OCT</div>
+          <div class="day">25</div>
+          <div class="month">OCT</div>
         </div>
-        <div class="event-title">Harvest Of Miracles — Saturday Service (10:00 AM – 5:00 PM)</div>
-        <div class="event-loc">ST Marks Church, ST Marks RD, Leeds. LS2 9AF</div>
-        <div class="addcal-wrap">
-          <button class="btn--addcal" aria-haspopup="true" aria-expanded="false">Add to Calendar</button>
-          <div class="addcal-menu" role="menu" aria-label="Add to calendar options">
-            <a href="#" data-add="google" role="menuitem">Google Calendar</a>
-            <button data-add="ics" role="menuitem">Apple / Outlook (.ics)</button>
+
+        <div class="event-details">
+          <h3>Harvest Of Miracles — Saturday Service</h3>
+          <div class="event-meta">
+            <span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+              </svg>
+              10:00 AM - 5:00 PM
+            </span>
+            <span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              Leeds, UK
+            </span>
+          </div>
+          <div class="event-location">ST Marks Church, ST Marks RD, Leeds. LS2 9AF</div>
+          <div class="event-description">
+            Continue the momentum from Friday night! A full day of worship, powerful preaching, and manifestation of God's miraculous power. Come expecting your breakthrough!
+          </div>
+        </div>
+
+        <div class="add-calendar-wrap" style="position: relative;">
+          <button class="add-calendar-btn" aria-haspopup="true" aria-expanded="false">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+            </svg>
+            Add to Calendar
+          </button>
+          <div class="calendar-dropdown">
+            <a href="#" data-add="google">Google Calendar</a>
+            <button data-add="ics">Apple / Outlook (.ics)</button>
           </div>
         </div>
       </div>
 
+      <!-- Upcoming Events Placeholder -->
+      <div class="card" style="margin-top: 3rem;">
+        <div class="card__body card__body--pad-lg" style="text-align: center;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="var(--accent-gold)" style="margin-bottom: 1rem;">
+            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+          </svg>
+          <h3 style="color: var(--accent-gold); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">More Events Coming Soon</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6;">
+            Stay tuned for more upcoming crusades and ministry events. Follow us on social media or subscribe to our newsletter to be the first to know about new events.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+            <a href="contact.html" class="btn btn--gold">Get Notified</a>
+            <a href="prayer-request.html" class="btn btn--ghost">Submit Prayer Request</a>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
-</main>
+  </div>
+</section>
 
-<!-- ===== Footer (unchanged) ===== -->
+<!-- ===== Call to Action ===== -->
+<section class="section section--alt">
+  <div class="container">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">
+        Join the Revival
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 2rem; line-height: 1.6;">
+        Don't just attend - participate in what God is doing in our generation. Come expecting breakthrough, healing, and transformation.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center;">
+        <a href="giving.html" class="btn btn--gold">Partner With Us</a>
+        <a href="testimonies.html" class="btn btn--ghost">Watch Testimonies</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer (updated to branded-style icons) ===== -->
 <footer class="footer">
   <div class="container">
     <div class="footer-logo-wrapper">
       <a href="index.html">
-        <img src="assets/spm-logo.png" alt="SPM Logo" class="footer-logo" />
+        <img src="assets/spm-logo.webp" alt="Strategic Prayer Ministries Logo" class="footer-logo" />
       </a>
     </div>
-
     <div class="footer-container">
       <div>
         <h4>MINISTRY</h4>
         <ul>
           <li><a href="about.html">About Us</a></li>
           <li><a href="giving.html">Giving</a></li>
-          <li><a href="prayer-request.html">Prayer-Request</a></li>
+          <li><a href="prayer-request.html">Prayer Request</a></li>
         </ul>
       </div>
-
       <div>
         <h4>RESOURCES</h4>
         <ul>
           <li><a href="index.html#media">Gallery</a></li>
-          <li><a href="index.html#media">Videos</a></li>
+          <li><a href="testimonies.html">Videos</a></li>
         </ul>
       </div>
-
       <div>
         <h4>CONNECT WITH US</h4>
         <div class="social-badges">
-          <!-- Email -->
+          <!-- Email (envelope) -->
           <a href="mailto:info@strategicprayer.org" class="badge badge--email" aria-label="Email us">
-            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
-              <circle cx="32" cy="32" r="32" fill="currentColor"/>
-              <rect x="18" y="24" width="28" height="18" rx="3" fill="none" stroke="#fff" stroke-width="4"/>
-              <path d="M18 26 l14 12 L46 26" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 3.2-8 5.2-8-5.2V6l8 5.2L20 6v1.2Z"/>
             </svg>
-            <span>Email</span>
+            <span>EMAIL</span>
           </a>
-          <!-- Zoom -->
-          <a href="https://zoom.us/j/yourMeetingId" class="badge badge--zoom" target="_blank" rel="noopener" aria-label="Join us on Zoom">
-            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
-              <circle cx="32" cy="32" r="32" fill="currentColor"/>
-              <rect x="18" y="24" width="22" height="16" rx="4" fill="#fff"/>
-              <polygon points="40,27 48,23 48,41 40,37" fill="#fff"/>
+          <!-- Zoom (camera glyph) -->
+          <a href="https://us02web.zoom.us/j/4880417404?pwd=a2g2MWIyblpGTkdyQUtybEx2YkpjZz09" class="badge badge--zoom" target="_blank" rel="noopener" aria-label="Join us on Zoom">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M3.6 5h10.8A2.6 2.6 0 0 1 17 7.6v1.9l3.8-2.8a1 1 0 0 1 1.6.8v9a1 1 0 0 1-1.6.8L17 14.5v1.9A2.6 2.6 0 0 1 14.4 19H3.6A2.6 2.6 0 0 1 1 16.4V7.6A2.6 2.6 0 0 1 3.6 5Z"/>
             </svg>
-            <span>Zoom</span>
+            <span>ZOOM</span>
           </a>
-          <!-- YouTube -->
+          <!-- YouTube (play button) -->
           <a href="https://www.youtube.com/@yourChannel" class="badge badge--youtube" target="_blank" rel="noopener" aria-label="Watch on YouTube">
-            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
-              <circle cx="32" cy="32" r="32" fill="currentColor"/>
-              <polygon points="27,24 45,32 27,40" fill="#fff"/>
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8ZM9.6 15.6V8.4L15.9 12l-6.3 3.6Z"/>
             </svg>
-            <span>YouTube</span>
+            <span>YOUTUBE</span>
           </a>
         </div>
-
         <div class="newsletter">
-          <h4 style="margin-top:1rem;">Subscribe</h4>
+          <h4>Subscribe</h4>
           <form>
             <input type="email" placeholder="Your Email" required />
             <button type="submit">Join</button>
@@ -245,85 +492,143 @@
         </div>
       </div>
     </div>
-
     <div class="scripture" id="scripture"></div>
-
     <div class="footer-bottom">
       <div class="footer-bottom-row">
         <p>© <span id="year"></span> Strategic Prayer Ministries. All rights reserved.</p>
         <div class="footer-links">
           <a href="#">Privacy Policy</a>
           <span>•</span>
-          <a href="#">Terms &amp; Conditions</a>
+          <a href="#">Terms & Conditions</a>
         </div>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- ===== JS ===== -->
+<!-- ===== JavaScript ===== -->
 <script>
-  // Navbar scroll effect
+  // Navigation functionality
   const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
-  });
-
-  // Mobile toggle
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
-  navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-
-  // Dropdown
   const homeDropdown = document.getElementById('homeDropdown');
-  const dropdownToggle = homeDropdown.querySelector('.nav__dropdown-toggle');
-  dropdownToggle.addEventListener('click', (e) => {
-    e.preventDefault();
-    homeDropdown.classList.toggle('active');
-    const isExpanded = homeDropdown.classList.contains('active');
-    dropdownToggle.setAttribute('aria-expanded', isExpanded);
+  const dropdownToggle = homeDropdown?.querySelector('.nav__dropdown-toggle');
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    navbar?.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // Mobile menu toggle
+  navToggle?.addEventListener('click', () => {
+    const isActive = navLinks?.classList.toggle('active');
+    navToggle.setAttribute('aria-expanded', String(isActive));
   });
 
-  // Close on outside for Home dropdown
+  // Dropdown functionality
+  dropdownToggle?.addEventListener('click', (e) => {
+    e.preventDefault();
+    const isActive = homeDropdown.classList.toggle('active');
+    dropdownToggle.setAttribute('aria-expanded', String(isActive));
+  });
+
+  // Close menus on outside click
   document.addEventListener('click', (e) => {
-    if (!homeDropdown.contains(e.target) && !e.target.closest('#homeDropdown')) {
-      homeDropdown.classList.remove('active');
-      dropdownToggle.setAttribute('aria-expanded', 'false');
+    if (!navbar.contains(e.target)) {
+      navLinks?.classList.remove('active');
+      navToggle?.setAttribute('aria-expanded', 'false');
+      homeDropdown?.classList.remove('active');
+      dropdownToggle?.setAttribute('aria-expanded', 'false');
+    }
+    // Close calendar dropdowns too
+    if (!e.target.closest('.add-calendar-wrap')) {
+      document.querySelectorAll('.calendar-dropdown').forEach(d => d.style.display = 'none');
+      document.querySelectorAll('.add-calendar-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
     }
   });
 
-  // Footer year + scripture rotation
-  document.getElementById("year").textContent = new Date().getFullYear();
+  // Close menus on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      navLinks?.classList.remove('active');
+      navToggle?.setAttribute('aria-expanded', 'false');
+      homeDropdown?.classList.remove('active');
+      dropdownToggle?.setAttribute('aria-expanded', 'false');
+      // Close calendar dropdowns
+      document.querySelectorAll('.calendar-dropdown').forEach(d => d.style.display = 'none');
+      document.querySelectorAll('.add-calendar-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+    }
+  });
+
+  // Footer year and scripture rotation
+  document.getElementById('year').textContent = new Date().getFullYear();
   const verses = [
-    "“Is not my word like as a fire? saith the Lord; and like a hammer that breaketh the rock in pieces?”  Jeremiah 23:29",
-    "“But they that wait upon the Lord shall renew their strength...” Isaiah 40:31",
-    "“The harvest truly is plenteous, but the labourers are few...” Matthew 9:37–38"
+    '"Is not my word like as a fire? saith the Lord; and like a hammer that breaketh the rock in pieces?" Jeremiah 23:29',
+    '"But they that wait upon the Lord shall renew their strength..." Isaiah 40:31',
+    '"The harvest truly is plenteous, but the labourers are few..." Matthew 9:37–38'
   ];
-  let i = 0;
+  let verseIndex = 0;
   function showVerse() {
-    document.getElementById("scripture").textContent = verses[i];
-    i = (i+1) % verses.length;
+    const el = document.getElementById('scripture');
+    if (el) {
+      el.textContent = verses[verseIndex];
+      verseIndex = (verseIndex + 1) % verses.length;
+    }
   }
   showVerse();
   setInterval(showVerse, 8000);
 
-  /* ===== Add-to-Calendar Logic ===== */
-  function formatICSDate(d){
-    const dt = new Date(d);
-    return dt.toISOString().replace(/[-:]/g,"").replace(/\.\d{3}Z$/,"Z");
+  // Scroll Progress Indicator
+  const progressEl = document.getElementById('scrollProgress');
+  const updateProgress = () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressEl.style.width = pct + '%';
+  };
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+
+  // Interactive Cursor Glow
+  const cursor = document.getElementById('cursorGlow');
+  let rafPending = false, targetX = 0, targetY = 0;
+  const onMove = (e) => {
+    targetX = e.clientX;
+    targetY = e.clientY;
+    if (!rafPending) {
+      rafPending = true;
+      requestAnimationFrame(renderCursor);
+    }
+  };
+  function renderCursor() {
+    rafPending = false;
+    cursor.style.transform = `translate(${targetX - 12}px, ${targetY - 12}px)`;
   }
-  function buildGoogleUrl({title,description,location,start,end}) {
-    const base="https://calendar.google.com/calendar/render?action=TEMPLATE";
-    const dates=`${formatICSDate(start)}/${formatICSDate(end)}`;
-    const params=new URLSearchParams({text:title,details:description,location:location,dates:dates});
-    return `${base}&${params.toString()}`;
+  window.addEventListener('mousemove', onMove, { passive: true });
+
+  // ===== Add-to-Calendar Logic =====
+  function formatICSDate(dateString) {
+    const date = new Date(dateString);
+    return date.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
   }
-  function downloadICS({title,description,location,start,end,timezone}) {
-    const uid=`${Date.now()}@strategicprayer.org`;
-    const ics =
-`BEGIN:VCALENDAR
+
+  function buildGoogleCalendarUrl({ title, description, location, start, end }) {
+    const baseUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE";
+    const dates = `${formatICSDate(start)}/${formatICSDate(end)}`;
+    const params = new URLSearchParams({
+      text: title,
+      details: description,
+      location: location,
+      dates: dates
+    });
+    return `${baseUrl}&${params.toString()}`;
+  }
+
+  function downloadICS({ title, description, location, start, end }) {
+    const uid = `${Date.now()}@strategicprayer.org`;
+    const icsContent = `BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//Strategic Prayer Ministries//Events//EN
 CALSCALE:GREGORIAN
@@ -331,54 +636,70 @@ METHOD:PUBLISH
 BEGIN:VEVENT
 UID:${uid}
 SUMMARY:${title}
-DESCRIPTION:${(description||"").replace(/\n/g,"\\n")}
+DESCRIPTION:${(description || "").replace(/\n/g, "\\n")}
 DTSTART:${formatICSDate(start)}
 DTEND:${formatICSDate(end)}
 DTSTAMP:${formatICSDate(new Date().toISOString())}
-LOCATION:${location||""}
-TZID:${timezone||"Europe/London"}
+LOCATION:${location || ""}
 END:VEVENT
 END:VCALENDAR`;
-    const blob=new Blob([ics],{type:"text/calendar;charset=utf-8"});
-    const url=URL.createObjectURL(blob);
-    const a=document.createElement("a");a.href=url;a.download=`${title.toLowerCase().replace(/[^a-z0-9]+/g,"-")}.ics`;
-    document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
+
+    const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.ics`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   }
 
-  // Wire up menus and actions for each event row
-  document.querySelectorAll(".addcal-wrap").forEach((wrap)=>{
-    const btn=wrap.querySelector(".btn--addcal");
-    const menu=wrap.querySelector(".addcal-menu");
-    const row=wrap.closest(".event-row");
-    const payload={
-      title:row.dataset.title || "External Ministration",
-      description:row.dataset.description || "",
-      location:row.dataset.location || "",
-      start:row.dataset.start,
-      end:row.dataset.end,
-      timezone:row.dataset.timezone || "Europe/London"
+  // Setup calendar functionality for each event
+  document.querySelectorAll('.add-calendar-wrap').forEach((wrap) => {
+    const btn = wrap.querySelector('.add-calendar-btn');
+    const dropdown = wrap.querySelector('.calendar-dropdown');
+    const eventRow = wrap.closest('.event-row');
+    
+    const eventData = {
+      title: eventRow.dataset.title || "External Ministration",
+      description: eventRow.dataset.description || "",
+      location: eventRow.dataset.location || "",
+      start: eventRow.dataset.start,
+      end: eventRow.dataset.end
     };
-    btn.addEventListener("click",()=>{
-      const open=menu.style.display==="block";
-      document.querySelectorAll(".addcal-menu").forEach(m=>m.style.display="none");
-      menu.style.display=open?"none":"block";
-      btn.setAttribute("aria-expanded",(!open).toString());
+
+    // Toggle dropdown
+    btn.addEventListener('click', () => {
+      const isOpen = dropdown.style.display === 'block';
+      // Close all other dropdowns first
+      document.querySelectorAll('.calendar-dropdown').forEach(d => d.style.display = 'none');
+      document.querySelectorAll('.add-calendar-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+      
+      // Toggle current dropdown
+      dropdown.style.display = isOpen ? 'none' : 'block';
+      btn.setAttribute('aria-expanded', (!isOpen).toString());
     });
-    menu.querySelector('[data-add="google"]').addEventListener("click",(e)=>{
-      e.preventDefault(); window.open(buildGoogleUrl(payload),"_blank","noopener"); menu.style.display="none";
+
+    // Google Calendar link
+    dropdown.querySelector('[data-add="google"]').addEventListener('click', (e) => {
+      e.preventDefault();
+      const googleUrl = buildGoogleCalendarUrl(eventData);
+      window.open(googleUrl, '_blank', 'noopener');
+      dropdown.style.display = 'none';
+      btn.setAttribute('aria-expanded', 'false');
     });
-    menu.querySelector('[data-add="ics"]').addEventListener("click",()=>{
-      downloadICS(payload); menu.style.display="none";
+
+    // ICS download
+    dropdown.querySelector('[data-add="ics"]').addEventListener('click', () => {
+      downloadICS(eventData);
+      dropdown.style.display = 'none';
+      btn.setAttribute('aria-expanded', 'false');
     });
   });
 
-  // Close any open add-cal menus when clicking elsewhere
-  document.addEventListener("click",(e)=>{
-    if(!e.target.closest(".addcal-wrap")){
-      document.querySelectorAll(".addcal-menu").forEach(m=>m.style.display="none");
-      document.querySelectorAll(".btn--addcal").forEach(b=>b.setAttribute("aria-expanded","false"));
-    }
-  });
+  console.log('External Ministrations page loaded successfully!');
 </script>
+
 </body>
 </html>

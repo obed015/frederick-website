@@ -3,141 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Us - Strategic Prayer Ministries</title>
+  <title>About Us — Strategic Prayer Ministries</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- SEO -->
-  <meta name="description" content="Strategic Prayer Ministries is an apostolic and prophetic platform centred on the Word, intercession, and healing—equipping believers to build vibrant prayer lives." />
-  <link rel="canonical" href="https://www.strategicprayer.org/about.html" />
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
 
   <!-- Favicons -->
-   <link rel="icon" href="favicon.ico" sizes="any"><!-- Default .ico -->
-   <link rel="icon" type="image/svg+xml" href="favicon.svg"><!-- Modern browsers -->
-   <link rel="apple-touch-icon" href="apple-touch-icon.png"><!-- iOS -->
-   <link rel="manifest" href="site.webmanifest"><!-- Android/Chrome -->
-   <meta name="theme-color" content="#0b0d13"><!-- Browser theme color -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0b0d13">
 
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="About • Strategic Prayer Ministries" />
-  <meta property="og:description" content="Experience the Word, Prayer, and Healing. Learn who we are, our mission, values, and vision." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.strategicprayer.org/about.html" />
-  <meta property="og:image" content="https://www.strategicprayer.org/assets/about-background.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Icons -->
-  <link rel="icon" href="/assets/favicon.ico" sizes="any" />
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-
-  <!-- Fonts & global stylesheet -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/about-background.jpg" />
-  <link rel="stylesheet" href="./css/styles.css" />
-
-  <style>
-    :root{
-      --brand:#f59e0b; --dark:#0d0f14; --text-light:rgba(255,255,255,.92);
-      --pill:rgba(255,255,255,.06); --pill-border:rgba(255,255,255,.12);
-    }
-    *{margin:0;padding:0;box-sizing:border-box}
-    html:focus-within { scroll-behavior:smooth; }
-    @media (prefers-reduced-motion: reduce){ html:focus-within { scroll-behavior:auto; } }
-
-    body{
-      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
-      background:linear-gradient(135deg,#0d0f14 0%,#1a1a2e 100%);
-      color:var(--text-light); line-height:1.6; min-height:100vh;
-    }
-    .container{max-width:1200px;margin:0 auto;padding:0 2rem}
-
-    /* ===== ACCESSIBILITY ===== */
-    .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
-    .skip-link:focus{left:16px;top:16px;width:auto;height:auto;padding:.6rem 1rem;border-radius:10px;background:#111;color:#fff;z-index:200}
-    :focus-visible{outline:2px solid var(--brand);outline-offset:3px}
-
-    /* ===== NAVBAR ===== */
-    .nav{position:sticky;top:0;z-index:100;background:rgba(13,15,20,.95);
-      backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.1)}
-    .nav.scrolled{box-shadow:0 8px 24px rgba(0,0,0,.35)}
-    .nav__inner{display:flex;align-items:center;justify-content:space-between;padding:.75rem 0}
-    .brand{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none}
-    .brand__logo{width:36px;height:36px;object-fit:contain}
-    .brand__name{color:var(--text-light);font-weight:700;white-space:nowrap}
-
-    .nav__toggle{display:none;width:42px;height:42px;border-radius:10px;border:1px solid var(--pill-border);
-      background:var(--pill);cursor:pointer;padding:0 10px}
-    .nav__toggle span{display:block;height:2px;margin:7px 0;background:#fff;
-      transition:transform .3s ease,opacity .3s ease,width .3s ease}
-
-    .nav__links{display:flex;align-items:center;gap:.75rem}
-    .nav__links>a,.nav__dropdown>button{
-      text-decoration:none;color:var(--text-light);font-weight:600;padding:.6rem 1rem;border-radius:999px;
-      background:var(--pill);border:1px solid var(--pill-border);
-      transition:transform .2s ease,box-shadow .2s ease,color .2s ease}
-    .nav__links>a:hover,.nav__dropdown>button:hover{color:#fff;transform:translateY(-1px);
-      box-shadow:0 6px 18px rgba(0,0,0,.25)}
-
-    .nav__dropdown{position:relative}
-    .nav__dropdown-toggle{background:var(--pill);border:1px solid var(--pill-border);cursor:pointer}
-    .nav__dropdown-menu{position:absolute;top:calc(100% + 8px);left:0;min-width:220px;background:#0f1218;
-      border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:.5rem;display:none;box-shadow:0 24px 60px rgba(0,0,0,.45)}
-    .nav__dropdown.active .nav__dropdown-menu{display:block}
-    .nav__dropdown-menu a{display:block;padding:.6rem .8rem;border-radius:10px;color:var(--text-light);text-decoration:none}
-    .nav__dropdown-menu a:hover{background:rgba(255,255,255,.06);color:#fff}
-
-    @media (max-width:860px){
-      .nav__toggle{display:grid;place-items:center}
-      .nav__links{position:fixed;inset:64px 16px auto 16px;top:64px;display:none;flex-direction:column;align-items:stretch;gap:.6rem;
-        background:#0f1218;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:.8rem;z-index:120}
-      .nav__links.active{display:flex}
-      .nav__dropdown-menu{position:static;display:none;border:none;box-shadow:none;padding:0;background:transparent}
-      .nav__dropdown.active .nav__dropdown-menu{display:block}
-      .nav__links>a,.nav__dropdown>button{width:100%;text-align:left}
-    }
-
-    /* ===== HERO ===== */
-    .hero-section{position:relative;min-height:87vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;margin-bottom:0}
-    .hero-section::before{
-      content:"";position:absolute;inset:0;
-      background-image:linear-gradient(180deg,rgba(13,15,20,.6) 0%,rgba(15,17,22,.7) 50%,rgba(14,18,26,.8) 100%),url("assets/about-background.jpg");
-      background-size:cover;background-position:center;background-repeat:no-repeat;z-index:0}
-    .hero-content{position:relative;z-index:1;max-width:800px;padding:2rem;text-align:left}
-    .hero-intro{font-size:1.4rem;font-weight:700;letter-spacing:2px;color:#fff;margin-bottom:1rem;text-transform:uppercase}
-    .hero-title{font-size:clamp(2rem,4vw,3.5rem);font-weight:700;margin-bottom:1.2rem;color:#fff;text-shadow:2px 2px 4px rgba(0,0,0,.5)}
-    .hero-subtitle{font-size:clamp(1.1rem,2.5vw,1.4rem);color:rgba(255,255,255,.9);max-width:700px;margin:0 auto;text-align:left;font-family:"Georgia",serif;font-weight:600;text-shadow:1px 1px 2px rgba(0,0,0,.5);line-height:1.45}
-
-    /* ===== CONTENT ===== */
-    .content-wrapper{padding:4rem 0}
-    .content-grid{display:grid;gap:2rem;margin-bottom:4rem;grid-template-columns:repeat(2,1fr)}
-    @media (max-width:768px){.content-grid{grid-template-columns:1fr}}
-    .content-card{background:rgba(255,255,255,.05);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);
-      border-radius:16px;padding:2rem;transition:transform .3s ease,box-shadow .3s ease}
-    .content-card:hover{transform:translateY(-5px);box-shadow:0 10px 40px rgba(0,0,0,.3)}
-    .content-card h3{color:var(--brand);font-size:1.5rem;margin-bottom:1rem;font-weight:700}
-    .content-card p{color:var(--text-light);margin-bottom:1rem;font-size:1rem;line-height:1.6}
-    .content-card ul{list-style:none;padding:0;margin:0}
-    .content-card li{position:relative;padding-left:1.5rem;margin-bottom:.8rem;color:var(--text-light);font-size:1rem}
-    .content-card li::before{content:"→";position:absolute;left:0;color:var(--brand);font-weight:bold;font-size:1.1rem}
-  </style>
+  <!-- SEO -->
+  <meta name="description" content="Learn about Strategic Prayer Ministries - a daily apostolic and prophetic platform centered on the Word, intercession, and healing. Discover our mission, values, and vision.">
 </head>
 <body>
-  <a href="#mainContent" class="skip-link">Skip to main content</a>
 
-  <!-- Shared stylesheet -->
-  <link rel="stylesheet" href="./css/styles.css" />
+<!-- Scroll Progress Indicator -->
+<div class="scroll-progress" id="scrollProgress"></div>
 
-<!-- ===== Nav ===== -->
+<!-- Interactive Cursor -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ===== Navigation ===== -->
 <header class="nav" id="navbar">
   <div class="nav__inner container">
-    <a class="brand" href="index.html#home">
-      <img src="assets/spm-logo.png" alt="Strategic Prayer Ministries Logo" class="brand__logo" />
+    <a class="brand" href="index.html">
+      <img src="assets/spm-logo.webp" alt="Strategic Prayer Ministries Logo" class="brand__logo" />
       <span class="brand__name">Strategic Prayer Ministries</span>
     </a>
     <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" id="navToggle">
@@ -151,210 +49,340 @@
           <a href="index.html#media">Gallery & Videos</a>
         </div>
       </div>
-      <a href="index.html#who">Who We Are</a>
-      <a href="giving.html" target="_self">Giving</a>
-      <a href="contact.html" target="_self">Contact</a>
+      <a href="about.html">Who We Are</a>
+      <a href="giving.html">Giving</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
-<!-- ===== MAIN ===== -->
-  <main class="main" id="mainContent">
-    <section class="hero-section" aria-label="Intro">
-      <div class="hero-content">
-        <p class="hero-intro">WELCOME TO S.P.M</p>
-        <h1 class="hero-title">Who We Are</h1>
-        <p class="hero-subtitle">
-          Strategic Prayer Ministries is a daily apostolic and prophetic platform
-          where people come to experience the Word, Prayer, and Healing. The
-          Spirit of intercession upon the ministry enables believers to build
-          their prayer lives and brings them into true intimacy with the Holy
-          Spirit.
+<!-- ===== Hero Section ===== -->
+<section class="hero hero--bg-pan" style="min-height: 80vh;">
+  <div class="hero__bg" style="background-image: url('assets/about-background.webp'); background-position: center 35%;"></div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content container">
+    <p style="font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 2vw, 1.4rem); color: var(--accent-gold); font-style: italic; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; text-align: center;">
+      Welcome to S.P.M
+    </p>
+    <h1 class="title" style="text-align: center;">Who We Are</h1>
+    <p class="subtitle" style="text-align: center;">
+      Strategic Prayer Ministries is a daily apostolic and prophetic platform
+      where people come to experience the Word, Prayer, and Healing. The
+      Spirit of intercession upon the ministry enables believers to build
+      their prayer lives and brings them into true intimacy with the Holy
+      Spirit.
+    </p>
+  </div>
+</section>
+
+<!-- ===== Main Content ===== -->
+<section class="section">
+  <div class="container">
+    <div class="grid grid--2" style="margin-bottom: 4rem;">
+      <article class="card card--glow animate-slide-in-left">
+        <div class="card__body card__body--pad-lg">
+          <h3 style="color: var(--accent-gold); font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1rem;">
+            Our Mission
+          </h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.7;">
+            Strategic Prayer Ministries exists to raise up a generation of believers who are passionate about prayer, intimacy with God, and advancing His kingdom through strategic intercession.
+          </p>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.7;">
+            We believe that prayer is not just a religious activity, but a powerful weapon that changes atmospheres, transforms lives, and brings heaven to earth.
+          </p>
+          <p style="color: var(--text-secondary); line-height: 1.7;">
+            God has given us a mission to raise people of prayer and set hearts on fire for God.
+          </p>
+        </div>
+      </article>
+
+      <article class="card card--glow animate-slide-in-right">
+        <div class="card__body card__body--pad-lg">
+          <h3 style="color: var(--accent-gold); font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1rem;">
+            Our Values
+          </h3>
+          <div style="space-y: 1rem;">
+            <div style="margin-bottom: 1rem;">
+              <h4 style="color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.5rem;">
+                Prayer
+              </h4>
+              <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                Prayer is our foundation and lifeline, connecting us to God's presence and guiding everything we do.
+              </p>
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <h4 style="color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.5rem;">
+                Love
+              </h4>
+              <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                We are called to love God and people, showing kindness and selflessness in every action.
+              </p>
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <h4 style="color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.5rem;">
+                Excellence
+              </h4>
+              <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                In all things, we give our best to honor God and inspire others.
+              </p>
+            </div>
+            <div>
+              <h4 style="color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.5rem;">
+                Charity
+              </h4>
+              <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                We extend compassion through generosity, serving the poor with Christ's heart of love.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="grid grid--2">
+      <article class="card card--glow animate-slide-in-left">
+        <div class="card__body card__body--pad-lg">
+          <h3 style="color: var(--accent-gold); font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1rem;">
+            Our Vision
+          </h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.7;">
+            We envision a global movement of prayer warriors who are equipped, empowered, and positioned to see breakthrough in their lives, communities, and nations. We believe God is raising up an army of intercessors who will usher in the greatest revival the world has ever seen.
+          </p>
+          <p style="color: var(--text-secondary); line-height: 1.7;">
+            Our heart is to see believers move from casual Christianity to radical discipleship, from powerless religion to Spirit-filled living, and from individual faith to corporate unity that demonstrates the love and power of Jesus Christ.
+          </p>
+        </div>
+      </article>
+
+      <article class="card card--glow animate-slide-in-right">
+        <div class="card__body card__body--pad-lg">
+          <h3 style="color: var(--accent-gold); font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1rem;">
+          Join the Movement
+          </h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7;">
+            Whether you are just beginning in prayer or you are a seasoned intercessor, there is a place for you here. Encounter God's presence in intimate prayer, receive fresh prophetic insight, and grow with a community hungry to see His kingdom come.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+            <a href="prayer-request.html" class="btn btn--gold">Submit Prayer Request</a>
+            <a href="contact.html" class="btn btn--ghost">Contact Us</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Call to Action Section -->
+    <div style="margin-top: 5rem; text-align: center;">
+      <div style="max-width: 700px; margin: 0 auto; padding: 3rem 2rem; background: linear-gradient(135deg, rgba(34, 211, 238, 0.1), rgba(245, 158, 11, 0.1)); border: 1px solid var(--border-color); border-radius: 20px; box-shadow: var(--shadow-md);">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--text-primary); margin-bottom: 1rem;">
+          Ready to Join Us?
+        </h2>
+        <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.6;">
+          Experience the transformative power of strategic prayer and become part of a community that's passionate about seeing God's kingdom advance.
         </p>
-      </div>
-    </section>
-
-    <div class="content-wrapper">
-      <div class="container">
-        <div class="content-grid" role="list">
-          <article class="content-card" role="listitem">
-            <h3>Our Mission</h3>
-            <p>Strategic Prayer Ministries exists to raise up a generation of believers who are passionate about prayer, intimacy with God, and advancing His kingdom through strategic intercession.</p>
-            <p>We believe that prayer is not just a religious activity, but a powerful weapon that changes atmospheres, transforms lives, and brings heaven to earth.</p>
-            <p>God has given us a mission to raise people of prayer and set hearts on fire for God</p>
-          </article>
-
-          <article class="content-card" role="listitem">
-            <h3>Our Values</h3>
-            <ul>
-              <li>Intimacy with the Holy Spirit</li>
-              <li>Biblical foundation and truth</li>
-              <li>Prophetic sensitivity and accuracy</li>
-              <li>Unity in the body of Christ</li>
-              <li>Compassion for the lost and broken</li>
-              <li>Excellence in all we do</li>
-            </ul>
-          </article>
-
-          <article class="content-card" role="listitem">
-            <h3>Our Vision</h3>
-            <p>We envision a global movement of prayer warriors who are equipped, empowered, and positioned to see breakthrough in their lives, communities, and nations. We believe God is raising up an army of intercessors who will usher in the greatest revival the world has ever seen.</p>
-            <p>Our heart is to see believers move from casual Christianity to radical discipleship, from powerless religion to Spirit-filled living, and from individual faith to corporate unity that demonstrates the love and power of Jesus Christ.</p>
-          </article>
-
-          <article class="content-card" role="listitem">
-            <h3>Join the Movement</h3>
-            <p>Whether you are just beginning in prayer or you are a seasoned intercessor, there is a place for you here. Encounter God's presence in intimate prayer, receive fresh prophetic insight, and grow with a community hungry to see His kingdom come.</p>
-          </article>
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+          <a href="external-ministrations.html" class="btn btn--gold">View Our Events</a>
+          <a href="giving.html" class="btn btn--ghost">Partner With Us</a>
         </div>
       </div>
     </div>
-  </main>
+  </div>
+</section>
 
-  <!-- ===== FOOTER (original footer markup) ===== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-logo-wrapper">
-        <a href="index.html">
-          <img src="assets/spm-logo.png" alt="Strategic Prayer Ministries Logo" class="footer-logo" />
-        </a>
+<!-- ===== Footer (updated to branded-style icons) ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo-wrapper">
+      <a href="index.html">
+        <img src="assets/spm-logo.webp" alt="Strategic Prayer Ministries Logo" class="footer-logo" />
+      </a>
+    </div>
+    <div class="footer-container">
+      <div>
+        <h4>MINISTRY</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="giving.html">Giving</a></li>
+          <li><a href="prayer-request.html">Prayer Request</a></li>
+        </ul>
       </div>
-      <div class="footer-container">
-        <div>
-          <h4>MINISTRY</h4>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="giving.html">Giving</a></li>
-            <li><a href="prayer-request.html">Prayer-Request</a></li>
-           
-          </ul>
-        </div>
-        <div>
-          <h4>RESOURCES</h4>
-          <ul>
-            <li><a href="index.html#media">Gallery</a></li>
-            <li><a href="index.html#media">Videos</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>CONNECT WITH US</h4>
-          <div class="social-badges" aria-label="Social links">
-            <a href="mailto:info@strategicprayer.org" class="badge badge--email" aria-label="Email us">
-              <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><rect x="18" y="24" width="28" height="18" rx="3" fill="none" stroke="#fff" stroke-width="4"/><path d="M18 26 l14 12 L46 26" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>Email</span>
-            </a>
-            <a href="https://zoom.us/j/yourMeetingId" class="badge badge--zoom" target="_blank" rel="noopener" aria-label="Join us on Zoom">
-              <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><rect x="18" y="24" width="22" height="16" rx="4" fill="#fff"/><polygon points="40,27 48,23 48,41 40,37" fill="#fff"/></svg>
-              <span>Zoom</span>
-            </a>
-            <a href="https://www.youtube.com/@yourChannel" class="badge badge--youtube" target="_blank" rel="noopener" aria-label="Watch on YouTube">
-              <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><polygon points="27,24 45,32 27,40" fill="#fff"/></svg>
-              <span>YouTube</span>
-            </a>
-          </div>
-          <div class="newsletter">
-            <h4 style="margin-top:1rem;">Subscribe</h4>
-            <form aria-label="Subscribe to newsletter" method="post" action="#">
-              <input id="email" name="email" type="email" placeholder="Your Email" required autocomplete="email" />
-              <button type="submit">Join</button>
-            </form>
-          </div>
-        </div>
+      <div>
+        <h4>RESOURCES</h4>
+        <ul>
+          <li><a href="index.html#media">Gallery</a></li>
+          <li><a href="testimonies.html">Videos</a></li>
+        </ul>
       </div>
+      <div>
+        <h4>CONNECT WITH US</h4>
+        <div class="social-badges">
+          <!-- Email (envelope) -->
+          <a href="mailto:info@strategicprayer.org" class="badge badge--email" aria-label="Email us">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 3.2-8 5.2-8-5.2V6l8 5.2L20 6v1.2Z"/>
+            </svg>
+            <span>EMAIL</span>
+          </a>
 
-      <div class="scripture" id="scripture" aria-live="polite"></div>
+          <!-- Zoom (camera glyph in rounded rectangle) -->
+          <a href="https://us02web.zoom.us/j/4880417404?pwd=a2g2MWIyblpGTkdyQUtybEx2YkpjZz09" class="badge badge--zoom" target="_blank" rel="noopener" aria-label="Join us on Zoom">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M3.6 5h10.8A2.6 2.6 0 0 1 17 7.6v1.9l3.8-2.8a1 1 0 0 1 1.6.8v9a1 1 0 0 1-1.6.8L17 14.5v1.9A2.6 2.6 0 0 1 14.4 19H3.6A2.6 2.6 0 0 1 1 16.4V7.6A2.6 2.6 0 0 1 3.6 5Z"/>
+            </svg>
+            <span>ZOOM</span>
+          </a>
 
-      <div class="footer-bottom">
-        <div class="footer-bottom-row">
-          <p>© <span id="year"></span> Strategic Prayer Ministries. All rights reserved.</p>
-          <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <span aria-hidden="true">•</span>
-            <a href="#">Terms &amp; Conditions</a>
-          </div>
+          <!-- YouTube (official play button shape) -->
+          <a href="https://www.youtube.com/@yourChannel" class="badge badge--youtube" target="_blank" rel="noopener" aria-label="Watch on YouTube">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0  0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8ZM9.6 15.6V8.4L15.9 12l-6.3 3.6Z"/>
+            </svg>
+            <span>YOUTUBE</span>
+          </a>
+        </div>
+        <div class="newsletter">
+          <h4>Subscribe</h4>
+          <form>
+            <input type="email" placeholder="Your Email" required />
+            <button type="submit">Join</button>
+          </form>
         </div>
       </div>
     </div>
-  </footer>
+    <div class="scripture" id="scripture"></div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-row">
+        <p>© <span id="year"></span> Strategic Prayer Ministries. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <span>•</span>
+          <a href="#">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 
-  <!-- ===== JS ===== -->
-  <script>
-    (function(){
-      // Replace no-js class
-      document.documentElement.classList.remove('no-js');
+<!-- ===== JavaScript ===== -->
+<script>
+  // Navigation functionality
+  const navbar = document.getElementById('navbar');
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  const homeDropdown = document.getElementById('homeDropdown');
+  const dropdownToggle = homeDropdown?.querySelector('.nav__dropdown-toggle');
 
-      // Navbar scroll effect
-      const navbar = document.getElementById('navbar');
-      window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 50);
-      });
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    navbar?.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
 
-      // Mobile toggle
-      const navToggle = document.getElementById('navToggle');
-      const navLinks = document.getElementById('navLinks');
-      navToggle?.addEventListener('click', () => {
-        const isActive = navLinks.classList.toggle('active');
-        navToggle.setAttribute('aria-expanded', String(isActive));
-      });
+  // Mobile menu toggle
+  navToggle?.addEventListener('click', () => {
+    const isActive = navLinks?.classList.toggle('active');
+    navToggle.setAttribute('aria-expanded', String(isActive));
+  });
 
-      // Close menu on link click (mobile)
-      navLinks?.addEventListener('click', (e) => {
-        const target = e.target;
-        if (target.tagName === 'A') {
-          navLinks.classList.remove('active');
-          navToggle.setAttribute('aria-expanded', 'false');
-        }
-      });
+  // Dropdown functionality
+  dropdownToggle?.addEventListener('click', (e) => {
+    e.preventDefault();
+    const isActive = homeDropdown.classList.toggle('active');
+    dropdownToggle.setAttribute('aria-expanded', String(isActive));
+  });
 
-      // ESC to close menus
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape'){
-          navLinks?.classList.remove('active');
-          navToggle?.setAttribute('aria-expanded','false');
-          homeDropdown?.classList.remove('active');
-          dropdownToggle?.setAttribute('aria-expanded','false');
-        }
-      });
+  // Close menus on outside click
+  document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target)) {
+      navLinks?.classList.remove('active');
+      navToggle?.setAttribute('aria-expanded', 'false');
+      homeDropdown?.classList.remove('active');
+      dropdownToggle?.setAttribute('aria-expanded', 'false');
+    }
+  });
 
-      // Dropdown
-      const homeDropdown = document.getElementById('homeDropdown');
-      const dropdownToggle = homeDropdown?.querySelector('.nav__dropdown-toggle');
-      dropdownToggle?.addEventListener('click', (e) => {
-        e.preventDefault();
-        homeDropdown.classList.toggle('active');
-        const isExpanded = homeDropdown.classList.contains('active');
-        dropdownToggle.setAttribute('aria-expanded', String(isExpanded));
-      });
-      document.addEventListener('click', (e) => {
-        if (homeDropdown && !homeDropdown.contains(e.target)) {
-          homeDropdown.classList.remove('active');
-          dropdownToggle?.setAttribute('aria-expanded','false');
-        }
-      });
+  // Close menus on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      navLinks?.classList.remove('active');
+      navToggle?.setAttribute('aria-expanded', 'false');
+      homeDropdown?.classList.remove('active');
+      dropdownToggle?.setAttribute('aria-expanded', 'false');
+    }
+  });
 
-      // Footer year + scripture rotation (fixed quotes)
-      document.getElementById("year").textContent = String(new Date().getFullYear());
+  // Footer year and scripture rotation
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const verses = [
+    '"Is not my word like as a fire? saith the Lord; and like a hammer that breaketh the rock in pieces?" Jeremiah 23:29',
+    '"But they that wait upon the Lord shall renew their strength..." Isaiah 40:31',
+    '"The harvest truly is plenteous, but the labourers are few..." Matthew 9:37–38'
+  ];
+  let verseIndex = 0;
+  function showVerse() {
+    const el = document.getElementById('scripture');
+    if (el) {
+      el.textContent = verses[verseIndex];
+      verseIndex = (verseIndex + 1) % verses.length;
+    }
+  }
+  showVerse();
+  setInterval(showVerse, 8000);
 
-      const verses = [
-        '“Is not my word like as a fire? saith the Lord; and like a hammer that breaketh the rock in pieces?” — Jeremiah 23:29',
-        '“But they that wait upon the Lord shall renew their strength…” — Isaiah 40:31',
-        '“The harvest truly is plenteous, but the labourers are few…” — Matthew 9:37–38'
-      ];
+  // Scroll Progress Indicator
+  const progressEl = document.getElementById('scrollProgress');
+  const updateProgress = () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressEl.style.width = pct + '%';
+  };
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
 
-      const scriptureEl = document.getElementById('scripture');
-      let i = 0;
-      function showVerse(){ scriptureEl.textContent = verses[i]; i = (i+1)%verses.length; }
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      showVerse();
-      if (!prefersReducedMotion) {
-        setInterval(showVerse, 8000);
+  // Interactive Cursor Glow
+  const cursor = document.getElementById('cursorGlow');
+  let rafPending = false, targetX = 0, targetY = 0;
+  const onMove = (e) => {
+    targetX = e.clientX;
+    targetY = e.clientY;
+    if (!rafPending) {
+      rafPending = true;
+      requestAnimationFrame(renderCursor);
+    }
+  };
+  function renderCursor() {
+    rafPending = false;
+    cursor.style.transform = `translate(${targetX - 12}px, ${targetY - 12}px)`;
+  }
+  window.addEventListener('mousemove', onMove, { passive: true });
+
+  // Animation on scroll for cards
+  const animatedElements = document.querySelectorAll('.animate-slide-in-left, .animate-slide-in-right');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateX(0)';
       }
-    })();
-  </script>
+    });
+  }, { threshold: 0.1 });
 
-  <noscript>
-    <style>.nav__links{display:block !important}</style>
-    <div style="padding:1rem" role="note">JavaScript is disabled. Navigation and rotating verses are simplified.</div>
-  </noscript>
+  animatedElements.forEach(el => {
+    // Set initial state
+    el.style.opacity = '0';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    
+    if (el.classList.contains('animate-slide-in-left')) {
+      el.style.transform = 'translateX(-30px)';
+    } else if (el.classList.contains('animate-slide-in-right')) {
+      el.style.transform = 'translateX(30px)';
+    }
+    
+    observer.observe(el);
+  });
+
+  console.log('About page loaded successfully!');
+</script>
+
 </body>
 </html>

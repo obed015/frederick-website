@@ -10,342 +10,360 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Your shared stylesheet -->
-  <link rel="stylesheet" href="./css/styles.css" />
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
   
   <!-- Favicons -->
-   <link rel="icon" href="favicon.ico" sizes="any"><!-- Default .ico -->
-   <link rel="icon" type="image/svg+xml" href="favicon.svg"><!-- Modern browsers -->
-   <link rel="apple-touch-icon" href="apple-touch-icon.png"><!-- iOS -->
-   <link rel="manifest" href="site.webmanifest"><!-- Android/Chrome -->
-   <meta name="theme-color" content="#0b0d13"><!-- Browser theme color -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0b0d13">
 
-  <style>
-    :root{
-      --bg:#0f1218; --panel:#1a1f29; --gold:#f59e0b; --text:#ffffff; --muted:rgba(255,255,255,.75);
-    }
-    body.main{ background: var(--bg); color: var(--text); }
-    .container{ max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
-
-    /* Header band */
-    .prayer-hero{ background:#0b0d13; border-bottom:3px solid var(--gold); padding:3.5rem 0 2.25rem; text-align:center; }
-    .prayer-hero h1{ font-family:'Playfair Display',serif; color:#fff; font-size:clamp(2rem,5vw,3rem); margin:0; }
-
-    /* Scripture block */
-    .scripture-block{ margin:3rem auto 1.25rem; text-align:center; }
-    .gold-divider{ height:2px; background:linear-gradient(90deg,transparent,rgba(245,158,11,.85),transparent); margin:0 auto 1.5rem; width:min(92%,980px); }
-    .scripture-text{ font-family:'Playfair Display',serif; font-size:clamp(1.2rem,2.6vw,1.8rem); line-height:1.6; color:#eaeaea; margin:0 0 .75rem; }
-    .scripture-ref{ letter-spacing:.35em; color:rgba(255,255,255,.8); font-weight:700; font-size:.95rem; margin-bottom:1.25rem; }
-
-    /* CTA */
-    .need-wrap{ width:min(980px,92%); margin:1.75rem auto 2.25rem; text-align:center; }
-    .need-title{ font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4.2vw,2.6rem); color:#fff; margin:1.25rem 0 .5rem; text-shadow:0 2px 0 rgba(0,0,0,.35); }
-    .need-title .accent{ color:var(--gold); }
-    .need-desc{ color:var(--muted); font-size:clamp(1rem,2.2vw,1.15rem); margin:0 0 1.25rem; max-width:52ch; display:inline-block; }
-    .cta{ display:inline-flex; align-items:center; justify-content:center; padding:1rem 1.5rem; min-width:280px; border-radius:999px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; border:2px solid var(--gold); background:#1b1f2a; color:#e7f0ff; text-decoration:none; transition:transform .15s, box-shadow .25s, background .25s; cursor:pointer; }
-    .cta:hover{ transform:translateY(-2px); background:#243043; box-shadow:0 0 0 3px rgba(245,158,11,.18), 0 10px 28px rgba(245,158,11,.25); }
-
-    /* ========== CONFLICT-PROOF MODAL STYLES (prefixed spm-) ========== */
-    .spm-overlay{
-      position:fixed; inset:0; background:rgba(0,0,0,.72);
-      display:none !important;   /* hidden by default */
-      align-items:center; justify-content:center;
-      z-index: 999999 !important;  /* above everything */
-      padding:1rem;
-    }
-    .spm-overlay.spm-open{ display:flex !important; }
-
-    .spm-modal{
-      width:min(1000px,100%); max-height:92vh;
-      background:var(--panel); border:1px solid rgba(255,255,255,.12);
-      border-radius:16px; box-shadow:0 25px 80px rgba(0,0,0,.6);
-      overflow:hidden; display:grid; grid-template-rows:auto 1fr;
-      transform:translateY(8px); opacity:0;
-      transition:transform .2s ease, opacity .2s ease;
-      position:relative; z-index:1000000; /* higher than overlay just in case */
-    }
-    .spm-overlay.spm-open .spm-modal{ transform:translateY(0); opacity:1; }
-
-    .spm-modal-header{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:.9rem 1.1rem; border-bottom:1px solid rgba(255,255,255,.08); background:#121722;
-    }
-    .spm-modal-title{ font-family:'Playfair Display',serif; font-size:1.25rem; color:#fff; margin:0; }
-    .spm-modal-close{ appearance:none; border:0; background:transparent; color:#fff; font-weight:800; letter-spacing:.08em; cursor:pointer; border:2px solid var(--gold); border-radius:9999px; padding:.55rem .9rem; }
-
-    .spm-modal-body{ background:#fff; height:100%; }
-    .spm-iframe{ width:100%; height:100%; min-height:75vh; border:0; display:block; }
-
-    @media (max-width:640px){
-      .spm-modal{ max-height:95vh; border-radius:12px; }
-      .spm-iframe{ min-height:78vh; }
-    }
-
-    .disclaimer{ color:rgba(255,255,255,.7); font-style:italic; font-size:.95rem; margin:2rem auto 3rem; max-width:75ch; text-align:center; }
-
-    /* ===== Toast (same look as contact.html) ===== */
-    .toast{
-      position: fixed; right: 1rem; bottom: 1rem; z-index: 1000001;
-      background: #0f1218; color:#fff; border:1px solid rgba(255,255,255,.12);
-      border-left: 6px solid #22c55e;
-      padding: .85rem 1rem; border-radius:12px; box-shadow:0 18px 40px rgba(0,0,0,.35);
-      display:none; max-width: 360px;
-      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    }
-    .toast.error{ border-left-color:#ef4444; }
-    .toast .title{ font-weight:700; margin-bottom:.25rem; }
-    .toast .msg{ opacity:.9; }
-  </style>
+  <!-- SEO -->
+  <meta name="description" content="Submit your prayer request to Strategic Prayer Ministries. Let us pray for you and believe God for breakthrough in your situation.">
 </head>
-<body class="main">
+<body>
 
-  <!-- ===== Header / Nav ===== -->
-  <header class="nav" id="navbar">
-    <div class="nav__inner container">
-      <a class="brand" href="index.html#home">
-        <img src="assets/spm-logo.png" alt="Strategic Prayer Ministries Logo" class="brand__logo" />
-        <span class="brand__name">Strategic Prayer Ministries</span>
+<!-- Scroll Progress Indicator -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Interactive Cursor -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ===== Navigation ===== -->
+<header class="nav" id="navbar">
+  <div class="nav__inner container">
+    <a class="brand" href="index.html">
+      <img src="assets/spm-logo.webp" alt="Strategic Prayer Ministries Logo" class="brand__logo" />
+      <span class="brand__name">Strategic Prayer Ministries</span>
+    </a>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" id="navToggle">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__links" id="navLinks">
+      <div class="nav__dropdown" id="homeDropdown">
+        <button class="nav__dropdown-toggle" aria-expanded="false" aria-controls="homeDropdownMenu">Home</button>
+        <div class="nav__dropdown-menu" id="homeDropdownMenu">
+          <a href="index.html#links">Links</a>
+          <a href="index.html#media">Gallery & Videos</a>
+        </div>
+      </div>
+      <a href="about.html">Who We Are</a>
+      <a href="giving.html">Giving</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Hero Section ===== -->
+<section class="hero" style="min-height: 60vh; background: var(--gradient-hero); border-bottom: 3px solid var(--accent-gold);">
+  <div class="hero__overlay"></div>
+  <div class="hero__content container">
+    <h1 class="title">Prayer Request</h1>
+    <p class="subtitle">
+      Let us stand with you in prayer. Submit your prayer needs and experience the power of united intercession.
+    </p>
+  </div>
+</section>
+
+<!-- ===== Scripture Section ===== -->
+<section class="section">
+  <div class="container">
+    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+      <div style="width: 60px; height: 3px; background: linear-gradient(90deg, transparent, var(--accent-gold), transparent); margin: 0 auto 2rem;"></div>
+      <p style="font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 2.6vw, 1.8rem); line-height: 1.6; color: #eaeaea; margin: 0 0 0.75rem;">
+        "Who, in the days of His flesh, when He had offered up prayers and supplications, with vehement cries and tears to Him who was able to save Him from death, and was heard because of His godly fear."
+      </p>
+      <div style="letter-spacing: 0.35em; color: var(--text-muted); font-weight: 700; font-size: 0.95rem; margin-bottom: 2rem;">
+        HEBREWS 5:7
+      </div>
+      <div style="width: 60px; height: 3px; background: linear-gradient(90deg, transparent, var(--accent-gold), transparent); margin: 0 auto;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Prayer Request Form ===== -->
+<section class="section">
+  <div class="container">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4.2vw, 2.6rem); color: var(--text-primary); margin: 1.25rem 0 0.5rem;">
+          <span style="color: var(--accent-gold);">Need Prayer?</span>
+        </h2>
+        <p style="color: var(--text-muted); font-size: clamp(1rem, 2.2vw, 1.15rem); margin: 0 0 2rem; max-width: 52ch; margin-left: auto; margin-right: auto;">
+          Let us pray for you. Click below to open the request form.
+        </p>
+      </div>
+
+      <!-- Prayer Request Button -->
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <button id="openPrayerForm" class="btn btn--gold" style="min-width: 280px; font-size: 1.1rem; padding: 1.2rem 2rem;">
+          Submit Prayer Request
+        </button>
+      </div>
+
+      <!-- Prayer Request Form Modal -->
+      <div id="prayerFormModal" style="display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.8); z-index: 1000; padding: 1rem; overflow-y: auto;">
+        <div style="max-width: 900px; margin: 2rem auto; background: var(--panel-bg); border: 1px solid var(--border-color); border-radius: 18px; box-shadow: var(--shadow-xl); position: relative;">
+          <!-- Modal Header -->
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; border-bottom: 1px solid var(--border-color); background: var(--secondary-bg); border-radius: 18px 18px 0 0;">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--text-primary); margin: 0;">Prayer Request Form</h3>
+            <button id="closePrayerForm" style="background: transparent; border: 2px solid var(--accent-gold); color: var(--text-primary); padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; font-weight: 600;">
+              Close
+            </button>
+          </div>
+
+          <!-- Modal Body -->
+          <div style="padding: 2rem; background: #fff; border-radius: 0 0 18px 18px;">
+            <iframe
+              id="prayerFormIframe"
+              style="width: 100%; height: 80vh; border: 0; border-radius: 8px;"
+              title="Prayer Request Form"
+              src="https://docs.google.com/forms/d/e/1FAIpQLScCxcwJSMOjbYqUt9y64QCy0TznElxD5UCRWj9N3a7bKRkH4A/viewform?embedded=true"
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer (matched to External Ministrations, branded icons) ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo-wrapper">
+      <a href="index.html">
+        <img src="assets/spm-logo.webp" alt="Strategic Prayer Ministries Logo" class="footer-logo" />
       </a>
-      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" id="navToggle">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="nav__links" id="navLinks">
-        <div class="nav__dropdown" id="homeDropdown">
-          <button class="nav__dropdown-toggle" aria-expanded="false" aria-controls="homeDropdownMenu">Home</button>
-          <div class="nav__dropdown-menu" id="homeDropdownMenu">
-            <a href="index.html#links">Links</a>
-            <a href="index.html#media">Gallery & Videos</a>
-          </div>
-        </div>
-        <a href="index.html#who">Who We Are</a>
-        <a href="giving.html" target="_self">Giving</a>
-        <a href="contact.html" target="_self">Contact</a>
-      </nav>
     </div>
-  </header>
-
-  <!-- ===== Page Title ===== -->
-  <section class="prayer-hero">
-    <div class="container"><h1>Prayer Request</h1></div>
-  </section>
-
-  <!-- ===== Scripture ===== -->
-  <section class="container scripture-block">
-    <div class="gold-divider"></div>
-    <p class="scripture-text">“Who, in the days of His flesh, when he offered up prayers and supplications, with vehement 
-        cries and tears to Him who was able to save him from death, and who was heard because of his goldy fear.</p>
-    <div class="scripture-ref">Hebrews 5:7</div>
-    <div class="gold-divider" style="margin-top:1.5rem;"></div>
-  </section>
-
-  <!-- ===== CTA ===== -->
-  <section class="need-wrap">
-    <h2 class="need-title"><span class="accent">Need Prayer?</span></h2>
-    <p class="need-desc">Let us pray for you. Click below to open the request form.</p>
-    <button id="spmOpenBtn" class="cta" aria-haspopup="dialog" aria-controls="spmModalOverlay">New Prayer Request</button>
-  </section>
-
-  <!-- ============ MODAL ============ -->
-  <div id="spmModalOverlay" class="spm-overlay" role="dialog" aria-modal="true" aria-labelledby="spmModalTitle">
-    <div class="spm-modal">
-      <div class="spm-modal-header">
-        <h3 id="spmModalTitle" class="spm-modal-title">Prayer Request Form</h3>
-        <button class="spm-modal-close" id="spmCloseBtn" aria-label="Close form">Close</button>
+    <div class="footer-container">
+      <div>
+        <h4>MINISTRY</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="giving.html">Giving</a></li>
+          <li><a href="prayer-request.html">Prayer Request</a></li>
+        </ul>
       </div>
-      <div class="spm-modal-body">
-        <!-- Google Form -->
-        <iframe
-          id="spmIframe"
-          class="spm-iframe"
-          title="Prayer Request Form"
-          src="https://docs.google.com/forms/d/e/1FAIpQLScCxcwJSMOjbYqUt9y64QCy0TznElxD5UCRWj9N3a7bKRkH4A/viewform?embedded=true"
-          loading="eager"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+      <div>
+        <h4>RESOURCES</h4>
+        <ul>
+          <li><a href="index.html#media">Gallery</a></li>
+          <li><a href="testimonies.html">Videos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>CONNECT WITH US</h4>
+        <div class="social-badges">
+          <!-- Email -->
+          <a href="mailto:info@strategicprayer.org" class="badge badge--email" aria-label="Email us">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 3.2-8 5.2-8-5.2V6l8 5.2L20 6v1.2Z"/>
+            </svg>
+            <span>EMAIL</span>
+          </a>
+          <!-- Zoom -->
+          <a href="https://us02web.zoom.us/j/4880417404?pwd=a2g2MWIyblpGTkdyQUtybEx2YkpjZz09" class="badge badge--zoom" target="_blank" rel="noopener" aria-label="Join us on Zoom">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M3.6 5h10.8A2.6 2.6 0 0 1 17 7.6v1.9l3.8-2.8a1 1 0 0 1 1.6.8v9a1 1 0 0 1-1.6.8L17 14.5v1.9A2.6 2.6 0 0 1 14.4 19H3.6A2.6 2.6 0 0 1 1 16.4V7.6A2.6 2.6 0 0 1 3.6 5Z"/>
+            </svg>
+            <span>ZOOM</span>
+          </a>
+          <!-- YouTube -->
+          <a href="https://www.youtube.com/@yourChannel" class="badge badge--youtube" target="_blank" rel="noopener" aria-label="Watch on YouTube">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8ZM9.6 15.6V8.4L15.9 12l-6.3 3.6Z"/>
+            </svg>
+            <span>YOUTUBE</span>
+          </a>
+        </div>
+        <div class="newsletter">
+          <h4>Subscribe</h4>
+          <form>
+            <input type="email" placeholder="Your Email" required />
+            <button type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="scripture" id="scripture"></div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-row">
+        <p>© <span id="year"></span> Strategic Prayer Ministries. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <span>•</span>
+          <a href="#">Terms & Conditions</a>
+        </div>
       </div>
     </div>
   </div>
+</footer>
 
-  <!-- ===== Toast (success on submit) ===== -->
-  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true">
-    <div class="title" id="toastTitle">Request submitted</div>
-    <div class="msg" id="toastMsg">Thank you! Your prayer request has been received.</div>
-  </div>
+<!-- Toast notification -->
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
-  <!-- ===== Footer (same as contact.html) ===== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-logo-wrapper">
-        <a href="index.html">
-          <img src="assets/spm-logo.png" alt="Strategic Prayer Ministries Logo" class="footer-logo" />
-        </a>
-      </div>
-      <div class="footer-container">
-        <div>
-          <h4>MINISTRY</h4>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="giving.html">Giving</a></li>
-            <li><a href="prayer-request.html">Prayer-Request</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>RESOURCES</h4>
-          <ul>
-            <li><a href="index.html#media">Gallery</a></li>
-            <li><a href="index.html#media">Videos</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>CONNECT WITH US</h4>
-          <div class="social-badges">
-            <a href="mailto:info@strategicprayer.org" class="badge badge--email" aria-label="Email us">
-              <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><rect x="18" y="24" width="28" height="18" rx="3" fill="none" stroke="#fff" stroke-width="4"/><path d="M18 26 l14 12 L46 26" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>Email</span>
-            </a>
-            <a href="https://zoom.us/j/yourMeetingId" class="badge badge--zoom" target="_blank" rel="noopener" aria-label="Join us on Zoom">
-              <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><rect x="18" y="24" width="22" height="16" rx="4" fill="#fff"/><polygon points="40,27 48,23 48,41 40,37" fill="#fff"/></svg>
-              <span>Zoom</span>
-            </a>
-            <a href="https://www.youtube.com/@yourChannel" class="badge badge--youtube" target="_blank" rel="noopener" aria-label="Watch on YouTube">
-              <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
-                <circle cx="32" cy="32" r="32" fill="currentColor"/>
-                <!-- centered play button -->
-                 <polygon points="26,22 44,32 26,42" fill="#fff"/>
-                </svg>
-                <span>YouTube</span>
-              </a>
-            
-            </a>
-          </div>
-          <div class="newsletter">
-            <h4 style="margin-top:1rem;">Subscribe</h4>
-            <form>
-              <input type="email" placeholder="Your Email" required />
-              <button type="submit">Join</button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="scripture" id="scripture"></div>
-      <div class="footer-bottom">
-        <div class="footer-bottom-row">
-          <p>© <span id="year"></span> Strategic Prayer Ministries. All rights reserved.</p>
-          <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <span>•</span>
-            <a href="#">Terms &amp; Conditions</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+<!-- ===== JavaScript ===== -->
+<script>
+  // Navigation functionality
+  const navbar = document.getElementById('navbar');
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  const homeDropdown = document.getElementById('homeDropdown');
+  const dropdownToggle = homeDropdown?.querySelector('.nav__dropdown-toggle');
 
-  <script>
-    // Mobile nav toggle
-    const navToggle = document.getElementById('navToggle');
-    const navLinks  = document.getElementById('navLinks');
-    if (navToggle && navLinks) {
-      navToggle.addEventListener('click', () => {
-        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-        navToggle.setAttribute('aria-expanded', String(!isExpanded));
-        navLinks.classList.toggle('active');
-      });
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    navbar?.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // Mobile menu toggle
+  navToggle?.addEventListener('click', () => {
+    const isActive = navLinks?.classList.toggle('active');
+    navToggle.setAttribute('aria-expanded', String(isActive));
+  });
+
+  // Dropdown functionality
+  dropdownToggle?.addEventListener('click', (e) => {
+    e.preventDefault();
+    const isActive = homeDropdown.classList.toggle('active');
+    dropdownToggle.setAttribute('aria-expanded', String(isActive));
+  });
+
+  // Close menus on outside click
+  document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target)) {
+      navLinks?.classList.remove('active');
+      navToggle?.setAttribute('aria-expanded', 'false');
+      homeDropdown?.classList.remove('active');
+      dropdownToggle?.setAttribute('aria-expanded', 'false');
     }
+  });
 
-    // Footer year + scripture rotation
-    document.getElementById("year").textContent = new Date().getFullYear();
-    const verses = [
-      "“Is not my word like as a fire? saith the Lord; and like a hammer that breaketh the rock in pieces?”  Jeremiah 23:29",
-      "“But they that wait upon the Lord shall renew their strength...” Isaiah 40:31",
-      "“The harvest truly is plenteous, but the labourers are few...” Matthew 9:37–38"
-    ];
-    let i = 0;
-    function showVerse(){ const el = document.getElementById("scripture"); if (el) { el.textContent = verses[i]; i = (i+1)%verses.length; } }
-    showVerse(); setInterval(showVerse, 8000);
-
-    // ===== Toast helper =====
-    function showToast(title, msg, isError=false){
-      const toast = document.getElementById('toast');
-      const toastTitle = document.getElementById('toastTitle');
-      const toastMsg = document.getElementById('toastMsg');
-      toastTitle.textContent = title;
-      toastMsg.textContent = msg;
-      if (isError) { toast.classList.add('error'); } else { toast.classList.remove('error'); }
-      toast.style.display = 'block';
-      clearTimeout(showToast._t);
-      showToast._t = setTimeout(()=> { toast.style.display = 'none'; }, 5500);
-    }
-
-    // ===== Modal logic with auto-close after Google Form submit =====
-    const spmOpenBtn = document.getElementById('spmOpenBtn');
-    const spmCloseBtn = document.getElementById('spmCloseBtn');
-    const spmOverlay = document.getElementById('spmModalOverlay');
-    const spmIframe  = document.getElementById('spmIframe');
-
-    const FORM_EMBED_URL = "https://docs.google.com/forms/d/e/1FAIpQLScCxcwJSMOjbYqUt9y64QCy0TznElxD5UCRWj9N3a7bKRkH4A/viewform?embedded=true";
-
-    let spmLoadCount = 0;
-    let spmLoadListenerAttached = false;
-
-    function attachIframeLoadListener(){
-      if (spmLoadListenerAttached) return;
-      spmIframe.addEventListener('load', onIframeLoad);
-      spmLoadListenerAttached = true;
-    }
-
-    function detachIframeLoadListener(){
-      if (!spmLoadListenerAttached) return;
-      spmIframe.removeEventListener('load', onIframeLoad);
-      spmLoadListenerAttached = false;
-    }
-
-    function onIframeLoad(){
-      spmLoadCount += 1;
-
-      // After submission, Google Forms shows a confirmation page (second load)
-      if (spmLoadCount >= 2) {
-        // Show success toast before closing
-        showToast("Request submitted", "Thank you! Your prayer request has been received.");
-        // Close shortly after so the toast remains visible on the page
-        setTimeout(() => { spmClose(); }, 900);
-      }
-    }
-
-    function spmOpen(){
-      spmLoadCount = 0;
-
-      // Always reload a fresh form when opening
-      if (spmIframe) spmIframe.src = FORM_EMBED_URL;
-
-      // Show modal
-      spmOverlay.classList.add('spm-open');
-      document.body.style.overflow = 'hidden';
-      spmOpenBtn.setAttribute('aria-expanded', 'true');
-
-      attachIframeLoadListener();
-
-      // Optional fallback if iframe doesn't load
-      let loaded = false;
-      const tempLoad = () => { loaded = true; spmIframe.removeEventListener('load', tempLoad); };
-      spmIframe.addEventListener('load', tempLoad);
-      setTimeout(() => {
-        if (!loaded) window.open(FORM_EMBED_URL.replace('?embedded=true',''), '_blank');
-      }, 2000);
-    }
-
-    function spmClose(){
-      spmOverlay.classList.remove('spm-open');
+  // Close menus on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      navLinks?.classList.remove('active');
+      navToggle?.setAttribute('aria-expanded', 'false');
+      homeDropdown?.classList.remove('active');
+      dropdownToggle?.setAttribute('aria-expanded', 'false');
+      // Also close prayer form modal
+      document.getElementById('prayerFormModal').style.display = 'none';
       document.body.style.overflow = '';
-      spmOpenBtn.setAttribute('aria-expanded', 'false');
-      spmOpenBtn.focus();
-      detachIframeLoadListener();
     }
+  });
 
-    spmOpenBtn.addEventListener('click', spmOpen);
-    spmCloseBtn.addEventListener('click', spmClose);
-    spmOverlay.addEventListener('click', (e) => { if (e.target === spmOverlay) spmClose(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && spmOverlay.classList.contains('spm-open')) spmClose(); });
-  </script>
+  // Footer year and scripture rotation
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const verses = [
+    '"Is not my word like as a fire? saith the Lord; and like a hammer that breaketh the rock in pieces?" Jeremiah 23:29',
+    '"But they that wait upon the Lord shall renew their strength..." Isaiah 40:31',
+    '"The harvest truly is plenteous, but the labourers are few..." Matthew 9:37–38'
+  ];
+  let verseIndex = 0;
+  function showVerse() {
+    const el = document.getElementById('scripture');
+    if (el) {
+      el.textContent = verses[verseIndex];
+      verseIndex = (verseIndex + 1) % verses.length;
+    }
+  }
+  showVerse();
+  setInterval(showVerse, 8000);
+
+  // Scroll Progress Indicator
+  const progressEl = document.getElementById('scrollProgress');
+  const updateProgress = () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressEl.style.width = pct + '%';
+  };
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+
+  // Interactive Cursor Glow
+  const cursor = document.getElementById('cursorGlow');
+  let rafPending = false, targetX = 0, targetY = 0;
+  const onMove = (e) => {
+    targetX = e.clientX;
+    targetY = e.clientY;
+    if (!rafPending) {
+      rafPending = true;
+      requestAnimationFrame(renderCursor);
+    }
+  };
+  function renderCursor() {
+    rafPending = false;
+    cursor.style.transform = `translate(${targetX - 12}px, ${targetY - 12}px)`;
+  }
+  window.addEventListener('mousemove', onMove, { passive: true });
+
+  // Prayer Form Modal functionality
+  const openBtn = document.getElementById('openPrayerForm');
+  const closeBtn = document.getElementById('closePrayerForm');
+  const modal = document.getElementById('prayerFormModal');
+  const iframe = document.getElementById('prayerFormIframe');
+
+  let loadCount = 0;
+  let loadListenerAttached = false;
+
+  function showToast(message, isError = false) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.className = isError ? 'toast error' : 'toast';
+    toast.style.display = 'block';
+    setTimeout(() => toast.style.display = 'none', 5000);
+  }
+
+  function openPrayerForm() {
+    loadCount = 0;
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    
+    // Reset iframe if needed
+    if (iframe.src.includes('embedded=true')) {
+      iframe.src = iframe.src; // Refresh iframe
+    }
+    
+    // Listen for form submission (iframe load events)
+    if (!loadListenerAttached) {
+      iframe.addEventListener('load', () => {
+        loadCount++;
+        // Google Forms typically loads twice - once for form, once for confirmation
+        if (loadCount >= 2) {
+          showToast('Prayer request submitted successfully! We will pray for you.');
+          setTimeout(() => {
+            closePrayerForm();
+          }, 2000);
+        }
+      });
+      loadListenerAttached = true;
+    }
+  }
+
+  function closePrayerForm() {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+    openBtn.focus(); // Return focus to button
+  }
+
+  openBtn.addEventListener('click', openPrayerForm);
+  closeBtn.addEventListener('click', closePrayerForm);
+
+  // Close modal when clicking outside
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closePrayerForm();
+    }
+  });
+
+  console.log('Prayer Request page loaded successfully!');
+</script>
+
 </body>
 </html>

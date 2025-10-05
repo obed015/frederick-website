@@ -2,32 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Strategic Prayer Ministries</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Strategic Prayer Ministries - Home</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="./css/styles.css" />
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0b0d13">
+
+  <!-- SEO -->
+  <meta name="description" content="Strategic Prayer Ministries - A revival hub raising a people of prayer and setting hearts on fire for Jesus. Experience the Word, Prayer, and Healing.">
+  <meta property="og:title" content="Strategic Prayer Ministries">
+  <meta property="og:description" content="A revival hub raising a people of prayer and setting hearts on fire for Jesus">
+  <meta property="og:image" content="assets/ministry1.webp">
+  <meta property="og:url" content="https://strategicprayer.org">
 </head>
 <body>
 
- <!-- Favicons -->
-   <link rel="icon" href="favicon.ico" sizes="any"><!-- Default .ico -->
-   <link rel="icon" type="image/svg+xml" href="favicon.svg"><!-- Modern browsers -->
-   <link rel="apple-touch-icon" href="apple-touch-icon.png"><!-- iOS -->
-   <link rel="manifest" href="site.webmanifest"><!-- Android/Chrome -->
-   <meta name="theme-color" content="#0b0d13"><!-- Browser theme color -->
+<!-- Scroll Progress Indicator -->
+<div class="scroll-progress" id="scrollProgress"></div>
 
+<!-- Interactive Cursor -->
+<div class="cursor-glow" id="cursorGlow"></div>
 
-<!-- ===== Nav ===== -->
+<!-- ===== Navigation ===== -->
 <header class="nav" id="navbar" role="banner">
   <div class="nav__inner container">
     <a class="brand" href="#home">
-      <img src="assets/spm-logo.png" alt="Strategic Prayer Ministries Logo" class="brand__logo" />
+      <img src="assets/spm-logo.webp" alt="Strategic Prayer Ministries Logo" class="brand__logo" />
       <span class="brand__name">Strategic Prayer Ministries</span>
     </a>
 
@@ -59,19 +71,20 @@
           aria-labelledby="homeDropdownButton"
         >
           <a role="menuitem" href="#links">Links</a>
-          <a role="menuitem" href="#media">Gallery &amp; Videos</a>
+          <a role="menuitem" href="#media">Gallery & Videos</a>
         </div>
       </div>
       <a href="#who">Who We Are</a>
-      <a href="giving.html" target="_self">Giving</a>
-      <a href="contact.html" target="_self">Contact</a>
+      <a href="giving.html">Giving</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
-<!-- ===== Hero (fixed structure + parallax hook) ===== -->
+<!-- ===== Hero Section ===== -->
 <section class="hero hero--bg-pan hero--scrolling" id="home">
-  <div class="hero__bg"></div>
+  <div class="hero__bg" id="heroBg"></div>
+  <div class="hero__overlay"></div>
   <div class="hero__content container">
     <h1 class="title">Strategic Prayer Ministries</h1>
     <p class="subtitle">
@@ -88,7 +101,7 @@
 <!-- ===== Who We Are ===== -->
 <section class="section container" id="who">
   <div class="grid grid--2">
-    <div>
+    <div class="animate-slide-in-left">
       <h2 class="section__title">Who We Are</h2>
       <p class="lead">
         Strategic Prayer Ministries is a <strong>daily apostolic and prophetic platform</strong>
@@ -97,196 +110,119 @@
         and brings them into true intimacy with the Holy Spirit.
       </p>
     </div>
-    <div class="card card--glow">
+    <div class="card card--glow animate-slide-in-right">
       <div class="card__body">
         <ul class="list list--checked">
-          <li>Daily prayer &amp; the Word</li>
+          <li>Daily prayer & the Word</li>
           <li>Healing, miracles, and prophetic ministry</li>
           <li>Intimacy with the Holy Spirit</li>
         </ul>
-        <a href="about.html" class="learn-more-btn" target="_self">Learn More</a>
+        <a href="about.html" class="btn btn--gold" style="margin-top: 1rem;">Learn More</a>
       </div>
     </div>
   </div>
 </section>
 
-    <!-- ===== Links (Carousel) ===== -->
-    <section class="links-rail" id="links" aria-labelledby="links-title">
-        <div class="links-rail__bg" aria-hidden="true"></div>
+<!-- ===== Links Carousel ===== -->
+<section class="links-rail" id="links" aria-labelledby="links-title">
+  <div class="links-rail__bg" aria-hidden="true"></div>
 
-        <div class="container">
-            <h2 class="section__title" id="links-title">Explore SPM</h2>
+  <div class="container">
+    <h2 class="section__title" id="links-title">Explore SPM</h2>
 
-            <div class="rail-wrap">
-                <button class="rail-nav rail-nav--prev" aria-label="Scroll left">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
+    <div class="rail-wrap">
+      <button class="rail-nav rail-nav--prev" aria-label="Scroll left">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
 
-                <div class="rail" role="list" tabindex="0" aria-label="Quick links">
-                    <!-- Card 1: External Ministrations -->
-                    <a class="rail-card rail-card--external" role="listitem"
-                       href="external-ministrations.html"
-                       aria-label="External Ministrations — events and outreaches">
-                    <div class="rail-card__body">
-                        <div class="rail-card__title">External Ministrations</div>
-                        <div class="rail-card__tag">EVENTS</div>
-                    </div>
-                </a>
+      <div class="rail" role="list" tabindex="0" aria-label="Quick links">
+        <!-- Card 1: External Ministrations -->
+        <a class="rail-card rail-card--external" role="listitem"
+           href="external-ministrations.html"
+           aria-label="External Ministrations — events and outreaches">
+          <div class="rail-card__body">
+            <div class="rail-card__title">External Ministrations</div>
+            <div class="rail-card__tag">EVENTS</div>
+          </div>
+        </a>
 
-                    <!-- Card 2: Testimonies -->
-                    <a class="rail-card rail-card--gallery" role="listitem"
-                       href="testimonies.html"
-                       aria-label="Testimonies — stories and experiences">
-                    <div class="rail-card__body">
-                        <div class="rail-card__title">Testimonies</div>
-                        <div class="rail-card__tag">PHOTOS</div>
-                    </div>
-                </a>
+        <!-- Card 2: Testimonies -->
+        <a class="rail-card rail-card--testimonies" href="testimonies.html" role="listitem"
+           aria-label="Testimonies — stories and experiences">
+          <div class="rail-card__body">
+            <div class="rail-card__title">Testimonies</div>
+            <div class="rail-card__tag">TESTIMONIES</div>
+          </div>
+        </a>
 
-                    <!-- Card 3: Seed, Tithes & Offering -->
-                    <a class="rail-card rail-card--giving" role="listitem"
-                       href="giving.html"
-                       aria-label="Seed, Tithes and Offering — give online">
-                    <div class="rail-card__body">
-                        <div class="rail-card__title">Seed, Tithes &amp; Offering</div>
-                        <div class="rail-card__tag">GIVE</div>
-                    </div>
-                </a>
+        <!-- Card 3: Seed, Tithes & Offering -->
+        <a class="rail-card rail-card--giving" role="listitem"
+           href="giving.html"
+           aria-label="Seed, Tithes and Offering — give online">
+          <div class="rail-card__body">
+            <div class="rail-card__title">Seed, Tithes & Offering</div>
+            <div class="rail-card__tag">GIVE</div>
+          </div>
+        </a>
 
-                    <!-- Card 4: About SPM -->
-                    <a class="rail-card rail-card--testimonies" role="listitem"
-                       href="about.html"
-                       aria-label="About SPM — who we are">
-                       <div class="rail-card__body">
-                        <div class="rail-card__title">About SPM</div>
-                        <div class="rail-card__tag">INFO</div>
-                       </div>
-                    </a>
+        <!-- Card 4: Prayer Request -->
+        <a class="rail-card rail-card--prayer" role="listitem"
+           href="prayer-request.html"
+           aria-label="Prayer Request — submit your prayer needs">
+          <div class="rail-card__body">
+            <div class="rail-card__title">Prayer Request</div>
+            <div class="rail-card__tag">PRAYER</div>
+          </div>
+        </a>
 
-                <button class="rail-nav rail-nav--next" aria-label="Scroll right">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </section>
+        <!-- Card 5: About SPM -->
+        <a class="rail-card rail-card--about" role="listitem"
+           href="about.html"
+           aria-label="About SPM — who we are">
+           <div class="rail-card__body">
+            <div class="rail-card__title">About SPM</div>
+            <div class="rail-card__tag">INFO</div>
+           </div>
+        </a>
+      </div>
 
-    <script>
-        // Carousel navigation functionality
-        const rail = document.querySelector('.rail');
-        const prevBtn = document.querySelector('.rail-nav--prev');
-        const nextBtn = document.querySelector('.rail-nav--next');
-
-        prevBtn.addEventListener('click', () => {
-            rail.scrollBy({
-                left: -330, // Card width + gap
-                behavior: 'smooth'
-            });
-        });
-
-        nextBtn.addEventListener('click', () => {
-            rail.scrollBy({
-                left: 330, // Card width + gap
-                behavior: 'smooth'
-            });
-        });
-
-        // Keyboard navigation
-        rail.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                rail.scrollBy({
-                    left: -330,
-                    behavior: 'smooth'
-                });
-            } else if (e.key === 'ArrowRight') {
-                rail.scrollBy({
-                    left: 330,
-                    behavior: 'smooth'
-                });
-            }
-        });
-
-        // Touch/swipe support for mobile
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        rail.addEventListener('mousedown', (e) => {
-            isDown = true;
-            startX = e.pageX - rail.offsetLeft;
-            scrollLeft = rail.scrollLeft;
-        });
-
-        rail.addEventListener('mouseleave', () => {
-            isDown = false;
-        });
-
-        rail.addEventListener('mouseup', () => {
-            isDown = false;
-        });
-
-        rail.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - rail.offsetLeft;
-            const walk = (x - startX) * 2;
-            rail.scrollLeft = scrollLeft - walk;
-        });
-
-        // Optional: Auto-hide navigation buttons when not needed
-        function updateNavButtons() {
-            const maxScroll = rail.scrollWidth - rail.clientWidth;
-            
-            if (rail.scrollLeft <= 0) {
-                prevBtn.style.opacity = '0.5';
-                prevBtn.style.pointerEvents = 'none';
-            } else {
-                prevBtn.style.opacity = '1';
-                prevBtn.style.pointerEvents = 'auto';
-            }
-
-            if (rail.scrollLeft >= maxScroll) {
-                nextBtn.style.opacity = '0.5';
-                nextBtn.style.pointerEvents = 'none';
-            } else {
-                nextBtn.style.opacity = '1';
-                nextBtn.style.pointerEvents = 'auto';
-            }
-        }
-
-        rail.addEventListener('scroll', updateNavButtons);
-        window.addEventListener('resize', updateNavButtons);
-        updateNavButtons(); // Initial check
-    </script>
-</body>
-</html>
+      <button class="rail-nav rail-nav--next" aria-label="Scroll right">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
 
 <!-- ===== Gallery & Videos ===== -->
 <section class="section section--alt" id="media">
   <div class="container">
-    <h2 class="section__title">Gallery &amp; Videos</h2>
+    <h2 class="section__title">Gallery & Videos</h2>
 
     <div class="masonry">
-      <img src="assets/ministry1.jpg" alt="Ministry Photo 1" />
-      <img src="assets/ministry2.jpg" alt="Ministry Photo 2" />
-      <img src="assets/ministry3.jpg" alt="Ministry Photo 3" />
-      <img src="assets/ministry4.jpg" alt="Ministry Photo 4" />
-      <img src="assets/ministry5.jpg" alt="Ministry Photo 5" />
-      <img src="assets/ministry6.jpg" alt="Ministry Photo 6" />
+      <img src="assets/ministry1.webp" alt="Ministry Photo 1" loading="lazy" />
+      <img src="assets/ministry2.webp" alt="Ministry Photo 2" loading="lazy" />
+      <img src="assets/ministry3.webp" alt="Ministry Photo 3" loading="lazy" />
+      <img src="assets/ministry4.webp" alt="Ministry Photo 4" loading="lazy" />
+      <img src="assets/ministry5.webp" alt="Ministry Photo 5" loading="lazy" />
+      <img src="assets/ministry6.webp" alt="Ministry Photo 6" loading="lazy" />
     </div>
-  </div> <!-- /container -->
-</section> <!-- /#media -->
 
+    <div class="media-cta" style="text-align: center;">
+      <a href="testimonies.html" class="btn btn--gold">View All Testimonies</a>
+    </div>
+  </div>
+</section>
 
-<!-- ===== Footer (same as contact.html) ===== -->
+<!-- ===== Footer ===== -->
 <footer class="footer">
   <div class="container">
     <div class="footer-logo-wrapper">
       <a href="index.html">
-        <img src="assets/spm-logo.png" alt="Strategic Prayer Ministries Logo" class="footer-logo" />
+        <img src="assets/spm-logo.webp" alt="Strategic Prayer Ministries Logo" class="footer-logo" />
       </a>
     </div>
     <div class="footer-container">
@@ -295,34 +231,40 @@
         <ul>
           <li><a href="about.html">About Us</a></li>
           <li><a href="giving.html">Giving</a></li>
-          <li><a href="prayer-request.html">Prayer-Request</a></li>
+          <li><a href="prayer-request.html">Prayer Request</a></li>
         </ul>
       </div>
       <div>
         <h4>RESOURCES</h4>
         <ul>
-          <li><a href="index.html#media">Gallery</a></li>
-          <li><a href="index.html#media">Videos</a></li>
+          <li><a href="#media">Gallery</a></li>
+          <li><a href="testimonies.html">Videos</a></li>
         </ul>
       </div>
       <div>
         <h4>CONNECT WITH US</h4>
         <div class="social-badges">
           <a href="mailto:info@strategicprayer.org" class="badge badge--email" aria-label="Email us">
-            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><rect x="18" y="24" width="28" height="18" rx="3" fill="none" stroke="#fff" stroke-width="4"/><path d="M18 26 l14 12 L46 26" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>Email</span>
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20 4H4a2 2 0 0 0-2 2v1.2l10 6.25L22 7.2V6a2 2 0 0 0-2-2Zm0 5.6-8 5-8-5V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9.6Z"/>
+            </svg>
+            <span>EMAIL</span>
           </a>
-          <a href="https://zoom.us/j/yourMeetingId" class="badge badge--zoom" target="_blank" rel="noopener" aria-label="Join us on Zoom">
-            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><rect x="18" y="24" width="22" height="16" rx="4" fill="#fff"/><polygon points="40,27 48,23 48,41 40,37" fill="#fff"/></svg>
-            <span>Zoom</span>
+          <a href="https://us02web.zoom.us/j/4880417404?pwd=a2g2MWIyblpGTkdyQUtybEx2YkpjZz09" class="badge badge--zoom" target="_blank" rel="noopener" aria-label="Join us on Zoom">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M3 7a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v1.2l3.2-2a1 1 0 0 1 1.53.85V17a1 1 0 0 1-1.53.85L17 15.8V17a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7Z"/>
+            </svg>
+            <span>ZOOM</span>
           </a>
           <a href="https://www.youtube.com/@yourChannel" class="badge badge--youtube" target="_blank" rel="noopener" aria-label="Watch on YouTube">
-            <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="currentColor"/><polygon points="27,24 45,32 27,40" fill="#fff"/></svg>
-            <span>YouTube</span>
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8ZM9.5 15.6V8.4L15.8 12l-6.3 3.6Z"/>
+            </svg>
+            <span>YOUTUBE</span>
           </a>
         </div>
         <div class="newsletter">
-          <h4 style="margin-top:1rem;">Subscribe</h4>
+          <h4>Subscribe</h4>
           <form>
             <input type="email" placeholder="Your Email" required />
             <button type="submit">Join</button>
@@ -337,14 +279,14 @@
         <div class="footer-links">
           <a href="#">Privacy Policy</a>
           <span>•</span>
-          <a href="#">Terms &amp; Conditions</a>
+          <a href="#">Terms & Conditions</a>
         </div>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- ===== JS: navbar + dropdown + parallax + footer verse ===== -->
+<!-- ===== JavaScript ===== -->
 <script>
   (function () {
     const navbar = document.getElementById('navbar');
@@ -352,101 +294,6 @@
     const navLinks  = document.getElementById('navLinks');
     const homeDropdown = document.getElementById('homeDropdown');
     const dropdownButton = document.getElementById('homeDropdownButton');
-    const dropdownMenu = document.getElementById('homeDropdownMenu');
-
-    function onNavScroll() {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-    }
-    onNavScroll();
-    window.addEventListener('scroll', onNavScroll, { passive: true });
-
-    navToggle.addEventListener('click', () => {
-      const open = !navLinks.classList.contains('active');
-      navLinks.classList.toggle('active', open);
-      navToggle.setAttribute('aria-expanded', String(open));
-      if (!open) {
-        homeDropdown.classList.remove('active');
-        dropdownButton && dropdownButton.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    if (dropdownButton) {
-      dropdownButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        const open = !homeDropdown.classList.contains('active');
-        homeDropdown.classList.toggle('active', open);
-        dropdownButton.setAttribute('aria-expanded', String(open));
-      });
-    }
-
-    document.addEventListener('click', (e) => {
-      if (!navbar.contains(e.target)) {
-        navLinks.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
-        homeDropdown.classList.remove('active');
-        dropdownButton && dropdownButton.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        navLinks.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
-        homeDropdown.classList.remove('active');
-        dropdownButton && dropdownButton.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    document.querySelectorAll('.nav__links a, .nav__dropdown-menu a').forEach(a => {
-      a.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
-        homeDropdown.classList.remove('active');
-        dropdownButton && dropdownButton.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    const hero = document.querySelector('.hero.hero--scrolling');
-    const bg = hero && hero.querySelector('.hero__bg');
-    if (hero && bg) {
-      const onParallax = () => {
-        const offset = window.scrollY * 0.35;
-        hero.style.setProperty('--scroll-offset', offset + 'px');
-      };
-      onParallax();
-      window.addEventListener('scroll', onParallax, { passive: true });
-    }
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-    const verses = [
-      "“Is not my word like as a fire? saith the Lord; and like a hammer that breaketh the rock in pieces?”  Jeremiah 23:29",
-      "“But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.” Isaiah 40:31",
-      "“Then saith he unto his disciples, The harvest truly is plenteous, but the labourers are few; Pray ye therefore the Lord of the harvest, that he will send forth labourers into his harvest.”  Matthew 9:37–38"
-    ];
-    let index = 0;
-    function showVerse() {
-      const el = document.getElementById("scripture");
-      if (!el) return;
-      el.textContent = verses[index];
-      index = (index + 1) % verses.length;
-    }
-    showVerse();
-    setInterval(showVerse, 8000);
-  })();
-</script>
-</body>
-</html>
-
-
-<!-- ===== JS: navbar + dropdown + parallax + footer verse ===== -->
-<script>
-  (function () {
-    const navbar = document.getElementById('navbar');
-    const navToggle = document.getElementById('navToggle');
-    const navLinks  = document.getElementById('navLinks');
-    const homeDropdown = document.getElementById('homeDropdown');
-    const dropdownButton = document.getElementById('homeDropdownButton');
-    const dropdownMenu = document.getElementById('homeDropdownMenu');
 
     // Nav shadow on scroll
     function onNavScroll() {
@@ -506,24 +353,72 @@
       });
     });
 
-    // ===== Hero parallax =====
-    const hero = document.querySelector('.hero.hero--scrolling');
-    const bg = hero && hero.querySelector('.hero__bg');
-    if (hero && bg) {
-      const onParallax = () => {
-        const offset = window.scrollY * 0.35; // tweak strength here (0.25–0.45)
-        hero.style.setProperty('--scroll-offset', offset + 'px');
-      };
-      onParallax();
-      window.addEventListener('scroll', onParallax, { passive: true });
+    // ===== Enhanced Parallax Effect =====
+    const hero = document.querySelector('.hero');
+    const heroBg = document.getElementById('heroBg');
+    
+    if (hero && heroBg) {
+      // Check for reduced motion preference
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      
+      if (!prefersReduced) {
+        let ticking = false;
+        
+        function updateParallax() {
+          const scrolled = window.pageYOffset;
+          const heroHeight = hero.offsetHeight;
+          const scrollProgress = Math.min(scrolled / heroHeight, 1);
+          
+          // Enhanced parallax calculation
+          const parallaxSpeed = 0.4; // Slower for smoother effect
+          const yPos = scrolled * parallaxSpeed;
+          
+          // Scale effect that increases slightly as you scroll
+          const scaleBase = 1.1;
+          const scaleMax = scaleBase + 0.1;
+          const currentScale = scaleBase + (scrollProgress * (scaleMax - scaleBase));
+          
+          // Apply transform with better performance
+          heroBg.style.transform = `translate3d(0, ${yPos}px, 0) scale(${currentScale})`;
+          
+          ticking = false;
+        }
+        
+        function requestTick() {
+          if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+          }
+        }
+        
+        // Initial call
+        updateParallax();
+        
+        // Scroll listener with throttling
+        window.addEventListener('scroll', requestTick, { passive: true });
+        window.addEventListener('resize', updateParallax);
+        
+        // Intersection Observer for performance optimization
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              window.addEventListener('scroll', requestTick, { passive: true });
+            } else {
+              window.removeEventListener('scroll', requestTick);
+            }
+          });
+        }, { rootMargin: '10px' });
+        
+        observer.observe(hero);
+      }
     }
 
     // ===== Footer verses =====
     document.getElementById("year").textContent = new Date().getFullYear();
     const verses = [
-      "“Is not my word like as a fire? saith the Lord; and like a hammer that breaketh the rock in pieces?”  Jeremiah 23:29",
-      "“But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.” Isaiah 40:31",
-      "“Then saith he unto his disciples, The harvest truly is plenteous, but the labourers are few; Pray ye therefore the Lord of the harvest, that he will send forth labourers into his harvest.”  Matthew 9:37–38"
+      '"Is not my word like as a fire? saith the Lord; and like a hammer that breaketh the rock in pieces?" Jeremiah 23:29',
+      '"But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint." Isaiah 40:31',
+      '"Then saith he unto his disciples, The harvest truly is plenteous, but the labourers are few; Pray ye therefore the Lord of the harvest, that he will send forth labourers into his harvest." Matthew 9:37–38'
     ];
     let index = 0;
     function showVerse() {
@@ -534,7 +429,113 @@
     }
     showVerse();
     setInterval(showVerse, 8000);
+
+    // ===== Scroll Progress Indicator =====
+    const progressEl = document.getElementById('scrollProgress');
+    const updateProgress = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressEl.style.width = pct + '%';
+    };
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+
+    // ===== Interactive Cursor Glow =====
+    const cursor = document.getElementById('cursorGlow');
+    let rafPending = false, targetX = 0, targetY = 0;
+    const onMove = (e) => { 
+      targetX = e.clientX; 
+      targetY = e.clientY; 
+      if (!rafPending) { 
+        rafPending = true; 
+        requestAnimationFrame(renderCursor); 
+      } 
+    };
+    function renderCursor() {
+      rafPending = false;
+      cursor.style.transform = `translate(${targetX - 12}px, ${targetY - 12}px)`;
+    }
+    window.addEventListener('mousemove', onMove, { passive: true });
+
+    // ===== Carousel navigation functionality =====
+    (function () {
+      const rail = document.querySelector('.rail');
+      const prevBtn = document.querySelector('.rail-nav--prev');
+      const nextBtn = document.querySelector('.rail-nav--next');
+
+      if (!rail || !prevBtn || !nextBtn) return;
+
+      let step = 330; // fallback
+      let epsilon = 2; // tolerance
+
+      function computeStep() {
+        const firstCard = rail.querySelector('.rail-card');
+        if (!firstCard) return;
+        const styles = getComputedStyle(rail);
+        const gap = parseFloat(styles.gap || styles.columnGap || 0) || 0;
+        step = firstCard.getBoundingClientRect().width + gap;
+        epsilon = Math.max(2, Math.round(step * 0.02));
+      }
+
+      function scrollByStep(dir = 1) {
+        rail.scrollBy({ left: dir * step, behavior: 'smooth' });
+      }
+
+      function updateNavButtons() {
+        const maxScroll = rail.scrollWidth - rail.clientWidth;
+        const atStart = rail.scrollLeft <= epsilon;
+        const atEnd = rail.scrollLeft >= (maxScroll - epsilon);
+
+        prevBtn.style.opacity = atStart ? '0.5' : '1';
+        prevBtn.style.pointerEvents = atStart ? 'none' : 'auto';
+        prevBtn.setAttribute('aria-disabled', String(atStart));
+
+        nextBtn.style.opacity = atEnd ? '0.5' : '1';
+        nextBtn.style.pointerEvents = atEnd ? 'none' : 'auto';
+        nextBtn.setAttribute('aria-disabled', String(atEnd));
+      }
+
+      computeStep();
+      updateNavButtons();
+
+      prevBtn.addEventListener('click', () => scrollByStep(-1));
+      nextBtn.addEventListener('click', () => scrollByStep(1));
+
+      rail.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          scrollByStep(-1);
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          scrollByStep(1);
+        }
+      });
+
+      // Drag support
+      let isDown = false, startX = 0, startLeft = 0;
+      rail.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX;
+        startLeft = rail.scrollLeft;
+        rail.classList.add('is-dragging');
+      });
+      window.addEventListener('mouseup', () => { isDown = false; rail.classList.remove('is-dragging'); });
+      rail.addEventListener('mouseleave', () => { isDown = false; rail.classList.remove('is-dragging'); });
+      rail.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        rail.scrollLeft = startLeft - (e.pageX - startX) * 2;
+      });
+
+      rail.addEventListener('scroll', updateNavButtons, { passive: true });
+      window.addEventListener('resize', () => { computeStep(); updateNavButtons(); });
+    })();
+
+    console.log('Strategic Prayer Ministries website loaded successfully!');
   })();
 </script>
+
 </body>
 </html>
