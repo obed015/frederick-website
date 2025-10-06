@@ -57,7 +57,8 @@
 </header>
 
 <!-- ===== Hero Section ===== -->
-<section class="hero" style="min-height: 60vh; background: var(--gradient-hero); border-bottom: 3px solid var(--accent-gold);">
+<section class="hero hero--prayer" style="min-height: 60vh;">
+  <div class="hero__bg" id="prayerHeroBg"></div>
   <div class="hero__overlay"></div>
   <div class="hero__content container">
     <h1 class="title">Prayer Request</h1>
@@ -131,7 +132,7 @@
   </div>
 </section>
 
-<!-- ===== Footer (matched to External Ministrations, branded icons) ===== -->
+<!-- ===== Footer ===== -->
 <footer class="footer">
   <div class="container">
     <div class="footer-logo-wrapper">
@@ -303,6 +304,58 @@
   }
   window.addEventListener('mousemove', onMove, { passive: true });
 
+  // ===== Enhanced Parallax Effect for Prayer Request =====
+  const prayerHero = document.querySelector('.hero--prayer');
+  const prayerHeroBg = document.getElementById('prayerHeroBg');
+  
+  if (prayerHero && prayerHeroBg) {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (!prefersReduced) {
+      let ticking = false;
+      
+      function updatePrayerParallax() {
+        const scrolled = window.pageYOffset;
+        const heroHeight = prayerHero.offsetHeight;
+        const scrollProgress = Math.min(scrolled / heroHeight, 1);
+        
+        const parallaxSpeed = 0.4;
+        const yPos = scrolled * parallaxSpeed;
+        
+        const scaleBase = 1.1;
+        const scaleMax = scaleBase + 0.1;
+        const currentScale = scaleBase + (scrollProgress * (scaleMax - scaleBase));
+        
+        prayerHeroBg.style.transform = `translate3d(0, ${yPos}px, 0) scale(${currentScale})`;
+        
+        ticking = false;
+      }
+      
+      function requestTick() {
+        if (!ticking) {
+          requestAnimationFrame(updatePrayerParallax);
+          ticking = true;
+        }
+      }
+      
+      updatePrayerParallax();
+      window.addEventListener('scroll', requestTick, { passive: true });
+      window.addEventListener('resize', updatePrayerParallax);
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            window.addEventListener('scroll', requestTick, { passive: true });
+          } else {
+            window.removeEventListener('scroll', requestTick);
+          }
+        });
+      }, { rootMargin: '10px' });
+      
+      observer.observe(prayerHero);
+    }
+  }
+
   // Prayer Form Modal functionality
   const openBtn = document.getElementById('openPrayerForm');
   const closeBtn = document.getElementById('closePrayerForm');
@@ -325,16 +378,13 @@
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
     
-    // Reset iframe if needed
     if (iframe.src.includes('embedded=true')) {
-      iframe.src = iframe.src; // Refresh iframe
+      iframe.src = iframe.src;
     }
     
-    // Listen for form submission (iframe load events)
     if (!loadListenerAttached) {
       iframe.addEventListener('load', () => {
         loadCount++;
-        // Google Forms typically loads twice - once for form, once for confirmation
         if (loadCount >= 2) {
           showToast('Prayer request submitted successfully! We will pray for you.');
           setTimeout(() => {
@@ -349,13 +399,12 @@
   function closePrayerForm() {
     modal.style.display = 'none';
     document.body.style.overflow = '';
-    openBtn.focus(); // Return focus to button
+    openBtn.focus();
   }
 
   openBtn.addEventListener('click', openPrayerForm);
   closeBtn.addEventListener('click', closePrayerForm);
 
-  // Close modal when clicking outside
   modal.addEventListener('click', (e) => {
     if (e.target === modal) {
       closePrayerForm();

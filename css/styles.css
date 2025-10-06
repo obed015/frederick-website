@@ -460,6 +460,11 @@ em { font-style: italic; }
   background-position: center;
   z-index: 1;
   opacity: 0.3;
+  transition: transform 0.1s linear;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+  transform-origin: center center;
 }
 
 .hero__overlay {
@@ -482,6 +487,8 @@ em { font-style: italic; }
   margin-bottom: var(--s-6);
   text-shadow: 0 4px 20px rgba(201, 165, 90, 0.4);
   line-height: 1.1;
+  position: relative;
+  z-index: 4;
 }
 
 .hero .subtitle {
@@ -491,6 +498,8 @@ em { font-style: italic; }
   margin-bottom: var(--s-8);
   line-height: 1.6;
   font-weight: 400;
+  position: relative;
+  z-index: 4;
 }
 
 .hero__cta {
@@ -511,6 +520,77 @@ em { font-style: italic; }
   z-index: 3;
 }
 
+/* ========================================
+   ENHANCED HERO PARALLAX & VISIBILITY
+   ======================================== */
+
+/* Index.html - Prayer background with mic visible */
+.hero--scrolling .hero__bg {
+  background-position: center 25% !important;
+  background-size: cover !important;
+  opacity: 0.45 !important;
+  will-change: transform;
+}
+
+.hero--scrolling .hero__overlay {
+  background: radial-gradient(
+    ellipse at center, 
+    rgba(10, 10, 10, 0.35) 0%, 
+    rgba(10, 10, 10, 0.65) 100%
+  ) !important;
+}
+
+/* Prayer Request page - Age.webp background with parallax */
+.hero--prayer .hero__bg { 
+  background-image: url('../assets/age.webp') !important; 
+  background-position: center 35% !important; 
+  background-size: cover !important; 
+  opacity: 0.5 !important; /* Slightly increased opacity for better visibility */
+}
+
+body[class*="prayer"] .hero__overlay,
+.hero--prayer .hero__overlay {
+  background: radial-gradient(
+    ellipse at center, 
+    rgba(10, 10, 10, 0.3) 0%, /* Reduced darkness to show more detail */
+    rgba(10, 10, 10, 0.6) 100%
+  ) !important;
+}
+
+/* About page - Enhanced visibility with parallax */
+.hero--bg-pan .hero__bg {
+  opacity: 0.6 !important;
+  will-change: transform;
+  transform-origin: center center;
+}
+
+.hero--bg-pan .hero__overlay {
+  background: radial-gradient(
+    ellipse at center, 
+    rgba(10, 10, 10, 0.25) 0%, 
+    rgba(10, 10, 10, 0.55) 100%
+  ) !important;
+}
+
+/* Text visibility enhancement for all hero sections */
+.hero__content .title,
+.hero__content .subtitle {
+  text-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.9),
+    0 4px 16px rgba(0, 0, 0, 0.8),
+    0 1px 3px rgba(0, 0, 0, 1) !important;
+}
+
+/* Specific enhancement for about page text */
+.hero--bg-pan .hero__content .title,
+.hero--bg-pan .hero__content .subtitle,
+.hero--bg-pan .hero__content p {
+  text-shadow: 
+    0 3px 12px rgba(0, 0, 0, 0.95),
+    0 6px 24px rgba(0, 0, 0, 0.85),
+    0 2px 6px rgba(0, 0, 0, 1),
+    0 0 40px rgba(0, 0, 0, 0.5) !important;
+}
 
 /* === Buttons === */
 .btn {
@@ -930,6 +1010,16 @@ em { font-style: italic; }
 /* --- Per-Card Backgrounds (working paths) --- */
 .rail-card--external::before {
   background-image: url("../assets/event-image.webp");
+  background-size: auto 100%;
+  background-position: top center;
+  background-color: #0b0d13;
+  inset: 1px;
+  border-radius: inherit;
+}
+
+/* Disable zoom hover only for this poster */
+.rail-card--external:hover::before {
+  transform: none;
 }
 
 .rail-card--testimonies::before {
@@ -948,35 +1038,12 @@ em { font-style: italic; }
   background-image: url("../assets/about.spm.webp");
 }
 
-/* --- External Ministrations poster: fit nicely, no crop --- */
-.rail-card--external::before {
-  background-image: url("../assets/event-image.webp");
-  background-size: auto 100%;      /* scale by height */
-  background-position: top center;  /* keep faces/title in view */
-  background-color: #0b0d13;        /* fill side bands if any */
-}
-
-/* Disable zoom hover only for this poster (prevents edge peeking) */
-.rail-card--external:hover::before {
-  transform: none;
-}
-
-/* If it still feels too “tight”, add a tiny inset to avoid clipping corners */
-.rail-card--external::before {
-  inset: 1px;                       /* respects rounded corners perfectly */
-  border-radius: inherit;
-}
-
-/* Want a touch more fill with minimal crop? Use this instead of auto 100%: */
-/* .rail-card--external::before { background-size: 110% auto; background-position: 50% 18%; } */
-
 @media (max-width: 768px) {
   .rail-card {
     flex: 0 0 280px;
     height: 200px;
   }
 }
-
 
 /* --- Navigation buttons --- */
 .rail-nav {
@@ -1017,7 +1084,6 @@ em { font-style: italic; }
     height: 210px;
   }
 }
-
 
 /* === Footer === */
 .footer {
