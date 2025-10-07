@@ -442,7 +442,7 @@ em { font-style: italic; }
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 700px;
+  min-height: calc(100vh - 80px);
   padding: var(--s-12) 0;
   margin-top: 80px;
   overflow: hidden;
@@ -524,37 +524,49 @@ em { font-style: italic; }
    ENHANCED HERO PARALLAX & VISIBILITY
    ======================================== */
 
-/* Index.html - Prayer background with mic visible */
+/* Index.html - Prayer background full screen without parallax */
 .hero--scrolling .hero__bg {
-  background-position: center 25% !important;
+  background-image: url('../assets/prayer-background.webp') !important;
+  background-position: center 30% !important;
   background-size: cover !important;
-  opacity: 0.45 !important;
-  will-change: transform;
+  background-repeat: no-repeat !important;
+  opacity: 0.65 !important;
+  display: block !important;
 }
 
 .hero--scrolling .hero__overlay {
   background: radial-gradient(
     ellipse at center, 
-    rgba(10, 10, 10, 0.35) 0%, 
-    rgba(10, 10, 10, 0.65) 100%
+    rgba(10, 10, 10, 0.25) 0%, 
+    rgba(10, 10, 10, 0.55) 100%
   ) !important;
 }
 
-/* Prayer Request page - Age.webp background with parallax */
+.hero--scrolling .hero__wave {
+  display: none !important;
+}
+
+/* Prayer Request page - Age.webp background full screen */
 .hero--prayer .hero__bg { 
   background-image: url('../assets/age.webp') !important; 
-  background-position: center 35% !important; 
+  background-position: center 30% !important; 
   background-size: cover !important; 
-  opacity: 0.5 !important; /* Slightly increased opacity for better visibility */
+  background-repeat: no-repeat !important;
+  opacity: 0.7 !important;
+  display: block !important;
 }
 
 body[class*="prayer"] .hero__overlay,
 .hero--prayer .hero__overlay {
   background: radial-gradient(
     ellipse at center, 
-    rgba(10, 10, 10, 0.3) 0%, /* Reduced darkness to show more detail */
-    rgba(10, 10, 10, 0.6) 100%
+    rgba(10, 10, 10, 0.2) 0%, 
+    rgba(10, 10, 10, 0.5) 100%
   ) !important;
+}
+
+.hero--prayer .hero__wave {
+  display: none !important;
 }
 
 /* About page - Enhanced visibility with parallax */
@@ -622,6 +634,7 @@ body[class*="prayer"] .hero__overlay,
 
 .btn--gold:hover {
   background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+  color: var(--black);
   transform: translateY(-2px);
   box-shadow: 0 6px 24px rgba(201, 165, 90, 0.5);
 }
