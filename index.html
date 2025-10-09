@@ -538,5 +538,114 @@
   })();
 </script>
 
+<!-- ===== FAST IMAGE LOADING SOLUTION ===== -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('Image optimization loading...');
+  
+  // Add loading states to all images
+  const images = document.querySelectorAll('img');
+  
+  images.forEach(img => {
+    // Skip if already loaded
+    if (img.complete && img.naturalHeight !== 0) {
+      img.classList.add('loaded');
+      return;
+    }
+    
+    // Add loading class
+    img.classList.add('loading');
+    
+    // Create placeholder wrapper if needed
+    if (!img.parentElement.classList.contains('img-wrapper')) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'img-wrapper';
+      wrapper.style.cssText = 'position: relative; overflow: hidden; display: inline-block; width: 100%;';
+      
+      const placeholder = document.createElement('div');
+      placeholder.className = 'img-placeholder';
+      placeholder.style.cssText = `
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        border-radius: inherit;
+        z-index: -1;
+      `;
+      
+      img.parentNode.insertBefore(wrapper, img);
+      wrapper.appendChild(placeholder);
+      wrapper.appendChild(img);
+    }
+    
+    // When image loads
+    img.addEventListener('load', function() {
+      img.classList.remove('loading');
+      img.classList.add('loaded');
+      const placeholder = img.parentElement.querySelector('.img-placeholder');
+      if (placeholder) {
+        setTimeout(() => placeholder.remove(), 300);
+      }
+      console.log('Image loaded:', img.src);
+    });
+    
+    // Handle error
+    img.addEventListener('error', function() {
+      img.classList.remove('loading');
+      img.classList.add('error');
+      console.error('Failed to load image:', img.src);
+    });
+  });
+  
+  // Intersection Observer for lazy loading
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          
+          // Load the image if it has data-src
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+          }
+          
+          // Stop observing this image
+          observer.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '50px',
+      threshold: 0.01
+    });
+    
+    // Observe all images with data-src or loading="lazy"
+    document.querySelectorAll('img[data-src], img[loading="lazy"]').forEach(img => {
+      imageObserver.observe(img);
+    });
+  } else {
+    // Fallback for older browsers
+    document.querySelectorAll('img[data-src]').forEach(img => {
+      img.src = img.dataset.src;
+      img.removeAttribute('data-src');
+    });
+  }
+  
+  // Preload critical images
+  const criticalImages = document.querySelectorAll('.brand__logo, .footer-logo');
+  criticalImages.forEach(img => {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = img.src;
+    document.head.appendChild(link);
+  });
+  
+  console.log('Image optimization complete! Total images:', images.length);
+});
+</script>
+
 </body>
 </html>

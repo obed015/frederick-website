@@ -135,6 +135,48 @@ a:hover {
 strong { font-weight: 600; }
 em { font-style: italic; }
 
+/* ========================================
+   IMAGE LOADING OPTIMIZATION
+   ======================================== */
+
+/* Image wrapper for lazy loading */
+.img-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+/* Image loading states */
+img {
+  transition: opacity 0.3s ease-in, filter 0.3s ease-in;
+  will-change: opacity, filter;
+}
+
+img.loading {
+  opacity: 0;
+  filter: blur(10px);
+}
+
+img.loaded {
+  opacity: 1;
+  filter: blur(0);
+}
+
+img.error {
+  opacity: 0.5;
+  filter: grayscale(1);
+}
+
+/* Placeholder animation */
+.img-placeholder {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
 /* === Layout === */
 .container {
   width: 100%;
